@@ -13,8 +13,6 @@ from models import MODELS
 from tensorflow.python.platform import flags
 from utils import process_batch
 
-# mac test
-
 FLAGS = flags.FLAGS
 
 ## Options
