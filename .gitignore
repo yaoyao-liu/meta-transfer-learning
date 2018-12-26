@@ -1,6 +1,12 @@
-# File type
+# File types
 *.pyc
+*.npy
 
 # Folders
 data
 logs
+filenames_and_labels
+pretrain_weights
+
+# File
+bashrc
