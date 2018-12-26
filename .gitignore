@@ -1,5 +1,6 @@
 # File type
 *.pyc
+*.npy
 
 # Folders
 data

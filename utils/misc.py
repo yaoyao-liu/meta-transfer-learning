@@ -10,8 +10,25 @@ from tensorflow.python.platform import flags
 
 FLAGS = flags.FLAGS
 
+def get_smallest_k_index(input_, k):
+    input_copy = np.copy(input_)
+    k_list = []
+    for idx in range(k):
+        this_index = np.argmin(input_copy)
+        k_list.append(this_index)
+        input_copy[this_index]=np.max(input_copy)
+    return k_list
+
 def one_hot(inp):
     n_class = inp.max() + 1
+    n_sample = inp.shape[0]
+    out = np.zeros((n_sample, n_class))
+    for idx in range(n_sample):
+        out[idx, inp[idx]] = 1
+    return out
+
+def one_hot_class(inp, n_class):
+    #n_class = inp.max() + 1
     n_sample = inp.shape[0]
     out = np.zeros((n_sample, n_class))
     for idx in range(n_sample):
@@ -67,6 +84,24 @@ def get_pretrain_images(path, label, is_val=False):
         for image in os.listdir(path)[550:]:
             images.append((label, os.path.join(path, image)))    
     return images
+
+def get_images_tc(paths, labels, nb_samples=None, shuffle=True, is_val=False):
+    if nb_samples is not None:
+        sampler = lambda x: random.sample(x, nb_samples)
+    else:
+        sampler = lambda x: x
+    if is_val==False:
+        images = [(i, os.path.join(path, image)) \
+            for i, path in zip(labels, paths) \
+            for image in sampler(os.listdir(path)[0:500])]
+    else:
+        images = [(i, os.path.join(path, image)) \
+            for i, path in zip(labels, paths) \
+            for image in sampler(os.listdir(path)[500:])]
+    if shuffle:
+        random.shuffle(images)
+    return images
+
 
 ## Network helpers
 
