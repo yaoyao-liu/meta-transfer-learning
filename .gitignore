@@ -1,4 +1,4 @@
-# File type
+# File types
 *.pyc
 *.npy
 
@@ -7,3 +7,6 @@ data
 logs
 filenames_and_labels
 pretrain_weights
+
+# File
+bashrc
