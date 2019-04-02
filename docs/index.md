@@ -25,3 +25,16 @@ The pipeline of our proposed few-shot learning method, including three phases: (
 <p align="center">
     <img src="https://raw.githubusercontent.com/y2l/meta-transfer-learning-tensorflow/master/docs/fc100.png" width="700"/>
 </p>
+
+## Citation
+
+Please cite our paper if it is helpful to your work:
+
+```
+@inproceedings{Sun2019MTL,
+  title={Meta-Transfer Learning for Few-Shot Learning},
+  author={Sun, Qianru and Liu, Yaoyao and Chua, Tat-Seng and Schiele, Bernt},
+  booktitle={CVPR},
+  year={2019}
+}
+```
