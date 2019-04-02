@@ -60,6 +60,14 @@ To generate this dataset, your may use the repo [miniImageNet Tools](https://git
 
 For Few-shot CIFAR100 dataset, we will release the code to generate this dataset soon. You may also generate it yourself with the splits provided by [TADAM](https://arxiv.org/pdf/1805.10123.pdf).
 
+## Uasge
+
+To run the experiment:
+```bash
+python run_experiment.py
+```
+You may edit the `run_experiment.py` file to change the hyperparameters.
+
 ## Citation
 
 Please cite our paper if it is helpful to your work:
