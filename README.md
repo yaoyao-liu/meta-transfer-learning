@@ -66,7 +66,7 @@ To run the experiment:
 ```bash
 python run_experiment.py
 ```
-You may edit the `run_experiment.py` file to change the hyperparameters.
+You may edit the `run_experiment.py` file to change the hyperparameters and default settings.
 
 ## Citation
 
