@@ -6,3 +6,10 @@ Meta-learning has been proposed as a framework to address the challenging few-sh
 - A novel MTL method that learns to transfer large-scale pre-trained DNN weights for solving few-shot learning tasks. 
 - A novel HT meta-batch learning strategy that forces meta-transfer to “grow faster and stronger through hardship”.
 - Extensive experiments on miniImageNet and FC100, and achieving the state-of-the-art performance.
+
+## Pipeline
+<p align="center">
+    <img src="https://raw.githubusercontent.com/y2l/meta-transfer-learning-tensorflow/master/docs/framework.png" width="700"/>
+</p>
+
+The pipeline of our proposed few-shot learning method, including three phases: (a) DNN training on large-scale data, i.e. using all training datapoints; (b) Meta-transfer learning (MTL) that learns the parameters of Scaling and Shifting (SS), based on the pre-trained feature extractor. Learning is scheduled by the proposed HT meta-batch; and (c) meta-test is done for an unseen task which consists of a base-learner (classifier) Fine-Tuning (FT) stage and a final evaluation stage. Input data are along with arrows. Modules with names in bold get updated at corresponding phases. Specifically, SS parameters are learned by meta-training but fixed during meta-test. Base-learner parameters are optimized for every task.
