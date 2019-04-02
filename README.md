@@ -14,6 +14,8 @@ This repo is the TensorFlow implementation of CVPR 2019 Paper [Meta-Transfer Lea
 * [Dataset](#Dataset)
 * [Usage](#usage)
 * [Citation](#citation)
+* [Acknowledgements](#acknowledgements)
+
 
 ## Introduction
 
