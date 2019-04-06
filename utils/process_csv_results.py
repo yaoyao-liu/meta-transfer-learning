@@ -1,7 +1,7 @@
 ##+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## Created by: Yaoyao Liu
 ## NUS School of Computing
-## Email: yaoyao.liu@u.nus.edu
+## Email: yaoyaoliu@outlook.com
 ## Copyright (c) 2019
 ##
 ## This source code is licensed under the MIT-style license found in the
@@ -14,7 +14,7 @@ import pdb
 import glob
 import numpy as np
 
-log_dir = './logs/experiment_results_meta_batch_4'
+log_dir = './logs/experiment_results_1'
 all_exp_folder_list = os.listdir(log_dir)
 
 all_1shot_acc=[]
@@ -24,7 +24,7 @@ all_5shot_acc=[]
 all_5shot_ci95=[]
 all_5shot_info = []
 
-specific_epoch_num_mode = True
+specific_epoch_num_mode = False
 test_epoch_num = 100
 
 for this_exp_folder in all_exp_folder_list:

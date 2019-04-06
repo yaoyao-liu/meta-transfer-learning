@@ -1,7 +1,7 @@
 ##+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## Created by: Yaoyao Liu
 ## NUS School of Computing
-## Email: yaoyao.liu@u.nus.edu
+## Email: yaoyao.liu@mail.m2i.ac.cn
 ## Copyright (c) 2019
 ##
 ## This source code is licensed under the MIT-style license found in the
@@ -27,20 +27,14 @@ class PreDataGenerator(object):
         self.pretrain_class_num = FLAGS.pretrain_class_num
         self.pretrain_batch_size = FLAGS.pretrain_batch_size
         pretrain_folder = FLAGS.pretrain_folders
-        pretrainval_folder = FLAGS.pretrain_val_folders
 
         pretrain_folders = [os.path.join(pretrain_folder, label) for label in os.listdir(pretrain_folder) if os.path.isdir(os.path.join(pretrain_folder, label))]
-        pretrainval_folders = [os.path.join(pretrainval_folder, label) for label in os.listdir(pretrain_folder) if os.path.isdir(os.path.join(pretrainval_folder, label)) ]
         self.pretrain_character_folders = pretrain_folders
-        self.pretrainval_character_folders = pretrainval_folders
     
-    def make_data_tensor(self, is_val=False):
+    def make_data_tensor(self):
         print('Generating pre-training data')
         all_filenames_and_labels = []
-        if is_val==False:
-            folders = self.pretrain_character_folders
-        else:
-            folders = self.pretrainval_character_folders
+        folders = self.pretrain_character_folders
 
         for idx in range(len(folders)):
             path = folders[idx]     
@@ -58,7 +52,7 @@ class PreDataGenerator(object):
         image = tf.reshape(image, [self.dim_input])
         image = tf.cast(image, tf.float32) / 255.0
 
-        num_preprocess_threads = 1 # TODO - enable this to be set to >1
+        num_preprocess_threads = 1
         min_queue_examples = 256
         batch_image_size = self.pretrain_batch_size
         image_batch, label_batch = tf.train.batch([image, label_queue], batch_size = batch_image_size, num_threads=num_preprocess_threads,capacity=min_queue_examples + 3 * batch_image_size)

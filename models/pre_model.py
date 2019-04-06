@@ -1,7 +1,7 @@
 ##+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## Created by: Yaoyao Liu
 ## NUS School of Computing
-## Email: yaoyao.liu@u.nus.edu
+## Email: yaoyao.liu@mail.m2i.ac.cn
 ## Copyright (c) 2019
 ##
 ## This source code is licensed under the MIT-style license found in the

@@ -1,7 +1,7 @@
 ##+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## Created by: Yaoyao Liu
 ## NUS School of Computing
-## Email: yaoyao.liu@u.nus.edu
+## Email: yaoyao.liu@mail.m2i.ac.cn
 ## Copyright (c) 2019
 ##
 ## This source code is licensed under the MIT-style license found in the
@@ -46,7 +46,7 @@ def one_hot_class(inp, n_class):
         out[idx, inp[idx]] = 1
     return out
 
-def process_batch(input_filename_list, input_label_list, dim_input, batch_sample_num, reshape_with_one=True):
+def process_batch(input_filename_list, input_label_list, dim_input, batch_sample_num):
     new_path_list = []
     new_label_list = []
     for k in range(batch_sample_num):
@@ -64,15 +64,11 @@ def process_batch(input_filename_list, input_label_list, dim_input, batch_sample
         this_img = this_img / 255.0
         img_list.append(this_img)
 
-    if reshape_with_one:
-        img_array = np.array(img_list).reshape([1, FLAGS.way_num*batch_sample_num, dim_input])
-        label_array = one_hot(np.array(new_label_list)).reshape([1, FLAGS.way_num*batch_sample_num, -1])
-    else:
-        img_array = np.array(img_list).reshape([FLAGS.way_num*batch_sample_num, dim_input])
-        label_array = one_hot(np.array(new_label_list)).reshape([FLAGS.way_num*batch_sample_num, -1])
+    img_array = np.array(img_list).reshape([FLAGS.way_num*batch_sample_num, dim_input])
+    label_array = one_hot(np.array(new_label_list)).reshape([FLAGS.way_num*batch_sample_num, -1])
     return img_array, label_array
 
-def process_batch_augmentation(input_filename_list, input_label_list, dim_input, batch_sample_num, reshape_with_one=True):
+def process_batch_augmentation(input_filename_list, input_label_list, dim_input, batch_sample_num):
     new_path_list = []
     new_label_list = []
     for k in range(batch_sample_num):
@@ -98,12 +94,8 @@ def process_batch_augmentation(input_filename_list, input_label_list, dim_input,
     img_list_all = img_list + img_list_h
     label_list_all = new_label_list + new_label_list
 
-    if reshape_with_one:
-        img_array = np.array(img_list_all).reshape([1, FLAGS.way_num*batch_sample_num*2, dim_input])
-        label_array = one_hot(np.array(label_list_all)).reshape([1, FLAGS.way_num*batch_sample_num*2, -1])
-    else:
-        img_array = np.array(img_list_all).reshape([FLAGS.way_num*batch_sample_num*2, dim_input])
-        label_array = one_hot(np.array(label_list_all)).reshape([FLAGS.way_num*batch_sample_num*2, -1])
+    img_array = np.array(img_list_all).reshape([FLAGS.way_num*batch_sample_num*2, dim_input])
+    label_array = one_hot(np.array(label_list_all)).reshape([FLAGS.way_num*batch_sample_num*2, -1])
     return img_array, label_array
 
 
