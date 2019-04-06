@@ -1,3 +1,13 @@
+##+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+## Created by: Yaoyao Liu
+## NUS School of Computing
+## Email: yaoyaoliu@outlook.com
+## Copyright (c) 2019
+##
+## This source code is licensed under the MIT-style license found in the
+## LICENSE file in the root directory of this source tree
+##+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 import os
 
 def run_exp(MAX_ITER=7000, SHOT_NUM=1, PHASE='META'):

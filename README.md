@@ -40,7 +40,7 @@ Clone the repo:
 
 ```Bash
 git clone https://github.com/y2l/meta-transfer-learning-tensorflow.git 
-cd meta-transfer-learning-tensorflow-master
+cd meta-transfer-learning-tensorflow
 ```
 
 Install the requirements:
