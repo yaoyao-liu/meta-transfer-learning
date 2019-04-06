@@ -46,12 +46,16 @@ git clone https://github.com/y2l/meta-transfer-learning-tensorflow.git
 cd meta-transfer-learning-tensorflow
 ```
 
-Install the requirements:
+Requirements:
 ```
-pip install scipy
-pip install tqdm
-pip install opencv-python
+python 2.7
+tensorflow 1.3.0
+scipy
+tqdm
+opencv-python
 ```
+
+Some basic requirements are not listed, you may install them easily with `pip`.
 
 ## Dataset
 
