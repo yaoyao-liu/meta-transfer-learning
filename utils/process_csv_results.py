@@ -14,7 +14,7 @@ import pdb
 import glob
 import numpy as np
 
-log_dir = './logs/experiment_results_1'
+log_dir = './logs/experiment_results'
 all_exp_folder_list = os.listdir(log_dir)
 
 all_1shot_acc=[]

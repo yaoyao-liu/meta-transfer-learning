@@ -14,6 +14,7 @@ If you have any problems when running this repo, feel free to send me an email o
 * [Introduction](#introduction)
 * [Installation](#installation)
 * [Dataset](#Dataset)
+* [Repo Architecture](#repo_architecture)
 * [Usage](#usage)
 * [Citation](#citation)
 * [Acknowledgements](#acknowledgements)
@@ -64,6 +65,27 @@ To generate this dataset, you may use the repo [miniImageNet Tools](https://gith
 
 For Few-shot CIFAR100 dataset, we will release the code to generate this dataset soon. You may also generate it yourself with the splits provided by [TADAM](https://arxiv.org/pdf/1805.10123.pdf).
 
+## Repo Architecture
+
+```
+.
+├── data_generator              # dataset generator 
+|   ├── pre_data_generator.py   # data genertor for pre-train phase
+|   └── meta_data_generator.py  # data genertor for meta-train phase
+├── docs                        # project website source code
+├── models                      # tensorflow model files 
+|   ├── models.py               # basic model class
+|   ├── pre_model.py.py         # pre-train model class
+|   └── meta_model.py           # meta-train model class
+├── trainer                     # tensorflow trianer files  
+|   ├── pre.py                  # pre-train trainer class
+|   └── meta.py                 # meta-train trainer class
+├── utils                       # a series of tools used in this repo
+|   ├── misc.py                 # several tools 
+|   └── process_csv_results.py  # tools for processing csv files during meta-test
+└── run_experiment.py           # the script to run the whole experiment
+```
+
 ## Uasge
 
 To run the experiment:
@@ -71,6 +93,11 @@ To run the experiment:
 python run_experiment.py
 ```
 You may edit the `run_experiment.py` file to change the hyperparameters and default settings. The details for the parameters are in `main.py`.
+
+To find the best result:
+```bash
+python utils/process_csv_results.py
+```
 
 ## Citation
 
