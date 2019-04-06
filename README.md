@@ -87,6 +87,7 @@ For Few-shot CIFAR100 dataset, we will release the code to generate this dataset
 ├── utils                       # a series of tools used in this repo
 |   ├── misc.py                 # several tools 
 |   └── process_csv_results.py  # tools for processing csv files during meta-test
+├── main.py                     # the python file with main function and parameter settings
 └── run_experiment.py           # the script to run the whole experiment
 ```
 
