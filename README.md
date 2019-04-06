@@ -58,7 +58,7 @@ pip install opencv-python
 
 Mini-ImageNet dataset was proposed by [Vinyals et al.](http://papers.nips.cc/paper/6385-matching-networks-for-one-shot-learning.pdf) for few-shot learning evaluation. Its complexity is high due to the use of ImageNet images but requires fewer resources and infrastructure than running on the full [ImageNet dataset](https://arxiv.org/pdf/1409.0575.pdf). In total, there are 100 classes with 600 samples of 84×84 color images per class. These 100 classes are divided into 64, 16, and 20 classes respectively for sampling tasks for meta-training, meta-validation, and meta-test.
 
-To generate this dataset, your may use the repo [miniImageNet Tools](https://github.com/y2l/mini-imagenet-tools).
+To generate this dataset, you may use the repo [miniImageNet Tools](https://github.com/y2l/mini-imagenet-tools).
 
 ### FC100
 
@@ -70,7 +70,7 @@ To run the experiment:
 ```bash
 python run_experiment.py
 ```
-You may edit the `run_experiment.py` file to change the hyperparameters and default settings.
+You may edit the `run_experiment.py` file to change the hyperparameters and default settings. The details for the parameters are in `main.py`.
 
 ## Citation
 
