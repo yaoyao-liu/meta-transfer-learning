@@ -27,8 +27,8 @@ FLAGS = flags.FLAGS
 class PreTrainer:
     def __init__(self):
         # This class defines the pre-train phase trainer
-        print('Generating pre-training class')
-
+        print('Generating pre-training classes')
+        
         # Generate Pre-train Data Tensors
         pre_train_data_generator = PreDataGenerator()
         pretrain_input, pretrain_label = pre_train_data_generator.make_data_tensor()
@@ -88,9 +88,8 @@ class PreTrainer:
             # Decrease the Learning Rate after Some Iterations
             if (itr!=0) and itr % FLAGS.pre_lr_dropstep == 0:
                 pre_lr = pre_lr * 0.5
-                if FLAGS.pre_lr_stop:
-                    if pre_lr < FLAGS.min_pre_lr:
-                        pre_lr = FLAGS.min_pre_lr
+                if FLAGS.pre_lr_stop and pre_lr < FLAGS.min_pre_lr:
+                    pre_lr = FLAGS.min_pre_lr
                     
             # Save Pre-train Model
             if (itr!=0) and itr % FLAGS.pre_save_step == 0:
