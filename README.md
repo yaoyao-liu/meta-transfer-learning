@@ -121,6 +121,6 @@ Please cite our paper if it is helpful to your work:
 
 This repo use the source code from the following repos:
 
-[MAML](https://github.com/cbfinn/maml)
+[Model-Agnostic Meta-Learning](https://github.com/cbfinn/maml)
 
 [Optimization as a Model for Few-Shot Learning](https://github.com/gitabcworld/FewShotLearning)
