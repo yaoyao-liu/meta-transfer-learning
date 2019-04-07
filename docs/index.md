@@ -33,7 +33,7 @@ Please cite our paper if it is helpful to your work:
 ```
 @inproceedings{Sun2019MTL,
   title={Meta-Transfer Learning for Few-Shot Learning},
-  author={Sun, Qianru and Liu, Yaoyao and Chua, Tat-Seng and Schiele, Bernt},
+  author={Qianru Sun and Yaoyao Liu and Tat{-}Seng Chua and Bernt Schiele},
   booktitle={CVPR},
   year={2019}
 }
