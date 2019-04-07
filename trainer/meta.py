@@ -31,29 +31,23 @@ class MetaTrainer:
             print('Building train model')
             self.model = MetaModel()
             self.model.construct_model()
-            print('Finish building train model')
-            
+            print('Finish building train model')            
             self.start_session()
-
             random.seed(5) # The same random seed with MAML
             data_generator.generate_data(data_type='train')
             random.seed(6) # The same random seed with MAML
             data_generator.generate_data(data_type='test')
             random.seed(7) # The same random seed with MAML
             data_generator.generate_data(data_type='val')
-
         else:
             print('Building test mdoel')
             self.model = MetaModel()
             self.model.construct_test_model()
             self.model.summ_op = tf.summary.merge_all()
             print('Finish building test model')
-
             self.start_session()
-
             random.seed(6) # The same random seed with MAML
             data_generator.generate_data(data_type='test')
-
         exp_string = FLAGS.exp_string
 
         tf.global_variables_initializer().run()
@@ -128,14 +122,11 @@ class MetaTrainer:
         print('Done initializing, starting training')
         loss_list, acc_list = [], []
         train_lr = FLAGS.meta_lr
-
         data_generator.load_data(data_type='train')
         data_generator.load_data(data_type='val')
-
         test_idx = 0
 
         for train_idx in trange(FLAGS.metatrain_iterations):
-
             inputa = []
             labela = []
             inputb = []
@@ -146,7 +137,6 @@ class MetaTrainer:
                 labela.append(this_episode[1])
                 inputb.append(this_episode[2])
                 labelb.append(this_episode[3])
-
             inputa = np.array(inputa)
             labela = np.array(labela)
             inputb = np.array(inputb)
@@ -212,7 +202,6 @@ class MetaTrainer:
                 if train_lr < 0.1 * FLAGS.meta_lr:
                     train_lr = 0.1 * FLAGS.meta_lr
                 print('Train LR: {}'.format(train_lr))
-
         weights = self.sess.run(self.model.weights)
         ss_weights = self.sess.run(self.model.ss_weights)
         fc_weights = self.sess.run(self.model.fc_weights)
@@ -227,7 +216,6 @@ class MetaTrainer:
         np.random.seed(1)
         metaval_accuracies = []
         data_generator.load_data(data_type='test')
-
         for test_idx in trange(NUM_TEST_POINTS):
             this_episode = data_generator.load_episode(index=test_idx, data_type='test')
             inputa = this_episode[0][np.newaxis, :]
@@ -238,7 +226,6 @@ class MetaTrainer:
                 self.model.labela: labela, self.model.labelb: labelb, self.model.meta_lr: 0.0}
             result = self.sess.run(self.model.metaval_total_accuracies, feed_dict)
             metaval_accuracies.append(result)
-
         metaval_accuracies = np.array(metaval_accuracies)
         means = np.mean(metaval_accuracies, 0)
         max_idx = np.argmax(means)
@@ -249,7 +236,6 @@ class MetaTrainer:
 
         print('Mean validation accuracy and confidence intervals')
         print((means, ci95))
-
         print('***** Best Acc: '+ str(max_acc) + ' CI95: ' + str(max_ci95))
 
         if FLAGS.base_augmentation:
