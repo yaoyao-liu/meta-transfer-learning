@@ -22,7 +22,7 @@ def run_exp(MAX_ITER=7000, SHOT_NUM=1, PHASE='META'):
     PRE_TRA_DROP = 0.9
     SAVE_STEP = 1000
     LR_DROP_STEP = 1000
-    PRE_TRA_FLD = './data/pre-train/mini_nh/train'
+    PRE_TRA_FLD = './data/meta-train/train'
     PRE_TRA_LAB = 'mini_normal' 
 
     base_command = 'python main.py' \
