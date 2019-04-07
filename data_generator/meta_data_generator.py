@@ -138,7 +138,7 @@ class MetaDataGenerator(object):
         this_task_tr_labels = this_episode['labela']
         this_task_te_labels = this_episode['labelb']
 
-        if FLAGS.base_augmentation:
+        if FLAGS.base_augmentation and FLAGS.metatrain==False:
             this_inputa, this_labela = process_batch_augmentation(this_task_tr_filenames, \
                 this_task_tr_labels, dim_input, epitr_sample_num)
             this_inputb, this_labelb = process_batch(this_task_te_filenames, \
@@ -148,7 +148,6 @@ class MetaDataGenerator(object):
                 this_task_tr_labels, dim_input, epitr_sample_num)
             this_inputb, this_labelb = process_batch(this_task_te_filenames, \
                 this_task_te_labels, dim_input, epite_sample_num)
-
         return this_inputa, this_labela, this_inputb, this_labelb  
               
 
