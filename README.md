@@ -65,7 +65,7 @@ Mini-ImageNet dataset was proposed by [Vinyals et al.](http://papers.nips.cc/pap
 
 To generate this dataset, you may use the repo [miniImageNet Tools](https://github.com/y2l/mini-imagenet-tools).
 
-### Few-shot CIFAR100 dataset
+### Fewshot-CIFAR100 dataset
 
 We will release the code to generate this dataset soon. You may also generate it yourself with the splits provided by [TADAM](https://arxiv.org/pdf/1805.10123.pdf).
 
