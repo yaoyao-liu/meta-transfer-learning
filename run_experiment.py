@@ -63,12 +63,8 @@ def run_exp(MAX_ITER=7000, SHOT_NUM=1, PHASE='META'):
         os.system(meta_train_command)
 
         print('****** Start Meta-test Phase ******')
-        test_command = process_test_command(MAX_ITER, base_command)
-        os.system(test_command)
-        test_command = process_test_command(0, base_command)
-        os.system(test_command)
-        for idx in range(MAX_ITER-1):
-            if idx!=0 and idx%SAVE_STEP==0:
+        for idx in range(MAX_ITER+1):
+            if idx%SAVE_STEP==0:
                 test_command = process_test_command(idx, base_command)
                 os.system(test_command)
 
