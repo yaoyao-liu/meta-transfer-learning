@@ -1,7 +1,7 @@
 ##+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## Created by: Yaoyao Liu
 ## NUS School of Computing
-## yaoyaoliu@outlook.com
+## Email: yaoyaoliu@outlook.com
 ## Copyright (c) 2019
 ##
 ## This source code is licensed under the MIT-style license found in the
@@ -23,7 +23,6 @@ flags.DEFINE_string('phase', 'meta', 'pre or meta')
 flags.DEFINE_string('exp_log_label', 'experiment_results', 'directory for summaries and checkpoints')
 flags.DEFINE_string('logdir_base', './logs/', 'directory for logs')
 flags.DEFINE_bool('full_gpu_memory_mode', False, 'in this mode, the code occupies GPU memory in advance')
-
 
 ### Pretrain Phase Options
 flags.DEFINE_integer('pre_lr_dropstep', 5000, 'the step number to drop pre_lr')
