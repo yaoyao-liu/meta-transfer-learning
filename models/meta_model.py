@@ -18,7 +18,6 @@ from utils.misc import mse, softmaxloss, xent, resnet_conv_block, resnet_nob_con
 FLAGS = flags.FLAGS
 
 class MetaModel(Models):
-
     def construct_model(self):
         self.inputa = tf.placeholder(tf.float32)
         self.inputb = tf.placeholder(tf.float32)
@@ -26,7 +25,6 @@ class MetaModel(Models):
         self.labelb = tf.placeholder(tf.float32)
 
         with tf.variable_scope('meta-model', reuse=None) as training_scope:
-
             self.ss_weights = ss_weights = self.construct_resnet_ss_weights()
             self.weights = weights = self.construct_resnet_weights()
             self.fc_weights = fc_weights = self.construct_fc_weights()
@@ -34,7 +32,6 @@ class MetaModel(Models):
             num_updates = FLAGS.train_base_epoch_num
 
             def task_metalearn(inp, reuse=True):
-
                 inputa, inputb, labela, labelb = inp
                 lossa_list = []
                 lossb_list = []
@@ -107,7 +104,6 @@ class MetaModel(Models):
 
 
     def construct_test_model(self):
-
         self.inputa = tf.placeholder(tf.float32)
         self.inputb = tf.placeholder(tf.float32)
         self.labela = tf.placeholder(tf.float32)
