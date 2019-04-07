@@ -21,7 +21,6 @@ class PreModel(Models):
         self.input = input_tensors['pretrain_input']
         self.label = input_tensors['pretrain_label']
         with tf.variable_scope('pretrain-model', reuse=None) as training_scope:
-
             self.weights = weights = self.construct_resnet_weights()
             self.fc_weights = fc_weights = self.construct_fc_weights()
 
