@@ -209,7 +209,6 @@ class MetaTrainer:
         np.save(FLAGS.logdir + '/' + exp_string +  '/ss_weights_' + str(train_idx+1) + '.npy', ss_weights)
         np.save(FLAGS.logdir + '/' + exp_string +  '/fc_weights_' + str(train_idx+1) + '.npy', fc_weights)
 
-
     def test(self, data_generator):
         NUM_TEST_POINTS = 600
         exp_string = FLAGS.exp_string 
@@ -248,4 +247,3 @@ class MetaTrainer:
             writer.writerow(means)
             writer.writerow(stds)
             writer.writerow(ci95)
-
