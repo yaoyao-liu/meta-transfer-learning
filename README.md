@@ -85,7 +85,7 @@ We will release the code to generate this dataset soon. You may also generate it
 |   ├── pre.py                  # pre-train trainer class
 |   └── meta.py                 # meta-train trainer class
 ├── utils                       # a series of tools used in this repo
-|   └── misc.py                 # several tools 
+|   └── misc.py                 # miscellaneous tool functions
 ├── main.py                     # the python file with main function and parameter settings
 └── run_experiment.py           # the script to run the whole experiment
 ```
