@@ -85,8 +85,7 @@ We will release the code to generate this dataset soon. You may also generate it
 |   ├── pre.py                  # pre-train trainer class
 |   └── meta.py                 # meta-train trainer class
 ├── utils                       # a series of tools used in this repo
-|   ├── misc.py                 # several tools 
-|   └── process_csv_results.py  # tools for processing csv files during meta-test
+|   └── misc.py                 # several tools 
 ├── main.py                     # the python file with main function and parameter settings
 └── run_experiment.py           # the script to run the whole experiment
 ```
@@ -98,11 +97,6 @@ To run the experiment:
 python run_experiment.py
 ```
 You may edit the `run_experiment.py` file to change the hyperparameters and default settings. The details for the parameters are in `main.py`.
-
-To find the best result:
-```bash
-python utils/process_csv_results.py
-```
 
 ## Citation
 

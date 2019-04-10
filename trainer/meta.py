@@ -228,15 +228,11 @@ class MetaTrainer:
             metaval_accuracies.append(result)
         metaval_accuracies = np.array(metaval_accuracies)
         means = np.mean(metaval_accuracies, 0)
-        max_idx = np.argmax(means)
-        max_acc = np.max(means)
         stds = np.std(metaval_accuracies, 0)
         ci95 = 1.96*stds/np.sqrt(NUM_TEST_POINTS)
-        max_ci95 = ci95[max_idx]
 
-        print('Mean validation accuracy and confidence intervals')
+        print('Mean test accuracies and confidence intervals')
         print((means, ci95))
-        print('***** Best Acc: '+ str(max_acc) + ' CI95: ' + str(max_ci95))
 
         if FLAGS.base_augmentation:
             out_filename = FLAGS.logdir +'/'+ exp_string + '/' + 'result_aug_' + str(FLAGS.shot_num) + 'shot_' + str(FLAGS.test_iter) + '.csv'
