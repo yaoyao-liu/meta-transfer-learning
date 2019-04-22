@@ -102,6 +102,12 @@ Pre-train phase is included in the current framework. In the default setting, if
 
 [Download Pretain Model](https://drive.google.com/uc?authuser=0&id=1pd8VSQfO7ILVT1OGDjARwHSRtAvwrsID&export=download)
 
+## Todo
+
+- [x] Hard task meta batch
+  The implement of hard task meta batch is not included in the published code. I still need time to rewrite the hard task meta batch code for the current framework.
+- [x] More network architectures
+  We will add new backbones to the framework like ResNet18 and ResNet34.
 
 ## Citation
 
