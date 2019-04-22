@@ -98,6 +98,11 @@ python run_experiment.py
 ```
 You may edit the `run_experiment.py` file to change the hyperparameters and default settings. The details for the parameters are in `main.py`.
 
+Pre-train phase is included in the current framework. In the default setting, if you run `python run_experiment.py`, the pretrain process will be done before the meta-train phase starts. If you want to use the model pretrained by us, you may download the model by the following link then replace the pretrain model loading directory in `trainer/meta.py`.
+
+[Download Pretainmodel](https://drive.google.com/file/d/1pd8VSQfO7ILVT1OGDjARwHSRtAvwrsID/view?usp=sharing)
+
+
 ## Citation
 
 Please cite our paper if it is helpful to your work:
