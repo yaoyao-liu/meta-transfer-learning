@@ -104,9 +104,9 @@ Pre-train phase is included in the current framework. In the default setting, if
 
 ## Todo
 
-- [x] Hard task meta batch
+- [x] **Hard task meta batch.**
   The implement of hard task meta batch is not included in the published code. I still need time to rewrite the hard task meta batch code for the current framework.
-- [x] More network architectures
+- [x] **More network architectures.**
   We will add new backbones to the framework like ResNet18 and ResNet34.
 
 ## Citation
