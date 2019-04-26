@@ -16,7 +16,7 @@ The pipeline of our proposed few-shot learning method, including three phases: (
 
 ## Meta-Transfer Learning
 <p align="center">
-    <img src="https://raw.githubusercontent.com/y2l/meta-transfer-learning-tensorflow/master/docs/ss.png" width="700"/>
+    <img src="https://raw.githubusercontent.com/y2l/meta-transfer-learning-tensorflow/master/docs/ss.png" width="350"/>
 </p>
 
 (a) Parameter-level fine-tuning (FT) is a conventional meta-training operation, e.g. in MAML [1]. Its update works for all neuron parameters, W and b. (b) Our neuron-level scaling and shifting (SS) operations in meta-transfer learning. They reduce the number of learning parameters and avoid overfitting problems. In addition, they keep large-scale trained parameters (in yellow) frozen, preventing “catastrophic forgetting”.
@@ -25,13 +25,13 @@ The pipeline of our proposed few-shot learning method, including three phases: (
 
 In our meta-training pipeline, we intentionally pick up failure cases in each task and re-compose their data to be harder tasks for adverse re-training. We aim to force our meta-learner to “grow up through hardness”.
 <p align="center">
-    <img src="https://raw.githubusercontent.com/y2l/meta-transfer-learning-tensorflow/master/docs/ht.png" width="700"/>
+    <img src="https://raw.githubusercontent.com/y2l/meta-transfer-learning-tensorflow/master/docs/ht.png" width="450"/>
 </p>
 
 The figure shows the performance gap between with and without hard task meta-batch in terms of accuracy and converging speed. (a)(b) 1-shot and 5-shot on miniImageNet; 
 (c)(d)(e) 1-shot, 5-shot and 10-shot on FC100. 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/y2l/meta-transfer-learning-tensorflow/master/docs/acc_plot.png" width="700"/>
+    <img src="https://raw.githubusercontent.com/y2l/meta-transfer-learning-tensorflow/master/docs/acc_plot.png" width="900"/>
 </p>
 
 ## Performance
