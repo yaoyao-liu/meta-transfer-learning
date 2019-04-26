@@ -41,7 +41,7 @@ The figure shows the performance gap between with and without hard task meta-bat
     <img src="https://raw.githubusercontent.com/y2l/meta-transfer-learning-tensorflow/master/docs/mini_acc.png" width="650"/>
 </p>
 
-### FC100
+### Fewshot-CIFAR100 
 <p align="center">
     <img src="https://raw.githubusercontent.com/y2l/meta-transfer-learning-tensorflow/master/docs/fc100_acc.png" width="700"/>
 </p>
