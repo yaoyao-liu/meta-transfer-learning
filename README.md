@@ -59,13 +59,13 @@ Some basic requirements are not listed, you may install them easily with `pip`.
 
 ## Dataset
 
-### miniImageNet dataset
+### miniImageNet
 
 The miniImageNet dataset was proposed by [Vinyals et al.](http://papers.nips.cc/paper/6385-matching-networks-for-one-shot-learning.pdf) for few-shot learning evaluation. Its complexity is high due to the use of ImageNet images but requires fewer resources and infrastructure than running on the full [ImageNet dataset](https://arxiv.org/pdf/1409.0575.pdf). In total, there are 100 classes with 600 samples of 84×84 color images per class. These 100 classes are divided into 64, 16, and 20 classes respectively for sampling tasks for meta-training, meta-validation, and meta-test.
 
 To generate this dataset, you may use the repo [miniImageNet Tools](https://github.com/y2l/mini-imagenet-tools).
 
-### Fewshot-CIFAR100 dataset
+### Fewshot-CIFAR100
 
 We will release the code to generate this dataset soon. You may also generate it yourself with the splits provided by [TADAM](https://arxiv.org/pdf/1805.10123.pdf).
 
