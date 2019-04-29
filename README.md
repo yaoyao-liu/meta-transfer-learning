@@ -96,7 +96,7 @@ The [*tiered*ImageNet](https://arxiv.org/pdf/1803.00676.pdf) dataset is a larger
 
 ## Uasge
 
-To run the experiment:
+To run the experiments:
 ```bash
 python run_experiment.py
 ```
