@@ -34,7 +34,7 @@ The figure shows the performance gap between with and without hard task meta-bat
     <img src="https://raw.githubusercontent.com/y2l/meta-transfer-learning-tensorflow/master/docs/acc_plot.png" width="900"/>
 </p>
 
-## Performance
+## Experiments
 
 ### *mini*ImageNet
 <p align="center">
