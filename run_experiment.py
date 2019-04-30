@@ -1,7 +1,7 @@
 ##+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## Created by: Yaoyao Liu
 ## NUS School of Computing
-## Email: yaoyao.liu@u.nus.edu
+## Email: yaoyaoliu@outlook.com
 ## Copyright (c) 2019
 ##
 ## This source code is licensed under the MIT-style license found in the
@@ -10,15 +10,15 @@
 
 import os
 
-def run_exp(MAX_ITER=7000, SHOT_NUM=1, PHASE='META'):
-    GPU_ID = 2
+def run_experiment(MAX_ITER=10000, SHOT_NUM=1, PHASE='META'):
+    GPU_ID = 0
     META_BATCH_SIZE = 2
     PRE_ITER = 10000
     UPDATE_NUM = 20
     WAY_NUM = 5
     GPU_MODE = 'False'
     LOG_DIR = 'experiment_results'
-    PRE_TRA_ITER_MAX = 12000
+    PRE_TRA_ITER_MAX = 20000
     PRE_TRA_DROP = 0.9
     SAVE_STEP = 1000
     LR_DROP_STEP = 1000
@@ -54,7 +54,7 @@ def run_exp(MAX_ITER=7000, SHOT_NUM=1, PHASE='META'):
 
     if PHASE=='PRE':
         print('****** Start Pre-train Phase ******')
-        pre_command = base_command + ' --phase=pre' + ' --pretrain_iterations=12000'
+        pre_command = base_command + ' --phase=pre' + ' --pretrain_iterations=' + str(PRE_TRA_ITER_MAX)
         os.system(pre_command)
 
     if PHASE=='META':
@@ -63,10 +63,13 @@ def run_exp(MAX_ITER=7000, SHOT_NUM=1, PHASE='META'):
         os.system(meta_train_command)
 
         print('****** Start Meta-test Phase ******')
-        for idx in range(MAX_ITER+1):
-            if idx%SAVE_STEP==0:
+        for idx in range(MAX_ITER):
+            if idx % SAVE_STEP == 0:
                 test_command = process_test_command(idx, base_command)
                 os.system(test_command)
+                
+# run pre-train phase
+run_experiment(PHASE='PRE')
 
-run_exp(MAX_ITER=7000, SHOT_NUM=1, PHASE='PRE')
-run_exp(MAX_ITER=7000, SHOT_NUM=1, PHASE='META')
+# run meta-train and meta-test phase
+run_experiment(MAX_ITER=20000, SHOT_NUM=1, PHASE='META')
