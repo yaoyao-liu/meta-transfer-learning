@@ -106,6 +106,8 @@ Pre-train phase is included in the current framework. In the default setting, if
 
 [Download Pretain Model (*mini*ImageNet)](https://drive.google.com/uc?authuser=0&id=1pd8VSQfO7ILVT1OGDjARwHSRtAvwrsID&export=download)
 
+We will publish more pre-trained models later.
+
 ## Todo
 
 - [x] **Hard task meta batch.**
