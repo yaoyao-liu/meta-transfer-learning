@@ -59,8 +59,8 @@ Please cite our paper if it is helpful to your work:
 }
 ```
 
-### Reference
+### References
 
 \[1\] Chelsea et al. “Model-agnostic meta-learning for fast adaptation of deep networks.” In *ICML 2017*;
-
+<br>
 \[2\] Oreshkin et al. “TADAM: Task dependent adaptive metric for improved few-shot learning.” In *NeurIPS 2018*.
