@@ -38,7 +38,7 @@ The figure shows the performance gap between with and without hard task meta-bat
 
 ### *mini*ImageNet
 <p align="center">
-    <img src="https://raw.githubusercontent.com/y2l/meta-transfer-learning-tensorflow/master/docs/mini_acc.png" width="650"/>
+    <img src="https://raw.githubusercontent.com/y2l/meta-transfer-learning-tensorflow/master/docs/mini_acc.png" width="620"/>
 </p>
 
 ### Fewshot-CIFAR100 
