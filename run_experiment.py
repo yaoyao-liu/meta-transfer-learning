@@ -33,7 +33,7 @@ def run_experiment(MAX_ITER=10000, SHOT_NUM=1, PHASE='META'):
         + ' --train_base_epoch_num=' + str(UPDATE_NUM) \
         + ' --way_num=' + str(WAY_NUM) \
         + ' --exp_log_label=' + LOG_DIR \
-        + ' --pretrain_dropout=' + str(PRE_TRA_DROP) \
+        + ' --pretrain_dropout_keep=' + str(PRE_TRA_DROP) \
         + ' --activation=leaky_relu' \
         + ' --pre_lr=0.001' \
         + ' --pre_lr_dropstep=5000' \
