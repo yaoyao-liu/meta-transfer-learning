@@ -66,7 +66,7 @@ flags.DEFINE_string('activation', 'leaky_relu', 'leaky_relu, relu, or None')
 flags.DEFINE_string('norm', 'batch_norm', 'batch_norm, layer_norm, or None')
 flags.DEFINE_bool('metatrain', True, 'is this the meta-train phase')
 flags.DEFINE_bool('base_augmentation', True, 'whether do data augmentation during base learning')
-flags.DEFINE_bool('redo_init', False, 're-build the initialization weights')
+flags.DEFINE_bool('redo_init', True, 're-build the initialization weights')
 
 # Generate Experiment Key Words String
 exp_string =  'cls(' + str(FLAGS.way_num) + ')'
