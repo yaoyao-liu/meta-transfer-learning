@@ -112,7 +112,7 @@ Pre-train phase is included in the current framework. In the default setting, if
 Download Pretain Model (*mini*ImageNet): 
 [\[Google Drive\]](https://drive.google.com/uc?authuser=0&id=1pd8VSQfO7ILVT1OGDjARwHSRtAvwrsID&export=download)  [\[百度网盘\]](https://pan.baidu.com/s/1muQ1d3B7FMNIMQLxgEsdIQ) (提取码: efsv)
 
-We will publish more pre-trained models later.
+We will release more pre-trained models later.
 
 ## Todo
 
