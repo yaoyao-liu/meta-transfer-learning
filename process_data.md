@@ -1,6 +1,6 @@
 ## Process images for *mini*ImageNet and *tiered*ImageNet.
 
-As the `ILSVRC2012_img_train.tar` file is very large and hard to download for some researchers because of the internet condition, we provided the processed images for *mini*ImageNet and *tiered*ImageNet.
+As the `ILSVRC2012_img_train.tar` file is very large and hard to download for some researchers because of the internet condition, we provide the processed images for *mini*ImageNet and *tiered*ImageNet.
 
 You may download them via Google Drive. As the *mini*ImageNet and *tiered*ImageNet are sampled from the ImageNet dataset, you need agree to the terms of ImageNet:
 
