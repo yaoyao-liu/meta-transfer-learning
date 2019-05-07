@@ -20,22 +20,25 @@ The download links are as follows:
 
 <details>
 <summary><em>mini</em>ImageNet: <a href="https://drive.google.com/drive/folders/1uZL6dhO-czXHYv_MR2HlrBU13q108Czr?usp=sharing">[Google Drive]</a>  <a href="https://pan.baidu.com/s/1dHQWTXm9LXopb2KeC5xjbQ">[百度网盘]</a> (提取码: xcu4)</summary>
-train.tar 125.9MB MD5: 62af9b3c839974dad2d474e6325795af
+train.tar 125.9MB md5sum: 62af9b3c839974dad2d474e6325795af
  <br>
-val.tar    30.8MB MD5: ab02f050b0bf66823e7acb0c1ac1bc6b
+val.tar    30.8MB md5sum: ab02f050b0bf66823e7acb0c1ac1bc6b
  <br>
-test.tar   39.2MB MD5: 318185fc3e3bf8bc57de887d9682c666
+test.tar   39.2MB md5sum: 318185fc3e3bf8bc57de887d9682c666
 </details>
 
-*tiered*ImageNet: [\[Google Drive\]](https://drive.google.com/file/d/1DFdrgGIA77fqDOzdmkiGw_xhZlXgyTRZ/view?usp=sharing)
+<details>
+<summary><em>tiered</em>ImageNet: <a href="https://drive.google.com/file/d/1DFdrgGIA77fqDOzdmkiGw_xhZlXgyTRZ/view?usp=sharing">[Google Drive]</a></summary>
+tiered_imagenet.tar 19.4GB md5sum: 
+</details>
 
 <details>
 <summary>Fewshot-CIFAR100: <a href="https://drive.google.com/drive/folders/1EpznNuYlEB_-u2hD0Kh5GTI_0bT4s4e5?usp=sharing">[Google Drive]</a>  <a href="https://pan.baidu.com/s/15vkVIBcNkaT-6u4OMfr_iA">[百度网盘]</a> (提取码: 5y72)</summary>
-train.tar 157.1MB MD5: 80462b3ab41a97cd57f401bceb2a829d
+train.tar 157.1MB md5sum: 80462b3ab41a97cd57f401bceb2a829d
  <br>
-val.tar   107.3MB MD5: c5c2497fc1f6c876b22d6a16eca890b9
+val.tar   107.3MB md5sum: c5c2497fc1f6c876b22d6a16eca890b9
  <br>
-test.tar   53.6MB MD5: 93b082e2bbb434299a1cff8f5fa6a331
+test.tar   53.6MB md5sum: 93b082e2bbb434299a1cff8f5fa6a331
 </details>
 
 ## Acknowledgements
