@@ -20,9 +20,8 @@ The download links are as follows:
 
 *mini*ImageNet: [\[Google Drive\]](https://drive.google.com/drive/folders/1uZL6dhO-czXHYv_MR2HlrBU13q108Czr?usp=sharing)  [\[百度网盘\]](https://pan.baidu.com/s/1dHQWTXm9LXopb2KeC5xjbQ) (提取码: xcu4)
 <details>
-<summary><p><em>mini</em>ImageNet: <a href="https://drive.google.com/drive/folders/1uZL6dhO-czXHYv_MR2HlrBU13q108Czr?usp=sharing">[Google Drive]</a>  <a href="https://pan.baidu.com/s/1dHQWTXm9LXopb2KeC5xjbQ">[百度网盘]</a> (提取码: xcu4)</p></summary>
-
-content!!!
+<summary><p><em>mini</em>ImageNet</p>/summary>
+<a href="https://drive.google.com/drive/folders/1uZL6dhO-czXHYv_MR2HlrBU13q108Czr?usp=sharing">[Google Drive]</a>  <a href="https://pan.baidu.com/s/1dHQWTXm9LXopb2KeC5xjbQ">[百度网盘]</a> (提取码: xcu4)
 </details>
 
 *tiered*ImageNet: [\[Google Drive\]](https://drive.google.com/file/d/1DFdrgGIA77fqDOzdmkiGw_xhZlXgyTRZ/view?usp=sharing)
