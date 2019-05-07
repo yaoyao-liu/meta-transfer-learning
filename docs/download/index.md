@@ -1,6 +1,6 @@
 > All these datasets are only allowed to be downloaded by researchers for non-commercial research and educational purposes. 
 
-## Download Few-Shot Datasets
+## Download Few-shot Datasets
 
 You may download the datasets on Google Drive and 百度网盘. As the *mini*ImageNet and *tiered*ImageNet are sampled from the ImageNet dataset, you need agree to the terms of ImageNet:
 
