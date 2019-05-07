@@ -51,7 +51,7 @@ The figure shows the performance gap between with and without hard task meta-bat
 Please cite our paper if it is helpful to your work:
 
 ```
-@inproceedings{Sun2019MTL,
+@inproceedings{sun2019mtl,
   title={Meta-Transfer Learning for Few-Shot Learning},
   author={Qianru Sun and Yaoyao Liu and Tat{-}Seng Chua and Bernt Schiele},
   booktitle={CVPR},
