@@ -17,5 +17,7 @@ The law of the State of New Jersey shall apply to all disputes under this agreem
 ```
 
 The download links are as follows:
+
 [*mini*ImageNet](https://drive.google.com/drive/folders/1uZL6dhO-czXHYv_MR2HlrBU13q108Czr?usp=sharing)
+
 [*tiered*ImageNet](https://drive.google.com/file/d/1DFdrgGIA77fqDOzdmkiGw_xhZlXgyTRZ/view?usp=sharing)
