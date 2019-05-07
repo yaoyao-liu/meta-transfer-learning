@@ -76,7 +76,7 @@ The [*tiered*ImageNet](https://arxiv.org/pdf/1803.00676.pdf) dataset is a larger
 ### Download processed images
 We also provide the processed datasets (*mini*ImageNet and *tiered*ImageNet) on Google Drive and 百度网盘. To download the processed data, you need to agree to the term of ImageNet. See the terms and the sharing links here: 
 
-<https://meta-transfer-learning.yaoyaoliu.m2i.ac.cn/processed_data/>
+<https://meta-transfer-learning.yaoyaoliu.m2i.ac.cn/download/>
 
 ## Repo architecture
 
