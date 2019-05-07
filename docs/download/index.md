@@ -29,7 +29,7 @@ test.tar   39.2MB md5sum: 318185fc3e3bf8bc57de887d9682c666
 
 <details>
 <summary><em>tiered</em>ImageNet: <a href="https://drive.google.com/file/d/1DFdrgGIA77fqDOzdmkiGw_xhZlXgyTRZ/view?usp=sharing">[Google Drive]</a></summary>
-tiered_imagenet.tar 19.4GB md5sum: 
+tiered_imagenet.tar 19.4GB md5sum: 7828a6dc2889e226ba575d2ba9624753
 </details>
 
 <details>
