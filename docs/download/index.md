@@ -2,7 +2,7 @@
 
 ## Download Few-Shot Datasets
 
-You may download them on Google Drive and 百度网盘. As the *mini*ImageNet and *tiered*ImageNet are sampled from the ImageNet dataset, you need agree to the terms of ImageNet:
+You may download the datasets on Google Drive and 百度网盘. As the *mini*ImageNet and *tiered*ImageNet are sampled from the ImageNet dataset, you need agree to the terms of ImageNet:
 
 ```
 You (the "Researcher") have requested permission to use the ImageNet database (the "Database") at Princeton University and Stanford University. In exchange for such permission, Researcher hereby agrees to the following terms and conditions:
