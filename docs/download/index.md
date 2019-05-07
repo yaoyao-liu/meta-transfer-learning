@@ -26,7 +26,7 @@ Fewshot-CIFAR100: [\[Google Drive\]](https://drive.google.com/drive/folders/1Epz
 
 ## Acknowledgements
 
-[ImageNet](http://www.image-net.org/)
+[ImageNet Dataset](http://www.image-net.org/)
 
 [CIFAR-100 Dataset](https://www.cs.toronto.edu/~kriz/cifar.html)
 
