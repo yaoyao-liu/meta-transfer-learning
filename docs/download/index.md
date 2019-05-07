@@ -22,7 +22,7 @@ The download links are as follows:
 
 *tiered*ImageNet: [\[Google Drive\]](https://drive.google.com/file/d/1DFdrgGIA77fqDOzdmkiGw_xhZlXgyTRZ/view?usp=sharing)
 
-Fewshot-CIFAR100: [\[Google Drive\]](https://drive.google.com/drive/folders/1EpznNuYlEB_-u2hD0Kh5GTI_0bT4s4e5?usp=sharing)
+Fewshot-CIFAR100: [\[Google Drive\]](https://drive.google.com/drive/folders/1EpznNuYlEB_-u2hD0Kh5GTI_0bT4s4e5?usp=sharing)  [\[百度网盘\]](https://pan.baidu.com/s/15vkVIBcNkaT-6u4OMfr_iA) (提取码: 5y72)
 
 ## Acknowledgements
 
