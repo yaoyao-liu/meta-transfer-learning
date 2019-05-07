@@ -31,11 +31,11 @@ test.tar   39.2MB MD5: 318185fc3e3bf8bc57de887d9682c666
 
 <details>
 <summary>Fewshot-CIFAR100: <a href="https://drive.google.com/drive/folders/1EpznNuYlEB_-u2hD0Kh5GTI_0bT4s4e5?usp=sharing">[Google Drive]</a>  <a href="https://pan.baidu.com/s/15vkVIBcNkaT-6u4OMfr_iA">[百度网盘]</a> (提取码: 5y72)</summary>
-train.tar 125.9MB MD5: 62af9b3c839974dad2d474e6325795af
+train.tar 157.1MB MD5: 80462b3ab41a97cd57f401bceb2a829d
  <br>
-val.tar    30.8MB MD5: ab02f050b0bf66823e7acb0c1ac1bc6b
+val.tar   107.3MB MD5: c5c2497fc1f6c876b22d6a16eca890b9
  <br>
-test.tar   39.2MB MD5: 318185fc3e3bf8bc57de887d9682c666
+test.tar   53.6MB MD5: 93b082e2bbb434299a1cff8f5fa6a331
 </details>
 
 ## Acknowledgements
