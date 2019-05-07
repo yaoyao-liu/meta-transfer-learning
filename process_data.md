@@ -1,6 +1,6 @@
 ## Process images for some datasets.
 
-As the 'ILSVRC2012_img_train.tar' file is very large and hard to download for some researchers because of the internet condition, we provided the processed images for *mini*ImageNet and *tiered*ImageNet.. 
+As the `ILSVRC2012_img_train.tar` file is very large and hard to download for some researchers because of the internet condition, we provided the processed images for *mini*ImageNet and *tiered*ImageNet.. 
 
 You may download them via Google Drive. As the miniImageNet and tieredImageNet are sampled from the ImageNet dataset, You need to be granted access for non-commercial research/educational use. By accessing the data, you have to agree to the following terms.
 
