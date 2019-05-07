@@ -1,4 +1,4 @@
-> Important: All these datasets are only allowed by researchers for non-commercial research and educational purposes. 
+> Important: All these datasets are only allowed to be downloaded by researchers for non-commercial research and educational purposes. 
 
 ## Download Few-Shot Datasets
 
