@@ -1,8 +1,6 @@
-## Download *mini*ImageNet and *tiered*ImageNet
+## Download Few-Shot Datasets
 
-As the `ILSVRC2012_img_train.tar` file is very large and hard to download for some researchers because of the internet condition, we provide the processed images for *mini*ImageNet and *tiered*ImageNet.
-
-You may download them via Google Drive and 百度网盘. As the *mini*ImageNet and *tiered*ImageNet are sampled from the ImageNet dataset, you need agree to the terms of ImageNet:
+You may download them on Google Drive and 百度网盘. As the *mini*ImageNet and *tiered*ImageNet are sampled from the ImageNet dataset, you need agree to the terms of ImageNet:
 
 ```
 You (the "Researcher") have requested permission to use the ImageNet database (the "Database") at Princeton University and Stanford University. In exchange for such permission, Researcher hereby agrees to the following terms and conditions:
@@ -21,4 +19,6 @@ The download links are as follows:
 *mini*ImageNet: [\[Google Drive\]](https://drive.google.com/drive/folders/1uZL6dhO-czXHYv_MR2HlrBU13q108Czr?usp=sharing)  [\[百度网盘\]](https://pan.baidu.com/s/1dHQWTXm9LXopb2KeC5xjbQ) (提取码: xcu4)
 
 *tiered*ImageNet: [\[Google Drive\]](https://drive.google.com/file/d/1DFdrgGIA77fqDOzdmkiGw_xhZlXgyTRZ/view?usp=sharing)
+
+Fewshot-CIFAR100: [\[Google Drive\]]
 
