@@ -67,11 +67,14 @@ To generate this dataset, you may use the repo [*mini*ImageNet Tools](https://gi
 
 ### Fewshot-CIFAR100
 
-We will release the code to generate this dataset soon. You may also generate it yourself with the splits provided by [TADAM](https://arxiv.org/pdf/1805.10123.pdf).
+Fewshot-CIFAR100 (FC100) is based on the popular object classification dataset CIFAR100. The splits were
+proposed by [TADAM](https://arxiv.org/pdf/1805.10123.pdf). It offers a more challenging scenario with lower image resolution and more challenging meta-training/test splits that are separated according to object super-classes. It contains 100 object classes and each class has 600 samples of 32 × 32 color images. The 100 classes belong to 20 super-classes. Meta-training data are from 60 classes belonging to 12 super-classes. Meta-validation and meta-test sets contain 20 classes belonging to 4 super-classes, respectively.
 
 ### *tiered*ImageNet 
 
-The [*tiered*ImageNet](https://arxiv.org/pdf/1803.00676.pdf) dataset is a larger subset of ILSVRC-12 with 608 classes (779,165 images) grouped into 34 higher-level nodes in the ImageNet human-curated hierarchy. You may use this repo to generate the *tiered*ImageNet dataset: [*tiered*ImageNet Tools](https://github.com/y2l/tiered-imagenet-tools).
+The [*tiered*ImageNet](https://arxiv.org/pdf/1803.00676.pdf) dataset is a larger subset of ILSVRC-12 with 608 classes (779,165 images) grouped into 34 higher-level nodes in the ImageNet human-curated hierarchy. 
+
+To generate this dataset, you may use the repo *tiered*ImageNet dataset: [*tiered*ImageNet Tools](https://github.com/y2l/tiered-imagenet-tools).
 
 ### Download processed images
 We also provide the processed datasets (*mini*ImageNet and *tiered*ImageNet) on Google Drive and 百度网盘. To download the processed data, you need to agree to the term of ImageNet. See the terms and the sharing links here: 
