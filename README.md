@@ -109,7 +109,8 @@ You may edit the `run_experiment.py` file to change the hyperparameters and defa
 
 Pre-train phase is included in the current framework. In the default setting, if you run `python run_experiment.py`, the pretrain process will be conducted before the meta-train phase starts. If you want to use the model pretrained by us, you may download the model by the following link then replace the pretrain model loading directory in `trainer/meta.py`.
 
-[Download Pretain Model (*mini*ImageNet)](https://drive.google.com/uc?authuser=0&id=1pd8VSQfO7ILVT1OGDjARwHSRtAvwrsID&export=download)
+Download Pretain Model (*mini*ImageNet): 
+[Google Drive](https://drive.google.com/uc?authuser=0&id=1pd8VSQfO7ILVT1OGDjARwHSRtAvwrsID&export=download)  [百度网盘](https://pan.baidu.com/s/1muQ1d3B7FMNIMQLxgEsdIQ) (提取码: efsv)
 
 We will publish more pre-trained models later.
 
