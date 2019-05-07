@@ -11,20 +11,30 @@
 import os
 
 def run_experiment(MAX_ITER=10000, SHOT_NUM=1, PHASE='META'):
-    GPU_ID = 0
-    META_BATCH_SIZE = 2
-    PRE_ITER = 10000
-    UPDATE_NUM = 20
-    WAY_NUM = 5
-    GPU_MODE = 'False'
-    LOG_DIR = 'experiment_results'
-    PRE_TRA_ITER_MAX = 20000
-    PRE_TRA_DROP = 0.9
-    SAVE_STEP = 1000
-    LR_DROP_STEP = 1000
-    PRE_TRA_FLD = './data/meta-train/train'
-    PRE_TRA_LAB = 'mini_normal' 
+    """The function to generate commands to run the experiments.
+    Args:
+      MAX_ITER: the iteration number for meta-train.
+      SHOT_NUM: the shot number for the few-shot tasks.
+      PHASE: the phase for MTL. 'PRE' means pre-train phase, and 'META' means meta-train and meta-test phases.
+    """
+    GPU_ID = 0 # The GPU device id 
+    META_BATCH_SIZE = 2 # The meta batch size 
+    PRE_ITER = 10000 # The iteration number for the pre-train model used in the meta-train phase
+    UPDATE_NUM = 20 # The epoch number for the base learning
+    WAY_NUM = 5 # The class number for the few-shot tasks
+    GPU_MODE = 'False' # If 'GPU_MODE' is true, it will occupy all the GPU memory when the tensorflow session starts
+    LOG_DIR = 'experiment_results' # The name of the folder to save the log files
+    PRE_TRA_ITER_MAX = 20000 # The iteration number for the pre-train phase
+    PRE_TRA_DROP = 0.9 # The dropout keep rate for the pre-train phase
+    SAVE_STEP = 1000 # The iteration number to save the meta model
+    LR_DROP_STEP = 1000 # The iteration number for the meta learning rate reducing
+    PRE_TRA_FLD = './data/meta-train/train' # The directory for the pre-train phase images
+    PRE_TRA_LAB = 'mini_normal' # The additional label for pre-train model 
 
+    """More settings are in the main.py file.
+    """
+
+    # generate the base command for main.py
     base_command = 'python main.py' \
         + ' --metatrain_iterations=' + str(MAX_ITER) \
         + ' --meta_batch_size=' + str(META_BATCH_SIZE) \
@@ -45,6 +55,11 @@ def run_experiment(MAX_ITER=10000, SHOT_NUM=1, PHASE='META'):
         + ' --device_id=' + str(GPU_ID)
 
     def process_test_command(TEST_STEP, in_command):
+    """The function to adapt the base command to the meta-test phase.
+    Args:
+      TEST_STEP: the iteration number for the meta model to be loaded.
+      in_command: the input base command.
+    """
         output_test_command = in_command \
             + ' --phase=meta' \
             + ' --pretrain_iterations=' + str(PRE_ITER) \

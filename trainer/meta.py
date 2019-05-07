@@ -25,14 +25,19 @@ from utils.misc import process_batch, process_batch_augmentation
 FLAGS = flags.FLAGS
 
 class MetaTrainer:
+    """The class that contains the code for the meta-train and meta-test.
+    """
     def __init__(self):
         data_generator = MetaDataGenerator()
         if FLAGS.metatrain:
+            # Build model for meta-train phase
             print('Building train model')
             self.model = MetaModel()
             self.model.construct_model()
-            print('Finish building train model')            
+            print('Building train model done')  
+            # Start tensorflow session          
             self.start_session()
+            # Generate data for meta-train phase
             random.seed(5) # The same random seed with MAML
             data_generator.generate_data(data_type='train')
             random.seed(6) # The same random seed with MAML
@@ -40,26 +45,33 @@ class MetaTrainer:
             random.seed(7) # The same random seed with MAML
             data_generator.generate_data(data_type='val')
         else:
+            # Build model for meta-test phase
             print('Building test mdoel')
             self.model = MetaModel()
             self.model.construct_test_model()
             self.model.summ_op = tf.summary.merge_all()
-            print('Finish building test model')
+            print('Building test model done')
+            # Start tensorflow session 
             self.start_session()
+            # Generate data for meta-test phase
             random.seed(6) # The same random seed with MAML
             data_generator.generate_data(data_type='test')
+        # Load the experiment setting string from FLAGS
         exp_string = FLAGS.exp_string
 
+        # Global initialization and starting queue
         tf.global_variables_initializer().run()
         tf.train.start_queue_runners()
 
         if FLAGS.metatrain:
+            # Process initialization weights for meta-train
             init_dir = FLAGS.logdir_base + 'init_weights/'
             if not os.path.exists(init_dir):
                 os.mkdir(init_dir)
             pre_save_str = FLAGS.pre_string
             this_init_dir = init_dir + pre_save_str + '.pre_iter(' + str(FLAGS.pretrain_iterations) + ')/'
             if not os.path.exists(this_init_dir):
+                # If there is no saved initialization weights for meta-train, load pre-train model and save initialization weights 
                 os.mkdir(this_init_dir)
                 print('Loading pretrain weights')
                 weights_save_dir_base = FLAGS.pretrain_dir
@@ -78,6 +90,7 @@ class MetaTrainer:
                 np.save(this_init_dir + 'ss_weights_init.npy', ss_weights)
                 np.save(this_init_dir + 'fc_weights_init.npy', fc_weights)
             else:
+                # If the initialization weights are already generated, load the previous saved ones
                 print('Loading previous saved weights')
                 weights = np.load(this_init_dir + 'weights_init.npy').tolist()
                 ss_weights = np.load(this_init_dir + 'ss_weights_init.npy').tolist()
@@ -90,6 +103,7 @@ class MetaTrainer:
                     self.sess.run(tf.assign(self.model.fc_weights[key], fc_weights[key]))
                 print('Weights loaded')
         else:
+            # Load the saved meta model for meta-test phase
             weights = np.load(FLAGS.logdir + '/' + exp_string +  '/weights_' + str(FLAGS.test_iter) + '.npy').tolist()
             ss_weights = np.load(FLAGS.logdir + '/' + exp_string +  '/ss_weights_' + str(FLAGS.test_iter) + '.npy').tolist()
             fc_weights = np.load(FLAGS.logdir + '/' + exp_string +  '/fc_weights_' + str(FLAGS.test_iter) + '.npy').tolist()
@@ -109,6 +123,8 @@ class MetaTrainer:
             self.test(data_generator)
 
     def start_session(self):
+        """The function to start tensorflow session.
+        """
         if FLAGS.full_gpu_memory_mode:
             gpu_config = tf.ConfigProto()
             gpu_config.gpu_options.per_process_gpu_memory_fraction = FLAGS.gpu_rate
@@ -117,16 +133,27 @@ class MetaTrainer:
             self.sess = tf.InteractiveSession()
 
     def train(self, data_generator):
+        """The function for the meta-train phase
+        Arg:
+          data_generator: the data generator class for this phase
+        """
+        # Load the experiment setting string from FLAGS 
         exp_string = FLAGS.exp_string
+        # Generate tensorboard file writer
         train_writer = tf.summary.FileWriter(FLAGS.logdir + '/' + exp_string, self.sess.graph)
-        print('Done initializing, starting training')
+        print('Done initializing, start meta-training')
+        # Generate empty list to record losses and accuracies
         loss_list, acc_list = [], []
+        # Load the meta learning rate from FLAGS 
         train_lr = FLAGS.meta_lr
+        # Load data for meta-train and meta validation
         data_generator.load_data(data_type='train')
         data_generator.load_data(data_type='val')
+        # set the validation index to 0
         test_idx = 0
 
         for train_idx in trange(FLAGS.metatrain_iterations):
+            # Load the episodes for this meta batch
             inputa = []
             labela = []
             inputb = []
@@ -142,26 +169,32 @@ class MetaTrainer:
             inputb = np.array(inputb)
             labelb = np.array(labelb)
 
+            # Generate feed dict for the tensorflow graph
             feed_dict = {self.model.inputa: inputa, self.model.inputb: inputb, \
                 self.model.labela: labela, self.model.labelb: labelb, self.model.meta_lr: train_lr}
 
-            input_tensors = [self.model.metatrain_op]
-            input_tensors.extend([self.model.total_loss])
-            input_tensors.extend([self.model.total_accuracy])
-            input_tensors.extend([self.model.training_summ_op])
+            # Set the variables to load from the tensorflow graph
+            input_tensors = [self.model.metatrain_op] # The meta train optimizer
+            input_tensors.extend([self.model.total_loss]) # The meta train loss
+            input_tensors.extend([self.model.total_accuracy]) # The meta train accuracy
+            input_tensors.extend([self.model.training_summ_op]) # The tensorboard summary operation
 
+            # run this meta-train iteration
             result = self.sess.run(input_tensors, feed_dict)
 
+            # record losses, accuracies and tensorboard 
             loss_list.append(result[1])
             acc_list.append(result[2])
             train_writer.add_summary(result[3], train_idx)
 
+            # print meta-train information on the screen after several iterations
             if (train_idx!=0) and train_idx % FLAGS.meta_print_step == 0:
                 print_str = 'Iteration:' + str(train_idx)
                 print_str += ' Loss:' + str(np.mean(loss_list)) + ' Acc:' + str(np.mean(acc_list))
                 print(print_str)
                 loss_list, acc_list = [], []
 
+            # Save the model during meta-teain
             if train_idx % FLAGS.meta_save_step == 0:
                 weights = self.sess.run(self.model.weights)
                 ss_weights = self.sess.run(self.model.ss_weights)
@@ -170,6 +203,7 @@ class MetaTrainer:
                 np.save(FLAGS.logdir + '/' + exp_string +  '/ss_weights_' + str(train_idx) + '.npy', ss_weights)
                 np.save(FLAGS.logdir + '/' + exp_string +  '/fc_weights_' + str(train_idx) + '.npy', fc_weights)
 
+            # Run the meta-validation during meta-train
             if train_idx % FLAGS.meta_val_print_step == 0:
                 test_loss = []
                 test_accs = []
@@ -196,12 +230,15 @@ class MetaTrainer:
                 print_str = '[***] Val Loss:' + str(np.mean(test_loss)*FLAGS.meta_batch_size) + \
                     ' Val Acc:' + str(np.mean(test_accs)*FLAGS.meta_batch_size)
                 print(print_str)
-                        
+                  
+            # Reduce the meta learning rate to half after several iterations      
             if (train_idx!=0) and train_idx % FLAGS.lr_drop_step == 0:
                 train_lr = train_lr * FLAGS.lr_drop_rate
                 if train_lr < 0.1 * FLAGS.meta_lr:
                     train_lr = 0.1 * FLAGS.meta_lr
                 print('Train LR: {}'.format(train_lr))
+
+        # Save the final model
         weights = self.sess.run(self.model.weights)
         ss_weights = self.sess.run(self.model.ss_weights)
         fc_weights = self.sess.run(self.model.fc_weights)
@@ -210,12 +247,21 @@ class MetaTrainer:
         np.save(FLAGS.logdir + '/' + exp_string +  '/fc_weights_' + str(train_idx+1) + '.npy', fc_weights)
 
     def test(self, data_generator):
+        """The function for the meta-test phase
+        Arg:
+          data_generator: the data generator class for this phase
+        """
+        # Set meta-test episode number
         NUM_TEST_POINTS = 600
+        # Load the experiment setting string from FLAGS 
         exp_string = FLAGS.exp_string 
         np.random.seed(1)
+        # Generate empty list to record accuracies
         metaval_accuracies = []
+        # Load data for meta-test
         data_generator.load_data(data_type='test')
         for test_idx in trange(NUM_TEST_POINTS):
+            # Load one episode for meta-test
             this_episode = data_generator.load_episode(index=test_idx, data_type='test')
             inputa = this_episode[0][np.newaxis, :]
             labela = this_episode[1][np.newaxis, :]
@@ -225,14 +271,17 @@ class MetaTrainer:
                 self.model.labela: labela, self.model.labelb: labelb, self.model.meta_lr: 0.0}
             result = self.sess.run(self.model.metaval_total_accuracies, feed_dict)
             metaval_accuracies.append(result)
+        # Calculate the mean accuarcies and the confidence intervals
         metaval_accuracies = np.array(metaval_accuracies)
         means = np.mean(metaval_accuracies, 0)
         stds = np.std(metaval_accuracies, 0)
         ci95 = 1.96*stds/np.sqrt(NUM_TEST_POINTS)
 
+        # Print the meta-test results
         print('Mean test accuracies and confidence intervals')
         print((means, ci95))
 
+        # Save the meta-test results in the csv files
         if FLAGS.base_augmentation:
             out_filename = FLAGS.logdir +'/'+ exp_string + '/' + 'result_aug_' + str(FLAGS.shot_num) + 'shot_' + str(FLAGS.test_iter) + '.csv'
             out_pkl = FLAGS.logdir +'/'+ exp_string + '/' + 'result_aug_' + str(FLAGS.shot_num) + 'shot_' + str(FLAGS.test_iter) + '.pkl'

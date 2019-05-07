@@ -17,7 +17,14 @@ from tensorflow.python.platform import flags
 FLAGS = flags.FLAGS
 
 class PreModel(Models):
+    """The class for pre-train model.
+    """
     def construct_pretrain_model(self, input_tensors=None, is_val=False):
+        """The function to construct pre-train model.
+        Args:
+          input_tensors: the input tensor to construct pre-train model.
+          is_val: whether the model is for validation.
+        """
         self.input = input_tensors['pretrain_input']
         self.label = input_tensors['pretrain_label']
         with tf.variable_scope('pretrain-model', reuse=None) as training_scope:

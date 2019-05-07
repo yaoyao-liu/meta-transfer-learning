@@ -41,7 +41,7 @@ flags.DEFINE_bool('pre_lr_stop', False, 'whether stop decrease the pre_lr when i
 
 ### Meta Phase Options
 flags.DEFINE_integer('way_num', 5, 'number of classes (e.g. 5-way classification)')
-flags.DEFINE_integer('shot_num', 5, 'number of examples per class (K for K-shot learning)')
+flags.DEFINE_integer('shot_num', 1, 'number of examples per class (K for K-shot learning)')
 flags.DEFINE_integer('metatrain_epite_sample_num', 15, 'number of meta train episode-test samples')
 flags.DEFINE_integer('metatest_epite_sample_num', 0, 'number of meta test episode-test samples, 0 means metatest_epite_sample_num=shot_num')
 flags.DEFINE_integer('meta_sum_step', 10, 'the step number to summary during meta-training')
