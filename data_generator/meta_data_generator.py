@@ -20,17 +20,25 @@ from utils.misc import get_images, process_batch, process_batch_augmentation
 FLAGS = flags.FLAGS
 
 class MetaDataGenerator(object):
+    """The class to generate data lists and episodes for meta-train and meta-test.
+    """
     def __init__(self):
+        # Set the base folder to save the data lists
         filename_dir = FLAGS.logdir_base + 'processed_data/'
         if not os.path.exists(filename_dir):
             os.mkdir(filename_dir)
 
+        # Set the detailed folder name for saving the data lists
         self.this_setting_filename_dir = filename_dir + 'shot(' + str(FLAGS.shot_num) + ').way(' + str(FLAGS.way_num) \
             + ').metatr_epite(' + str(FLAGS.metatrain_epite_sample_num) + ').metate_epite(' + str(FLAGS.metatest_epite_sample_num) + ')/'
         if not os.path.exists(self.this_setting_filename_dir):
             os.mkdir(self.this_setting_filename_dir)    
 
     def generate_data(self, data_type='train'):
+        """The function to generate the data lists.
+        Arg:
+          data_type: the phase for meta-learning.
+        """
         if data_type=='train':
             metatrain_folder = FLAGS.metatrain_dir
             folders = [os.path.join(metatrain_folder, label) \
@@ -100,6 +108,10 @@ class MetaDataGenerator(object):
             print('The ' + data_type + ' data has already been created')
 
     def load_data(self, data_type='test'):
+        """The function to load the data lists.
+        Arg:
+          data_type: the phase for meta-learning.
+        """
         data_list = np.load(self.this_setting_filename_dir+'/' + data_type + '_data.npy')
         if data_type=='train':
             self.train_data = data_list
@@ -111,6 +123,11 @@ class MetaDataGenerator(object):
             print('[Error] Please check data list type')
 
     def load_episode(self, index, data_type='train'):
+        """The function to load the episodes.
+        Args:
+          index: the index for the episodes.
+          data_type: the phase for meta-learning.
+        """
         if data_type=='train':
             data_list = self.train_data
             epite_sample_num = FLAGS.metatrain_epite_sample_num
