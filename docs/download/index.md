@@ -18,7 +18,6 @@ You (the "Researcher") have requested permission to use the ImageNet database (t
 
 The download links are as follows:
 
-*mini*ImageNet: [\[Google Drive\]](https://drive.google.com/drive/folders/1uZL6dhO-czXHYv_MR2HlrBU13q108Czr?usp=sharing)  [\[百度网盘\]](https://pan.baidu.com/s/1dHQWTXm9LXopb2KeC5xjbQ) (提取码: xcu4)
 <details>
 <summary><em>mini</em>ImageNet: <a href="https://drive.google.com/drive/folders/1uZL6dhO-czXHYv_MR2HlrBU13q108Czr?usp=sharing">[Google Drive]</a>  <a href="https://pan.baidu.com/s/1dHQWTXm9LXopb2KeC5xjbQ">[百度网盘]</a> (提取码: xcu4)</summary>
 train.tar 125.9MB MD5: 62af9b3c839974dad2d474e6325795af
@@ -30,7 +29,14 @@ test.tar   39.2MB MD5: 318185fc3e3bf8bc57de887d9682c666
 
 *tiered*ImageNet: [\[Google Drive\]](https://drive.google.com/file/d/1DFdrgGIA77fqDOzdmkiGw_xhZlXgyTRZ/view?usp=sharing)
 
-Fewshot-CIFAR100: [\[Google Drive\]](https://drive.google.com/drive/folders/1EpznNuYlEB_-u2hD0Kh5GTI_0bT4s4e5?usp=sharing)  [\[百度网盘\]](https://pan.baidu.com/s/15vkVIBcNkaT-6u4OMfr_iA) (提取码: 5y72)
+<details>
+<summary>Fewshot-CIFAR100: <a href="https://drive.google.com/drive/folders/1EpznNuYlEB_-u2hD0Kh5GTI_0bT4s4e5?usp=sharing">[Google Drive]</a>  <a href="https://pan.baidu.com/s/15vkVIBcNkaT-6u4OMfr_iA">[百度网盘]</a> (提取码: 5y72)</summary>
+train.tar 125.9MB MD5: 62af9b3c839974dad2d474e6325795af
+ <br>
+val.tar    30.8MB MD5: ab02f050b0bf66823e7acb0c1ac1bc6b
+ <br>
+test.tar   39.2MB MD5: 318185fc3e3bf8bc57de887d9682c666
+</details>
 
 ## Acknowledgements
 
