@@ -1,8 +1,8 @@
-## Process images for some datasets.
+## Process images for *mini*ImageNet and *tiered*ImageNet.
 
-As the `ILSVRC2012_img_train.tar` file is very large and hard to download for some researchers because of the internet condition, we provided the processed images for *mini*ImageNet and *tiered*ImageNet.. 
+As the `ILSVRC2012_img_train.tar` file is very large and hard to download for some researchers because of the internet condition, we provided the processed images for *mini*ImageNet and *tiered*ImageNet.
 
-You may download them via Google Drive. As the miniImageNet and tieredImageNet are sampled from the ImageNet dataset, You need to be granted access for non-commercial research/educational use. By accessing the data, you have to agree to the following terms.
+You may download them via Google Drive. As the *mini*ImageNet and *tiered*ImageNet are sampled from the ImageNet dataset, You need to be granted access for non-commercial research/educational use. By accessing the data, you have to agree to the following terms.
 
 ```
 You (the "Researcher") have requested permission to use the ImageNet database (the "Database") at Princeton University and Stanford University. In exchange for such permission, Researcher hereby agrees to the following terms and conditions:
@@ -15,3 +15,7 @@ Princeton University and Stanford University reserve the right to terminate Rese
 If Researcher is employed by a for-profit, commercial entity, Researcher's employer shall also be bound by these terms and conditions, and Researcher hereby represents that he or she is fully authorized to enter into this agreement on behalf of such employer.
 The law of the State of New Jersey shall apply to all disputes under this agreement.
 ```
+
+The download links are as follows:
+[*mini*ImageNet](https://drive.google.com/drive/folders/1uZL6dhO-czXHYv_MR2HlrBU13q108Czr?usp=sharing)
+[*tiered*ImageNet](https://drive.google.com/file/d/1DFdrgGIA77fqDOzdmkiGw_xhZlXgyTRZ/view?usp=sharing)
