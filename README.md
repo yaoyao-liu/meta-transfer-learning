@@ -120,6 +120,8 @@ We will release more pre-trained models later.
   The implement of hard task meta batch is not included in the published code. I still need time to rewrite the hard task meta batch code for the current framework.
 - [x] **More network architectures.**
   We will add new backbones to the framework like ResNet18 and ResNet34.
+- [x] **PyTorch version**
+  We will release the code for MTL on pytorch. It may takes several months to be completed.
 
 ## Citation
 
