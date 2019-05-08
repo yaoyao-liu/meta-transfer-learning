@@ -68,5 +68,5 @@ Please cite our paper if it is helpful to your work:
 ### Acknowledgements
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/y2l/meta-transfer-learning-tensorflow/master/docs/logos.png" height="80"/>
+<img src="https://raw.githubusercontent.com/y2l/meta-transfer-learning-tensorflow/master/docs/logos.png" height="160"/>
 </p>
