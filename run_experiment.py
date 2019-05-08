@@ -80,6 +80,7 @@ def run_experiment(MAX_ITER=10000, SHOT_NUM=1, PHASE='META'):
         print('****** Start Meta-test Phase ******')
         for idx in range(MAX_ITER):
             if idx % SAVE_STEP == 0:
+                print('[*] Runing meta-test, load model for ' + str(idx) + ' iterations')
                 test_command = process_test_command(idx, base_command)
                 os.system(test_command)
                 
