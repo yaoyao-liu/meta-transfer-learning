@@ -59,6 +59,8 @@ def run_experiment(MAX_ITER=10000, SHOT_NUM=1, PHASE='META'):
     Args:
       TEST_STEP: the iteration number for the meta model to be loaded.
       in_command: the input base command.
+    Return:
+      Processed command.
     """
         output_test_command = in_command \
             + ' --phase=meta' \
