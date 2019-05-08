@@ -15,7 +15,7 @@ from trainer.pre import PreTrainer
 
 FLAGS = flags.FLAGS
 
-### Basic Options
+### Basic options
 flags.DEFINE_integer('img_size', 84, 'image size')
 flags.DEFINE_integer('device_id', 0, 'GPU device ID to run the job.')
 flags.DEFINE_float('gpu_rate', 0.9, 'the parameter for the full_gpu_memory_mode')
@@ -24,7 +24,7 @@ flags.DEFINE_string('exp_log_label', 'experiment_results', 'directory for summar
 flags.DEFINE_string('logdir_base', './logs/', 'directory for logs')
 flags.DEFINE_bool('full_gpu_memory_mode', False, 'in this mode, the code occupies GPU memory in advance')
 
-### Pretrain Phase Options
+### Pre-train phase options
 flags.DEFINE_integer('pre_lr_dropstep', 5000, 'the step number to drop pre_lr')
 flags.DEFINE_integer('pretrain_class_num', 64, 'number of classes used in the pre-train phase')
 flags.DEFINE_integer('pretrain_batch_size', 64, 'batch_size for the pre-train phase')
@@ -35,11 +35,11 @@ flags.DEFINE_integer('pre_print_step', 1000, 'the step number to print the pretr
 flags.DEFINE_float('pre_lr', 0.001, 'the pretrain learning rate')
 flags.DEFINE_float('min_pre_lr', 0.0001, 'the pretrain learning rate min')
 flags.DEFINE_float('pretrain_dropout_keep', 0.9, 'the dropout keep parameter in the pre-train phase')
-flags.DEFINE_string('pretrain_folders', './data/meta-train/train', 'directory for pre-train data')
+flags.DEFINE_string('pretrain_folders', './data/mini-imagenet/train', 'directory for pre-train data')
 flags.DEFINE_string('pretrain_label', 'mini_normal', 'additional label for the pre-train log folder')
 flags.DEFINE_bool('pre_lr_stop', False, 'whether stop decrease the pre_lr when it is low')
 
-### Meta Phase Options
+### Meta phase options
 flags.DEFINE_integer('way_num', 5, 'number of classes (e.g. 5-way classification)')
 flags.DEFINE_integer('shot_num', 1, 'number of examples per class (K for K-shot learning)')
 flags.DEFINE_integer('metatrain_epite_sample_num', 15, 'number of meta train episode-test samples')
@@ -59,16 +59,16 @@ flags.DEFINE_float('meta_lr', 0.001, 'the meta learning rate of the generator')
 flags.DEFINE_float('lr_drop_rate', 0.5, 'the step number to drop meta_lr')
 flags.DEFINE_float('min_meta_lr', 0.0001, 'the min meta learning rate of the generator')
 flags.DEFINE_float('base_lr', 1e-3, 'step size alpha for inner gradient update.')
-flags.DEFINE_string('metatrain_dir', './data/meta-train/train', 'directory for meta-train set')
-flags.DEFINE_string('metaval_dir', './data/meta-train/val', 'directory for meta-val set')
-flags.DEFINE_string('metatest_dir', './data/meta-train/test', 'directory for meta-test set')
+flags.DEFINE_string('metatrain_dir', './data/mini-imagenet/train', 'directory for meta-train set')
+flags.DEFINE_string('metaval_dir', './data/mini-imagenet/val', 'directory for meta-val set')
+flags.DEFINE_string('metatest_dir', './data/mini-imagenet/test', 'directory for meta-test set')
 flags.DEFINE_string('activation', 'leaky_relu', 'leaky_relu, relu, or None')
 flags.DEFINE_string('norm', 'batch_norm', 'batch_norm, layer_norm, or None')
 flags.DEFINE_bool('metatrain', True, 'is this the meta-train phase')
 flags.DEFINE_bool('base_augmentation', True, 'whether do data augmentation during base learning')
 flags.DEFINE_bool('redo_init', True, 're-build the initialization weights')
 
-# Generate Experiment Key Words String
+# Generate experiment key words string
 exp_string =  'cls(' + str(FLAGS.way_num) + ')'
 exp_string += '.shot(' + str(FLAGS.shot_num) + ')'
 exp_string += '.meta_batch(' + str(FLAGS.meta_batch_size) + ')'
@@ -84,8 +84,10 @@ exp_string += '.pre_label(' + str(FLAGS.pretrain_label) + ')'
 
 if FLAGS.base_augmentation:
     exp_string += '.base_aug(True)'
-else:
+elif:
     exp_string += '.base_aug(False)'
+else:
+    print('Augmentation setting is not recognized')
 
 if FLAGS.norm == 'batch_norm':
     exp_string += '.norm(batch)'
@@ -94,12 +96,12 @@ elif FLAGS.norm == 'layer_norm':
 elif FLAGS.norm == 'None':
     exp_string += '.norm(none)'
 else:
-    print('Norm setting not recognized')
+    print('Norm setting is not recognized')
 
 FLAGS.exp_string = exp_string
 print('Parameters: ' + exp_string)
 
-# Generate Pre-train Key Words String
+# Generate pre-train key words string
 pre_save_str = 'pre_lr(' + str(FLAGS.pre_lr) + ')'
 pre_save_str += '.pre_lrdrop(' + str(FLAGS.pre_lr_dropstep) + ')'
 pre_save_str += '.pre_class(' + str(FLAGS.pretrain_class_num) + ')'
@@ -110,7 +112,7 @@ if FLAGS.pre_lr_stop:
 pre_save_str += '.pre_label(' + FLAGS.pretrain_label + ')'
 FLAGS.pre_string = pre_save_str
 
-# Generate Log Folders
+# Generate log folders
 FLAGS.logdir = FLAGS.logdir_base + FLAGS.exp_log_label
 FLAGS.pretrain_dir = FLAGS.logdir_base + 'pretrain_weights'
 
@@ -121,12 +123,15 @@ if not os.path.exists(FLAGS.logdir):
 if not os.path.exists(FLAGS.pretrain_dir):
     os.mkdir(FLAGS.pretrain_dir)
 
+# If FLAGS.redo_init is true, delete the previous intialization weights.
 if FLAGS.redo_init:
     os.system('rm -r ./logs/init_weights')
     print('Init weights have been deleted')
 
 def main():
+    # Set GPU device id
     os.environ['CUDA_VISIBLE_DEVICES'] = str(FLAGS.device_id)
+    # Select pre-train phase or meta-learning phase
     if FLAGS.phase=='pre':
         trainer = PreTrainer()
     elif FLAGS.phase=='meta':   
