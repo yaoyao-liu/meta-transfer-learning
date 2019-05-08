@@ -68,7 +68,7 @@ Please cite our paper if it is helpful to your work:
 ### Acknowledgements
 
 <p align="center">
-<a href="https://comp.nus.edu.sg/"><img src="https://raw.githubusercontent.com/y2l/meta-transfer-learning-tensorflow/master/docs/logos/NUS.png" width="150"/></a>
+<a href="https://comp.nus.edu.sg/"><img src="https://raw.githubusercontent.com/y2l/meta-transfer-learning-tensorflow/master/docs/logos/NUS.png" height="80"/></a>
 &nbsp &nbsp &nbsp &nbsp &nbsp
 <a href="https://www.tju.edu.cn/"><img src="https://raw.githubusercontent.com/y2l/meta-transfer-learning-tensorflow/master/docs/logos/TJU-1.png" width="160"/></a>
 &nbsp &nbsp &nbsp &nbsp &nbsp
