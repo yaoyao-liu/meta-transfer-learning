@@ -84,10 +84,8 @@ exp_string += '.pre_label(' + str(FLAGS.pretrain_label) + ')'
 
 if FLAGS.base_augmentation:
     exp_string += '.base_aug(True)'
-elif:
-    exp_string += '.base_aug(False)'
 else:
-    print('Augmentation setting is not recognized')
+    exp_string += '.base_aug(False)'
 
 if FLAGS.norm == 'batch_norm':
     exp_string += '.norm(batch)'
