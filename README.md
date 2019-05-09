@@ -85,7 +85,6 @@ To generate this dataset, you may use the repo *tiered*ImageNet dataset: [*tiere
 ├── data_generator              # dataset generator 
 |   ├── pre_data_generator.py   # data genertor for pre-train phase
 |   └── meta_data_generator.py  # data genertor for meta-train phase
-├── docs                        # project website source code
 ├── models                      # tensorflow model files 
 |   ├── models.py               # basic model class
 |   ├── pre_model.py.py         # pre-train model class
