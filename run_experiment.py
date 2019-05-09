@@ -55,13 +55,13 @@ def run_experiment(MAX_ITER=10000, SHOT_NUM=1, PHASE='META'):
         + ' --device_id=' + str(GPU_ID)
 
     def process_test_command(TEST_STEP, in_command):
-    """The function to adapt the base command to the meta-test phase.
-    Args:
-      TEST_STEP: the iteration number for the meta model to be loaded.
-      in_command: the input base command.
-    Return:
-      Processed command.
-    """
+        """The function to adapt the base command to the meta-test phase.
+        Args:
+          TEST_STEP: the iteration number for the meta model to be loaded.
+          in_command: the input base command.
+        Return:
+          Processed command.
+        """
         output_test_command = in_command \
             + ' --phase=meta' \
             + ' --pretrain_iterations=' + str(PRE_ITER) \
