@@ -104,7 +104,26 @@ To run the experiments:
 ```bash
 python run_experiment.py
 ```
-You may edit the `run_experiment.py` file to change the hyperparameters and default settings. The details for the parameters are in `main.py`.
+You may edit the `run_experiment.py` file to change the hyperparameters and default settings. 
+
+- `GPU_ID` The GPU device id 
+- `META_BATCH_SIZE` The meta batch size 
+- `PRE_ITER` The iteration number for the pre-train model used in the meta-train phase
+- `UPDATE_NUM` The epoch number for the base learning
+- `WAY_NUM` The class number for the few-shot tasks
+- `GPU_MODE` If 'GPU_MODE' is true, it will occupy all the GPU memory when the tensorflow session starts
+- `LOG_DIR` The name of the folder to save the log files
+- `PRE_TRA_ITER_MAX` The iteration number for the pre-train phase
+- `PRE_TRA_DROP` The dropout keep rate for the pre-train phase
+- `SAVE_STEP` The iteration number to save the meta model
+- `LR_DROP_STEP` The iteration number for the meta learning rate reducing
+- `PRE_TRA_LAB` The additional label for pre-train model
+- `PRE_TRA_DIR` The directory for the pre-train phase images
+- `META_TRA_DIR` The directory for the meta-train images
+- `META_VAL_DIR` The directory for the meta-validation images
+- `META_TES_DIR` The directory for the meta-test images
+
+The file `run_experiment.py` is just a script to generate commands for `main.py`. If you want to change other settings, please see the comments and descriptions in `main.py`.
 
 Pre-train phase is included in the current framework. In the default setting, if you run `python run_experiment.py`, the pretrain process will be conducted before the meta-train phase starts. If you want to use the model pretrained by us, you may download the model by the following link then replace the pretrain model loading directory in `trainer/meta.py`.
 

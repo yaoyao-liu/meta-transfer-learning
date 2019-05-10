@@ -17,6 +17,7 @@ def run_experiment(MAX_ITER=10000, SHOT_NUM=1, PHASE='META'):
       SHOT_NUM: the shot number for the few-shot tasks.
       PHASE: the phase for MTL. 'PRE' means pre-train phase, and 'META' means meta-train and meta-test phases.
     """
+    # Some important options
     GPU_ID = 0 # The GPU device id 
     META_BATCH_SIZE = 2 # The meta batch size 
     PRE_ITER = 10000 # The iteration number for the pre-train model used in the meta-train phase
@@ -28,13 +29,18 @@ def run_experiment(MAX_ITER=10000, SHOT_NUM=1, PHASE='META'):
     PRE_TRA_DROP = 0.9 # The dropout keep rate for the pre-train phase
     SAVE_STEP = 1000 # The iteration number to save the meta model
     LR_DROP_STEP = 1000 # The iteration number for the meta learning rate reducing
-    PRE_TRA_FLD = './data/meta-train/train' # The directory for the pre-train phase images
-    PRE_TRA_LAB = 'mini_normal' # The additional label for pre-train model 
+    PRE_TRA_LAB = 'mini_normal' # The additional label for pre-train model
+
+    # Data directories
+    PRE_TRA_DIR = './data/mini-imagenet/train' # The directory for the pre-train phase images
+    META_TRA_DIR = './data/mini-imagenet/train' # The directory for the meta-train images
+    META_VAL_DIR = './data/mini-imagenet/val' # The directory for the meta-validation images
+    META_TES_DIR = './data/mini-imagenet/test' # The directory for the meta-test images
 
     """More settings are in the main.py file.
     """
 
-    # generate the base command for main.py
+    # Generate the base command for main.py
     base_command = 'python main.py' \
         + ' --metatrain_iterations=' + str(MAX_ITER) \
         + ' --meta_batch_size=' + str(META_BATCH_SIZE) \
@@ -49,10 +55,13 @@ def run_experiment(MAX_ITER=10000, SHOT_NUM=1, PHASE='META'):
         + ' --pre_lr_dropstep=5000' \
         + ' --meta_save_step=' + str(SAVE_STEP) \
         + ' --lr_drop_step=' + str(LR_DROP_STEP) \
-        + ' --pretrain_folders=' + PRE_TRA_FLD \
+        + ' --pretrain_folders=' + PRE_TRA_DIR \
         + ' --pretrain_label=' + PRE_TRA_LAB \
         + ' --full_gpu_memory_mode=' + GPU_MODE \
-        + ' --device_id=' + str(GPU_ID)
+        + ' --device_id=' + str(GPU_ID) \
+        + ' --metatrain_dir=' META_TRA_DIR \
+        + ' --metaval_dir=' META_VAL_DIR \
+        + ' --metatest_dir=' META_TES_DIR
 
     def process_test_command(TEST_STEP, in_command):
         """The function to adapt the base command to the meta-test phase.
