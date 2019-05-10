@@ -6,7 +6,7 @@ This repository contains the TensorFlow implementation for [CVPR 2019](http://cv
 If you have any problems when running this repo, feel free to send me an email or open an issue. I will reply to you as soon as I see them. (Email: liuyaoyao at tju.edu.cn)
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/y2l/meta-transfer-learning-tensorflow/master/docs/framework.png" width="700"/>
+    <img src="https://mtl.yyliu.net/images/framework.png" width="700"/>
 </p>
 
 #### Summary:
