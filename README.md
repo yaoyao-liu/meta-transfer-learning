@@ -29,19 +29,19 @@ Meta-learning has been proposed as a framework to address the challenging few-sh
 In order to run this repo, we advise you to install python 2.7 and TensorFlow 1.3.0 with Anaconda.
 
 You may download Anaconda and read the installation instruction on their official website:
-[https://www.anaconda.com/download/](https://www.anaconda.com/download/)
+<https://www.anaconda.com/download/>
 
 Create a new environment and install tensorflow on it:
 
-```Bash
-conda create --name tensorflow_1.3.0_gpu python=2.7
-source activate tensorflow_1.3.0_gpu
+```bash
+conda create --name mtl python=2.7
+source activate mtl
 pip install --ignore-installed --upgrade https://mirrors.tuna.tsinghua.edu.cn/tensorflow/linux/gpu/tensorflow_gpu-1.3.0-cp27-none-linux_x86_64.whl
 ```
 
 Clone the repo:
 
-```Bash
+```bash
 git clone https://github.com/y2l/meta-transfer-learning-tensorflow.git 
 cd meta-transfer-learning-tensorflow
 ```
