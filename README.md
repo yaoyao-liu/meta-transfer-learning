@@ -132,8 +132,8 @@ We will release more pre-trained models later.
 
 ## Todo
 
-- [ ] **Hard task meta batch.**
-  The implement of hard task meta batch is not included in the published code. I still need time to rewrite the hard task meta batch code for the current framework.
+- [ ] **Hard task meta-batch.**
+  The implementation of hard task meta-batch is not included in the published code. I still need time to rewrite the hard task meta batch code for the current framework.
 - [ ] **More network architectures.**
   We will add new backbones to the framework like ResNet18 and ResNet34.
 - [ ] **PyTorch version.**
