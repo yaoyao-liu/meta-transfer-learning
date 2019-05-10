@@ -6,7 +6,7 @@ This repository contains the TensorFlow implementation for [CVPR 2019](http://cv
 If you have any problems when running this repo, feel free to send me an email or open an issue. I will reply to you as soon as I see them. (Email: liuyaoyao at tju.edu.cn)
 
 <p align="center">
-    <img src="https://mtl.yyliu.net/images/ss.png" width="350"/>
+    <img src="https://mtl.yyliu.net/images/ss.png" width="400"/>
 </p>
 
 > Figure: Meta-Transfer Learning. (a) Parameter-level fine-tuning (FT) is a conventional meta-training operation, e.g. in MAML. Its update works for all neuron parameters, W and b. (b) Our neuron-level scaling and shifting (SS) operations in meta-transfer learning. They reduce the number of learning parameters and avoid overfitting problems. In addition, they keep large-scale trained parameters (in yellow) frozen, preventing “catastrophic forgetting”.
