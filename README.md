@@ -46,18 +46,14 @@ git clone https://github.com/y2l/meta-transfer-learning-tensorflow.git
 cd meta-transfer-learning-tensorflow
 ```
 
-Requirements:
-```
-python 2.7
-tensorflow 1.3.0
-scipy
-tqdm
-opencv-python
+Install other requirements:
+```bash
+pip install scipy
+pip install tqdm
+pip install opencv-python
 ```
 
-Some basic requirements are not listed, you may install them easily with `pip`.
-
-## Dataset
+## Datasets
 
 ### *mini*ImageNet
 
@@ -98,13 +94,13 @@ To generate this dataset, you may use the repo *tiered*ImageNet dataset: [*tiere
 └── run_experiment.py           # the script to run the whole experiment
 ```
 
-## Uasge
+## Usage
 
 To run the experiments:
 ```bash
 python run_experiment.py
 ```
-You may edit the `run_experiment.py` file to change the hyperparameters and default settings. 
+You may edit the `run_experiment.py` file to change the hyperparameters and options. 
 
 - `WAY_NUM` Class number for the few-shot tasks
 - `SHOT_NUM` Sample number for each class
@@ -136,11 +132,11 @@ We will release more pre-trained models later.
 
 ## Todo
 
-- [x] **Hard task meta batch.**
+- [ ] **Hard task meta batch.**
   The implement of hard task meta batch is not included in the published code. I still need time to rewrite the hard task meta batch code for the current framework.
-- [x] **More network architectures.**
+- [ ] **More network architectures.**
   We will add new backbones to the framework like ResNet18 and ResNet34.
-- [x] **PyTorch version.**
+- [ ] **PyTorch version.**
   We will release the code for MTL on pytorch. It may takes several months to be completed.
 
 ## Citation
