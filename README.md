@@ -111,7 +111,7 @@ You may edit the `run_experiment.py` file to change the hyperparameters and defa
 - `PRE_ITER` The iteration number for the pre-train model used in the meta-train phase
 - `UPDATE_NUM` The epoch number for the base learning
 - `WAY_NUM` The class number for the few-shot tasks
-- `GPU_MODE` If 'GPU_MODE' is true, it will occupy all the GPU memory when the tensorflow session starts
+- `GPU_MODE` If `GPU_MODE` is true, it will occupy all the GPU memory when the tensorflow session starts
 - `LOG_DIR` The name of the folder to save the log files
 - `PRE_TRA_ITER_MAX` The iteration number for the pre-train phase
 - `PRE_TRA_DROP` The dropout keep rate for the pre-train phase
