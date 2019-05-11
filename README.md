@@ -3,7 +3,7 @@
 
 This repository contains the TensorFlow implementation for [CVPR 2019](http://cvpr2019.thecvf.com/) Paper ["Meta-Transfer Learning for Few-Shot Learning"](https://arxiv.org/pdf/1812.02391.pdf) by [Qianru Sun](https://www.comp.nus.edu.sg/~sunqr/), [Yaoyao Liu](https://yaoyao-liu.com), [Tat-Seng Chua](https://www.chuatatseng.com/) and [Bernt Schiele](https://www.mpi-inf.mpg.de/departments/computer-vision-and-multimodal-computing/people/bernt-schiele/).
 
-If you have any problems when running this repo, feel free to send me an email or open an issue. I will reply to you as soon as I see them. (Email: liuyaoyao at tju.edu.cn)
+If you have any problems when running this repository, feel free to send me an email or open an issue. I will reply to you as soon as I see them. (Email: liuyaoyao at tju.edu.cn)
 
 #### Summary:
 
