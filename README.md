@@ -38,7 +38,7 @@ Create a new environment and install tensorflow on it:
 ```bash
 conda create --name mtl python=2.7
 source activate mtl
-pip install --ignore-installed --upgrade https://mirrors.tuna.tsinghua.edu.cn/tensorflow/linux/gpu/tensorflow_gpu-1.3.0-cp27-none-linux_x86_64.whl
+conda install tensorflow-gpu==1.3.0
 ```
 
 Clone this repository:
