@@ -156,7 +156,7 @@ Please cite our paper if it is helpful to your work:
 
 ## Acknowledgements
 
-This repository uses the source code from the following repositories:
+Our implementation uses the source code from the following repositories:
 
 [Model-Agnostic Meta-Learning](https://github.com/cbfinn/maml)
 
