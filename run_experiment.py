@@ -21,12 +21,17 @@ def run_experiment(PHASE='META'):
 
     # Basic options
     LOG_DIR = 'experiment_results' # The name of the folder to save the log files
-    SHOT_NUM = 1 #the shot number for the few-shot tasks.
-    WAY_NUM = 5 # The class number for the few-shot tasks
-    GPU_ID = 0 # The GPU device id 
+    GPU_ID = 0 # The GPU device id
+
+    # Pre-train phase options
+    PRE_TRA_LAB = 'mini_normal' # The additional label for pre-train model
+    PRE_TRA_ITER_MAX = 20000 # The iteration number for the pre-train phase
+    PRE_TRA_DROP = 0.9 # The dropout keep rate for the pre-train phase
 
     # Meta options
-    MAX_ITER = 20000 # the iteration number for meta-train.
+    SHOT_NUM = 1 #the shot number for the few-shot tasks
+    WAY_NUM = 5 # The class number for the few-shot tasks
+    MAX_ITER = 20000 # the iteration number for meta-train
     META_BATCH_SIZE = 2 # The meta batch size 
     PRE_ITER = 10000 # The iteration number for the pre-train model used in the meta-train phase
     UPDATE_NUM = 20 # The epoch number for the base learning
@@ -36,19 +41,11 @@ def run_experiment(PHASE='META'):
     LR_DROP_STEP = 1000 # The iteration number for the meta learning rate reducing
     BASE_LR = 0.001 # Base learning rate
 
-    # Pre-train phase options
-    PRE_TRA_LAB = 'mini_normal' # The additional label for pre-train model
-    PRE_TRA_ITER_MAX = 20000 # The iteration number for the pre-train phase
-    PRE_TRA_DROP = 0.9 # The dropout keep rate for the pre-train phase
-
     # Data directories
     PRE_TRA_DIR = './data/mini-imagenet/train' # The directory for the pre-train phase images
     META_TRA_DIR = './data/mini-imagenet/train' # The directory for the meta-train images
     META_VAL_DIR = './data/mini-imagenet/val' # The directory for the meta-validation images
     META_TES_DIR = './data/mini-imagenet/test' # The directory for the meta-test images
-
-    """More settings are in the main.py file.
-    """
 
     # Generate the base command for main.py
     base_command = 'python main.py' \
