@@ -109,6 +109,8 @@ You may edit the `run_experiment.py` file to change the hyperparameters and opti
 - `PRE_TRA_LAB` Additional label for pre-train model
 - `PRE_TRA_ITER_MAX` Iteration number for the pre-train phase
 - `PRE_TRA_DROP` Dropout keep rate for the pre-train phase
+- `PRE_DROP_STEP` Iteration number for the pre-train learning rate reducing
+- `PRE_LR` Pre-train learning rate
 - `SHOT_NUM` Sample number for each class
 - `WAY_NUM` Class number for the few-shot tasks
 - `MAX_MAX_ITER` Iteration number for meta-train phase
