@@ -28,7 +28,7 @@ Meta-learning has been proposed as a framework to address the challenging few-sh
 
 ## Installation
 
-In order to run this repo, we advise you to install python 2.7 and TensorFlow 1.3.0 with Anaconda.
+In order to run this repository, we advise you to install python 2.7 and TensorFlow 1.3.0 with Anaconda.
 
 You may download Anaconda and read the installation instruction on their official website:
 <https://www.anaconda.com/download/>
