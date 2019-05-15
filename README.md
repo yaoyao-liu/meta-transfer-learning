@@ -106,7 +106,7 @@ You may edit the `run_experiment.py` file to change the hyperparameters and opti
 
 - `LOG_DIR` Name of the folder to save the log files
 - `GPU_ID` GPU device id
-- `PRE_TRA_LAB` Additional label for pre-train model
+- `PRE_TRA_LABEL` Additional label for pre-train model
 - `PRE_TRA_ITER_MAX` Iteration number for the pre-train phase
 - `PRE_TRA_DROP` Dropout keep rate for the pre-train phase
 - `PRE_DROP_STEP` Iteration number for the pre-train learning rate reducing

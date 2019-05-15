@@ -24,7 +24,7 @@ def run_experiment(PHASE='META'):
     GPU_ID = 0 # GPU device id
 
     # Pre-train phase options
-    PRE_TRA_LAB = 'mini_normal' # Additional label for pre-train model
+    PRE_TRA_LABEL = 'mini_normal' # Additional label for pre-train model
     PRE_TRA_ITER_MAX = 20000 # Iteration number for the pre-train phase
     PRE_TRA_DROP = 0.9 # Dropout keep rate for the pre-train phase
     PRE_DROP_STEP = 5000 # Iteration number for the pre-train learning rate reducing
@@ -67,7 +67,7 @@ def run_experiment(PHASE='META'):
         + ' --meta_save_step=' + str(SAVE_STEP) \
         + ' --lr_drop_step=' + str(LR_DROP_STEP) \
         + ' --pretrain_folders=' + PRE_TRA_DIR \
-        + ' --pretrain_label=' + PRE_TRA_LAB \
+        + ' --pretrain_label=' + PRE_TRA_LABEL \
         + ' --device_id=' + str(GPU_ID) \
         + ' --metatrain_dir=' META_TRA_DIR \
         + ' --metaval_dir=' META_VAL_DIR \
