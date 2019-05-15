@@ -104,20 +104,25 @@ python run_experiment.py
 ```
 You may edit the `run_experiment.py` file to change the hyperparameters and options. 
 
-- `WAY_NUM` Class number for the few-shot tasks
+- `LOG_DIR` Name of the folder to save the log files
+- `GPU_ID` GPU device id
+
+- `PRE_TRA_LAB` Additional label for pre-train model
+- `PRE_TRA_ITER_MAX` Iteration number for the pre-train phase
+- `PRE_TRA_DROP` Dropout keep rate for the pre-train phase
+
 - `SHOT_NUM` Sample number for each class
+- `WAY_NUM` Class number for the few-shot tasks
 - `MAX_MAX_ITER` Iteration number for meta-train phase
 - `META_BATCH_SIZE` Meta batch size 
 - `PRE_ITER` Iteration number for the pre-train model used in the meta-train phase
 - `UPDATE_NUM` Epoch number for the base learning
-- `LOG_DIR` Name of the folder to save the log files
-- `PRE_TRA_ITER_MAX` Iteration number for the pre-train phase
-- `PRE_TRA_DROP` Dropout keep rate for the pre-train phase
 - `SAVE_STEP` Iteration number to save the meta model
+- `META_LR` Meta learning rate
+- `META_LR_MIN` Meta learning rate min value
 - `LR_DROP_STEP` Iteration number for the meta learning rate reducing
-- `GPU_ID` GPU device id 
-- `GPU_MODE` If `GPU_MODE` is true, it will occupy all the GPU memory when the tensorflow session starts
-- `PRE_TRA_LAB` Additional label for pre-train model
+- `BASE_LR` Base learning rate
+
 - `PRE_TRA_DIR` Directory for the pre-train phase images
 - `META_TRA_DIR` Directory for the meta-train images
 - `META_VAL_DIR` Directory for the meta-validation images

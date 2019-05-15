@@ -8,28 +8,38 @@
 ## LICENSE file in the root directory of this source tree
 ##+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+""" Generate commands for main.py """
 import os
 
-def run_experiment(MAX_ITER=10000, SHOT_NUM=1, PHASE='META'):
+def run_experiment(PHASE='META'):
     """The function to generate commands to run the experiments.
-    Args:
-      MAX_ITER: the iteration number for meta-train.
-      SHOT_NUM: the shot number for the few-shot tasks.
+    Arg:
       PHASE: the phase for MTL. 'PRE' means pre-train phase, and 'META' means meta-train and meta-test phases.
     """
     # Some important options
+    # Please note that not all the options are shown here. For more detailed options, please edit main.py
+
+    # Basic options
+    LOG_DIR = 'experiment_results' # The name of the folder to save the log files
+    SHOT_NUM = 1 #the shot number for the few-shot tasks.
+    WAY_NUM = 5 # The class number for the few-shot tasks
     GPU_ID = 0 # The GPU device id 
+
+    # Meta options
+    MAX_ITER = 20000 # the iteration number for meta-train.
     META_BATCH_SIZE = 2 # The meta batch size 
     PRE_ITER = 10000 # The iteration number for the pre-train model used in the meta-train phase
     UPDATE_NUM = 20 # The epoch number for the base learning
-    WAY_NUM = 5 # The class number for the few-shot tasks
-    GPU_MODE = 'False' # If 'GPU_MODE' is true, it will occupy all the GPU memory when the tensorflow session starts
-    LOG_DIR = 'experiment_results' # The name of the folder to save the log files
+    SAVE_STEP = 1000 # The iteration number to save the meta model
+    META_LR = 0.001 # Meta learning rate
+    META_LR_MIN = 0.0001 # Meta learning rate min value
+    LR_DROP_STEP = 1000 # The iteration number for the meta learning rate reducing
+    BASE_LR = 0.001 # Base learning rate
+
+    # Pre-train phase options
+    PRE_TRA_LAB = 'mini_normal' # The additional label for pre-train model
     PRE_TRA_ITER_MAX = 20000 # The iteration number for the pre-train phase
     PRE_TRA_DROP = 0.9 # The dropout keep rate for the pre-train phase
-    SAVE_STEP = 1000 # The iteration number to save the meta model
-    LR_DROP_STEP = 1000 # The iteration number for the meta learning rate reducing
-    PRE_TRA_LAB = 'mini_normal' # The additional label for pre-train model
 
     # Data directories
     PRE_TRA_DIR = './data/mini-imagenet/train' # The directory for the pre-train phase images
@@ -45,7 +55,9 @@ def run_experiment(MAX_ITER=10000, SHOT_NUM=1, PHASE='META'):
         + ' --metatrain_iterations=' + str(MAX_ITER) \
         + ' --meta_batch_size=' + str(META_BATCH_SIZE) \
         + ' --shot_num=' + str(SHOT_NUM) \
-        + ' --base_lr=0.01' \
+        + ' --meta_lr=' + str(META_LR) \
+        + ' --min_meta_lr=' + str(META_LR_MIN) \
+        + ' --base_lr=' + str(BASE_LR)\
         + ' --train_base_epoch_num=' + str(UPDATE_NUM) \
         + ' --way_num=' + str(WAY_NUM) \
         + ' --exp_log_label=' + LOG_DIR \
@@ -57,7 +69,6 @@ def run_experiment(MAX_ITER=10000, SHOT_NUM=1, PHASE='META'):
         + ' --lr_drop_step=' + str(LR_DROP_STEP) \
         + ' --pretrain_folders=' + PRE_TRA_DIR \
         + ' --pretrain_label=' + PRE_TRA_LAB \
-        + ' --full_gpu_memory_mode=' + GPU_MODE \
         + ' --device_id=' + str(GPU_ID) \
         + ' --metatrain_dir=' META_TRA_DIR \
         + ' --metaval_dir=' META_VAL_DIR \
@@ -99,4 +110,4 @@ def run_experiment(MAX_ITER=10000, SHOT_NUM=1, PHASE='META'):
 run_experiment(PHASE='PRE')
 
 # run meta-train and meta-test phase
-run_experiment(MAX_ITER=20000, SHOT_NUM=1, PHASE='META')
+run_experiment(PHASE='META')
