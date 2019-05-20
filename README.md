@@ -5,10 +5,10 @@ This repository contains the TensorFlow implementation for [CVPR 2019](http://cv
 
 If you have any problems when running this repository, feel free to send me an email or open an issue. I will reply to you as soon as I see them. (Email: liuyaoyao at tju.edu.cn)
 
-#### Summary:
+#### 𝐒𝐮𝐦𝐦𝐚𝐫𝐲
 
-* [Introduction](#introduction)
-* [Installation](#installation)
+* [Introduction](#𝐈𝐧𝐭𝐫𝐨𝐝𝐮𝐜𝐭𝐢𝐨𝐧)
+* [Installation](#𝐈𝐧𝐬𝐭𝐚𝐥𝐥𝐚𝐭𝐢𝐨𝐧)
 * [Datasets](#datasets)
 * [Repo Architecture](#repo-architecture)
 * [Usage](#usage)
@@ -26,7 +26,7 @@ Meta-learning has been proposed as a framework to address the challenging few-sh
 
 > Figure: Meta-Transfer Learning. (a) Parameter-level fine-tuning (FT) is a conventional meta-training operation, e.g. in MAML. Its update works for all neuron parameters, W and b. (b) Our neuron-level scaling and shifting (SS) operations in meta-transfer learning. They reduce the number of learning parameters and avoid overfitting problems. In addition, they keep large-scale trained parameters (in yellow) frozen, preventing “catastrophic forgetting”.
 
-## Installation
+## 𝐈𝐧𝐬𝐭𝐚𝐥𝐥𝐚𝐭𝐢𝐨𝐧
 
 In order to run this repository, we advise you to install python 2.7 and TensorFlow 1.3.0 with Anaconda.
 
@@ -55,9 +55,9 @@ pip install tqdm
 pip install opencv-python
 ```
 
-## Datasets
+## 𝐃𝐚𝐭𝐚𝐬𝐞𝐭𝐬
 
-### *mini*ImageNet
+### *𝐦𝐢𝐧𝐢*𝐈𝐦𝐚𝐠𝐞𝐍𝐞𝐭
 
 The *mini*ImageNet dataset was proposed by [Vinyals et al.](http://papers.nips.cc/paper/6385-matching-networks-for-one-shot-learning.pdf) for few-shot learning evaluation. Its complexity is high due to the use of ImageNet images but requires fewer resources and infrastructure than running on the full [ImageNet dataset](https://arxiv.org/pdf/1409.0575.pdf). In total, there are 100 classes with 600 samples of 84×84 color images per class. These 100 classes are divided into 64, 16, and 20 classes respectively for sampling tasks for meta-training, meta-validation, and meta-test.
 
