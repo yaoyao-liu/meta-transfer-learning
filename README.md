@@ -9,11 +9,11 @@ If you have any problems when running this repository, feel free to send me an e
 
 * [Introduction](#𝐈𝐧𝐭𝐫𝐨𝐝𝐮𝐜𝐭𝐢𝐨𝐧)
 * [Installation](#𝐈𝐧𝐬𝐭𝐚𝐥𝐥𝐚𝐭𝐢𝐨𝐧)
-* [Datasets](#datasets)
-* [Repo Architecture](#repo-architecture)
-* [Usage](#usage)
-* [Citation](#citation)
-* [Acknowledgements](#acknowledgements)
+* [Datasets](#𝐃𝐚𝐭𝐚𝐬𝐞𝐭𝐬)
+* [Repo Architecture](#𝐑𝐞𝐩𝐨-𝐀𝐫𝐜𝐡𝐢𝐭𝐞𝐜𝐭𝐮𝐫𝐞)
+* [Usage](#𝐔𝐬𝐚𝐠𝐞)
+* [Citation](#𝐂𝐢𝐭𝐚𝐭𝐢𝐨𝐧)
+* [Acknowledgements](#𝐀𝐜𝐤𝐧𝐨𝐰𝐥𝐞𝐝𝐠𝐞𝐦𝐞𝐧𝐭𝐬)
 
 
 ## 𝐈𝐧𝐭𝐫𝐨𝐝𝐮𝐜𝐭𝐢𝐨𝐧
@@ -57,26 +57,26 @@ pip install opencv-python
 
 ## 𝐃𝐚𝐭𝐚𝐬𝐞𝐭𝐬
 
-### *𝐦𝐢𝐧𝐢*𝐈𝐦𝐚𝐠𝐞𝐍𝐞𝐭
+### 𝒎𝒊𝒏𝒊𝐈𝐦𝐚𝐠𝐞𝐍𝐞𝐭
 
 The *mini*ImageNet dataset was proposed by [Vinyals et al.](http://papers.nips.cc/paper/6385-matching-networks-for-one-shot-learning.pdf) for few-shot learning evaluation. Its complexity is high due to the use of ImageNet images but requires fewer resources and infrastructure than running on the full [ImageNet dataset](https://arxiv.org/pdf/1409.0575.pdf). In total, there are 100 classes with 600 samples of 84×84 color images per class. These 100 classes are divided into 64, 16, and 20 classes respectively for sampling tasks for meta-training, meta-validation, and meta-test.
 
 To generate this dataset from ImageNet, you may use the repository [*mini*ImageNet tools](https://github.com/y2l/mini-imagenet-tools). You may also directly download processed images. [\[Download Page\]](https://mtl.yyliu.net/download/)
 
-### Fewshot-CIFAR100
+### 𝐅𝐞𝐰𝐬𝐡𝐨𝐭-𝐂𝐈𝐅𝐀𝐑𝟏𝟎𝟎
 
 Fewshot-CIFAR100 (FC100) is based on the popular object classification dataset CIFAR100. The splits were
 proposed by [TADAM](https://arxiv.org/pdf/1805.10123.pdf). It offers a more challenging scenario with lower image resolution and more challenging meta-training/test splits that are separated according to object super-classes. It contains 100 object classes and each class has 600 samples of 32 × 32 color images. The 100 classes belong to 20 super-classes. Meta-training data are from 60 classes belonging to 12 super-classes. Meta-validation and meta-test sets contain 20 classes belonging to 4 super-classes, respectively.
 
 You may directly download processed images. [\[Download Page\]](https://mtl.yyliu.net/download/)
 
-### *tiered*ImageNet 
+### 𝒕𝒊𝒆𝒓𝒆𝒅𝐈𝐦𝐚𝐠𝐞𝐍𝐞𝐭
 
 The [*tiered*ImageNet](https://arxiv.org/pdf/1803.00676.pdf) dataset is a larger subset of ILSVRC-12 with 608 classes (779,165 images) grouped into 34 higher-level nodes in the ImageNet human-curated hierarchy. 
 
 To generate this dataset from ImageNet, you may use the repository *tiered*ImageNet dataset: [*tiered*ImageNet tools](https://github.com/y2l/tiered-imagenet-tools). You may also directly download processed images. [\[Download Page\]](https://mtl.yyliu.net/download/)
 
-## Repo Architecture
+## 𝐑𝐞𝐩𝐨 𝐀𝐫𝐜𝐡𝐢𝐭𝐞𝐜𝐭𝐮𝐫𝐞
 
 ```
 .
@@ -96,7 +96,7 @@ To generate this dataset from ImageNet, you may use the repository *tiered*Image
 └── run_experiment.py           # the script to run the whole experiment
 ```
 
-## Usage
+## 𝐔𝐬𝐚𝐠𝐞
 
 To run the experiments:
 ```bash
@@ -136,7 +136,7 @@ Download Pretain Model (*mini*ImageNet):
 
 We will release more pre-trained models later.
 
-## Todo
+## 𝐓𝐨𝐝𝐨
 
 - [ ] **Hard task meta-batch.**
   The implementation of hard task meta-batch is not included in the published code. I still need time to rewrite the hard task meta batch code for the current framework.
@@ -145,7 +145,7 @@ We will release more pre-trained models later.
 - [ ] **PyTorch version.**
   We will release the code for MTL on pytorch. It may takes several months to be completed.
 
-## Citation
+## 𝐂𝐢𝐭𝐚𝐭𝐢𝐨𝐧
 
 Please cite our paper if it is helpful to your work:
 
@@ -158,7 +158,7 @@ Please cite our paper if it is helpful to your work:
 }
 ```
 
-## Acknowledgements
+## 𝐀𝐜𝐤𝐧𝐨𝐰𝐥𝐞𝐝𝐠𝐞𝐦𝐞𝐧𝐭𝐬
 
 Our implementation uses the source code from the following repositories:
 
