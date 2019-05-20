@@ -138,11 +138,11 @@ We will release more pre-trained models later.
 
 ## 𝐓𝐨𝐝𝐨
 
-- [ ] **Hard task meta-batch.**
+- [ ] 𝐇𝐚𝐫𝐝 𝐭𝐚𝐬𝐤 𝐦𝐞𝐭𝐚-𝐛𝐚𝐭𝐜𝐡.
   The implementation of hard task meta-batch is not included in the published code. I still need time to rewrite the hard task meta batch code for the current framework.
-- [ ] **More network architectures.**
+- [ ] 𝐌𝐨𝐫𝐞 𝐧𝐞𝐭𝐰𝐨𝐫𝐤 𝐚𝐫𝐜𝐡𝐢𝐭𝐞𝐜𝐭𝐮𝐫𝐞𝐬.
   We will add new backbones to the framework like ResNet18 and ResNet34.
-- [ ] **PyTorch version.**
+- [ ] 𝐏𝐲𝐓𝐨𝐫𝐜𝐡 𝐯𝐞𝐫𝐬𝐢𝐨𝐧.
   We will release the code for MTL on pytorch. It may takes several months to be completed.
 
 ## 𝐂𝐢𝐭𝐚𝐭𝐢𝐨𝐧
