@@ -16,7 +16,7 @@ If you have any problems when running this repository, feel free to send me an e
 * [Acknowledgements](#acknowledgements)
 
 
-## Introduction
+## 𝐈𝐧𝐭𝐫𝐨𝐝𝐮𝐜𝐭𝐢𝐨𝐧
 
 Meta-learning has been proposed as a framework to address the challenging few-shot learning setting. The key idea is to leverage a large number of similar few-shot tasks in order to learn how to adapt a base-learner to a new task for which only a few labeled samples are available. As deep neural networks (DNNs) tend to overfit using a few samples only, meta-learning typically uses shallow neural networks (SNNs), thus limiting its effectiveness. In this paper we propose a novel few-shot learning method called ***meta-transfer learning (MTL)*** which learns to adapt a ***deep NN*** for ***few shot learning tasks***. Specifically, meta refers to training multiple tasks, and transfer is achieved by learning scaling and shifting functions of DNN weights for each task. In addition, we introduce the ***hard task (HT) meta-batch*** scheme as an effective learning curriculum for MTL. We conduct experiments using (5-class, 1-shot) and (5-class, 5-shot) recognition tasks on two challenging few-shot learning benchmarks: *mini*ImageNet and Fewshot-CIFAR100. Extensive comparisons to related works validate that our ***meta-transfer learning*** approach trained with the proposed ***HT meta-batch*** scheme achieves top performance. An ablation study also shows that both components contribute to fast convergence and high accuracy.
 
