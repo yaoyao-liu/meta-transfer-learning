@@ -1,7 +1,7 @@
 # 𝐌𝐞𝐭𝐚-𝐓𝐫𝐚𝐧𝐬𝐟𝐞𝐫 𝐋𝐞𝐚𝐫𝐧𝐢𝐧𝐠 𝐓𝐞𝐧𝐬𝐨𝐫𝐅𝐥𝐨𝐰
 [![LICENSE](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/y2l/meta-transfer-learning-tensorflow/blob/master/LICENSE)
 
-This repository contains the TensorFlow implementation for [CVPR 2019](http://cvpr2019.thecvf.com/) Paper ["Meta-Transfer Learning for Few-Shot Learning"](https://arxiv.org/pdf/1812.02391.pdf) by [Qianru Sun](https://www.comp.nus.edu.sg/~sunqr/), [Yaoyao Liu](https://yaoyao-liu.com), [Tat-Seng Chua](https://www.chuatatseng.com/) and [Bernt Schiele](https://www.mpi-inf.mpg.de/departments/computer-vision-and-multimodal-computing/people/bernt-schiele/).
+This repository contains the TensorFlow implementation for [CVPR 2019](http://cvpr2019.thecvf.com/) Paper ["Meta-Transfer Learning for Few-Shot Learning"](https://arxiv.org/pdf/1812.02391.pdf) by [Qianru Sun]*(https://www.comp.nus.edu.sg/~sunqr/), [Yaoyao Liu]*(https://yaoyao-liu.com), [Tat-Seng Chua](https://www.chuatatseng.com/) and [Bernt Schiele](https://www.mpi-inf.mpg.de/departments/computer-vision-and-multimodal-computing/people/bernt-schiele/).
 
 If you have any problems when running this repository, feel free to send me an email or open an issue. I will reply to you as soon as I see them. (Email: liuyaoyao at tju.edu.cn)
 
