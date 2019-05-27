@@ -131,8 +131,8 @@ The file `run_experiment.py` is just a script to generate commands for `main.py`
 
 In the default setting, if you run `python run_experiment.py`, the pretrain process will be conducted before the meta-train phase starts. If you want to use the model pretrained by us, you may download the model by the following link then replace the pretrain model loading directory in `trainer/meta.py`.
 
-Download Pretain Model (*mini*ImageNet): 
-[\[Google Drive\]](https://drive.google.com/uc?authuser=0&id=1pd8VSQfO7ILVT1OGDjARwHSRtAvwrsID&export=download)  [\[百度网盘\]](https://pan.baidu.com/s/1muQ1d3B7FMNIMQLxgEsdIQ) (提取码: efsv)
+Download Model (*mini*ImageNet, 1-shot): 
+[\[Google Drive\]](https://drive.google.com/drive/folders/1MzH2enwLKuzmODYAEATnyiP_602zrdrE?usp=sharing)
 
 We will release more pre-trained models later.
 
