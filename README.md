@@ -41,18 +41,18 @@ conda activate mtl
 conda install tensorflow-gpu==1.3.0
 ```
 
-Clone this repository:
-
-```bash
-git clone https://github.com/y2l/meta-transfer-learning-tensorflow.git 
-cd meta-transfer-learning-tensorflow
-```
-
 Install other requirements:
 ```bash
 pip install scipy
 pip install tqdm
 pip install opencv-python
+```
+
+Clone this repository:
+
+```bash
+git clone https://github.com/y2l/meta-transfer-learning-tensorflow.git 
+cd meta-transfer-learning-tensorflow
 ```
 
 ## 𝐃𝐚𝐭𝐚𝐬𝐞𝐭𝐬
