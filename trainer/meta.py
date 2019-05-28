@@ -89,11 +89,14 @@ class MetaTrainer:
                     weights_save_dir = os.path.join(weights_save_dir_base, pre_save_str)
                     weights = np.load(os.path.join(weights_save_dir, "weights_{}.npy".format(FLAGS.pretrain_iterations)), allow_pickle=True, encoding="latin1").tolist()
                 bais_list = [bais_item for bais_item in weights.keys() if '_bias' in bais_item]
+                # Assign the bias weights to ss model in order to train them during meta-train
                 for bais_key in bais_list:
                     self.sess.run(tf.assign(self.model.ss_weights[bais_key], weights[bais_key]))
+                # Assign pretrained weights to tensorflow variables
                 for key in weights.keys():
                     self.sess.run(tf.assign(self.model.weights[key], weights[key]))
                 print('Pretrain weights loaded, saving init weights')
+                # Load and save init weights for the model
                 new_weights = self.sess.run(self.model.weights)
                 ss_weights = self.sess.run(self.model.ss_weights)
                 fc_weights = self.sess.run(self.model.fc_weights)
@@ -102,7 +105,8 @@ class MetaTrainer:
                 np.save(this_init_dir + 'fc_weights_init.npy', fc_weights)
             else:
                 # If the initialization weights are already generated, load the previous saved ones
-                print('Loading previous saved weights')
+                # This process is deactivate in the default settings, you may activate this for ablative study
+                print('Loading previous saved init weights')
                 weights = np.load(this_init_dir + 'weights_init.npy', allow_pickle=True, encoding="latin1").tolist()
                 ss_weights = np.load(this_init_dir + 'ss_weights_init.npy', allow_pickle=True, encoding="latin1").tolist()
                 fc_weights = np.load(this_init_dir + 'fc_weights_init.npy', allow_pickle=True, encoding="latin1").tolist()
@@ -112,17 +116,20 @@ class MetaTrainer:
                     self.sess.run(tf.assign(self.model.ss_weights[key], ss_weights[key]))
                 for key in fc_weights.keys():
                     self.sess.run(tf.assign(self.model.fc_weights[key], fc_weights[key]))
-                print('Weights loaded')
+                print('Init weights loaded')
         else:
             # Load the saved meta model for meta-test phase
             if FLAGS.load_saved_weights:
+                # Load the downloaded weights
                 weights = np.load('./logs/download_weights/weights.npy', allow_pickle=True, encoding="latin1").tolist()
                 ss_weights = np.load('./logs/download_weights/ss_weights.npy', allow_pickle=True, encoding="latin1").tolist()
                 fc_weights = np.load('./logs/download_weights/fc_weights.npy', allow_pickle=True, encoding="latin1").tolist()
             else:
+                # Load the saved weights of meta-train
                 weights = np.load(FLAGS.logdir + '/' + exp_string +  '/weights_' + str(FLAGS.test_iter) + '.npy', allow_pickle=True, encoding="latin1").tolist()
                 ss_weights = np.load(FLAGS.logdir + '/' + exp_string +  '/ss_weights_' + str(FLAGS.test_iter) + '.npy', allow_pickle=True, encoding="latin1").tolist()
                 fc_weights = np.load(FLAGS.logdir + '/' + exp_string +  '/fc_weights_' + str(FLAGS.test_iter) + '.npy', allow_pickle=True, encoding="latin1").tolist()
+            # Assign the weights to the tensorflow variables
             for key in weights.keys():
                 self.sess.run(tf.assign(self.model.weights[key], weights[key]))
             for key in ss_weights.keys():
@@ -130,7 +137,10 @@ class MetaTrainer:
             for key in fc_weights.keys():
                 self.sess.run(tf.assign(self.model.fc_weights[key], fc_weights[key]))
             print('Weights loaded')
-            print('Test iter: ' + str(FLAGS.test_iter))
+            if FLAGS.load_saved_weights:
+                print('Meta test using downloaded model')
+            else:
+                print('Test iter: ' + str(FLAGS.test_iter))
 
         if FLAGS.metatrain:
             self.train(data_generator)
