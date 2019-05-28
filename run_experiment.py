@@ -25,7 +25,7 @@ def run_experiment(PHASE='META'):
     GPU_ID = 1 # GPU device id
 
     # Pre-train phase options
-    PRE_TRA_LABEL = 'mini_normal' # Additional label for pre-train model
+    PRE_TRA_LABEL = 'normal' # Additional label for pre-train model
     PRE_TRA_ITER_MAX = 20000 # Iteration number for the pre-train phase
     PRE_TRA_DROP = 0.9 # Dropout keep rate for the pre-train phase
     PRE_DROP_STEP = 5000 # Iteration number for the pre-train learning rate reducing
