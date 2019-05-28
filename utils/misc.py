@@ -15,6 +15,7 @@ import cv2
 import random
 import tensorflow as tf
 import scipy.misc as scm
+from matplotlib.pyplot import imread
 
 from tensorflow.contrib.layers.python import layers as tf_layers
 from tensorflow.python.platform import flags
@@ -79,7 +80,7 @@ def process_batch(input_filename_list, input_label_list, dim_input, batch_sample
     new_path_list = []
     new_label_list = []
     for k in range(batch_sample_num):
-        class_idxs = range(0, FLAGS.way_num)
+        class_idxs = list(range(0, FLAGS.way_num))
         random.shuffle(class_idxs)
         for class_idx in class_idxs:
             true_idx = class_idx*batch_sample_num + k
@@ -88,7 +89,7 @@ def process_batch(input_filename_list, input_label_list, dim_input, batch_sample
 
     img_list = []
     for filepath in new_path_list:
-        this_img = scm.imread(filepath)
+        this_img = imread(filepath)
         this_img = np.reshape(this_img, [-1, dim_input])
         this_img = this_img / 255.0
         img_list.append(this_img)
@@ -111,7 +112,7 @@ def process_batch_augmentation(input_filename_list, input_label_list, dim_input,
     new_path_list = []
     new_label_list = []
     for k in range(batch_sample_num):
-        class_idxs = range(0, FLAGS.way_num)
+        class_idxs = list(range(0, FLAGS.way_num))
         random.shuffle(class_idxs)
         for class_idx in class_idxs:
             true_idx = class_idx*batch_sample_num + k
@@ -121,7 +122,7 @@ def process_batch_augmentation(input_filename_list, input_label_list, dim_input,
     img_list = []
     img_list_h = []
     for filepath in new_path_list:
-        this_img = scm.imread(filepath)
+        this_img = imread(filepath)
         this_img_h = cv2.flip(this_img, 1)
         this_img = np.reshape(this_img, [-1, dim_input])
         this_img = this_img / 255.0

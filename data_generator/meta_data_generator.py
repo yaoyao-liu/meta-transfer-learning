@@ -113,7 +113,7 @@ class MetaDataGenerator(object):
         Arg:
           data_type: the phase for meta-learning.
         """
-        data_list = np.load(self.this_setting_filename_dir+'/' + data_type + '_data.npy')
+        data_list = np.load(self.this_setting_filename_dir+'/' + data_type + '_data.npy', allow_pickle=True, encoding="latin1")
         if data_type=='train':
             self.train_data = data_list
         elif data_type=='test':

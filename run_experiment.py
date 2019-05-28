@@ -10,6 +10,7 @@
 
 """ Generate commands for main.py """
 import os
+import sys
 
 def run_experiment(PHASE='META'):
     """The function to generate commands to run the experiments.
@@ -21,7 +22,7 @@ def run_experiment(PHASE='META'):
 
     # Basic options
     LOG_DIR = 'experiment_results' # Name of the folder to save the log files
-    GPU_ID = 0 # GPU device id
+    GPU_ID = 1 # GPU device id
 
     # Pre-train phase options
     PRE_TRA_LABEL = 'mini_normal' # Additional label for pre-train model
@@ -69,9 +70,9 @@ def run_experiment(PHASE='META'):
         + ' --pretrain_folders=' + PRE_TRA_DIR \
         + ' --pretrain_label=' + PRE_TRA_LABEL \
         + ' --device_id=' + str(GPU_ID) \
-        + ' --metatrain_dir=' META_TRA_DIR \
-        + ' --metaval_dir=' META_VAL_DIR \
-        + ' --metatest_dir=' META_TES_DIR
+        + ' --metatrain_dir=' + META_TRA_DIR \
+        + ' --metaval_dir=' + META_VAL_DIR \
+        + ' --metatest_dir=' + META_TES_DIR
 
     def process_test_command(TEST_STEP, in_command):
         """The function to adapt the base command to the meta-test phase.
@@ -104,9 +105,16 @@ def run_experiment(PHASE='META'):
                 print('[*] Runing meta-test, load model for ' + str(idx) + ' iterations')
                 test_command = process_test_command(idx, base_command)
                 os.system(test_command)
-                
-# run pre-train phase
-run_experiment(PHASE='PRE')
 
-# run meta-train and meta-test phase
-run_experiment(PHASE='META')
+    if PHASE=='META_LOAD':
+        print('****** Start Meta-train Phase ******')
+        meta_train_command = base_command + ' --phase=meta' + ' --pretrain_iterations=' + str(PRE_ITER) + ' --load_saved_weights=True'
+        os.system(meta_train_command)
+
+    if PHASE=='TEST_LOAD':
+        test_command = process_test_command(0, base_command) + ' --load_saved_weights=True'
+        os.system(test_command)
+       
+
+THE_INPUT_PHASE = sys.argv[1]
+run_experiment(PHASE=THE_INPUT_PHASE)

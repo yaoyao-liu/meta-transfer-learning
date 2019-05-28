@@ -12,8 +12,12 @@
 import numpy as np
 import sys
 import tensorflow as tf
-from models import Models
 from tensorflow.python.platform import flags
+
+try:#python2
+    from models import Models
+except ImportError:#python3
+    from models.models import Models
 
 FLAGS = flags.FLAGS
 

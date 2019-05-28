@@ -12,9 +12,13 @@
 import numpy as np
 import sys
 import tensorflow as tf
-from models import Models
 from tensorflow.python.platform import flags
 from utils.misc import mse, softmaxloss, xent, resnet_conv_block, resnet_nob_conv_block, normalize
+
+try:#python2
+    from models import Models
+except ImportError:#python3
+    from models.models import Models
 
 FLAGS = flags.FLAGS
 
@@ -120,7 +124,7 @@ class MetaModel(Models):
 
         # Set the meta-train optimizer
         optimizer = tf.train.AdamOptimizer(self.meta_lr)
-        self.metatrain_op = optimizer.minimize(total_loss, var_list=ss_weights.values() + fc_weights.values())
+        self.metatrain_op = optimizer.minimize(total_loss, var_list=list(ss_weights.values()) + list(fc_weights.values()))
 
         # Set the tensorboard 
         self.training_summaries = []

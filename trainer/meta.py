@@ -39,11 +39,15 @@ class MetaTrainer:
             # Start tensorflow session          
             self.start_session()
             # Generate data for meta-train phase
-            random.seed(5) # The same random seed with MAML
+            if FLAGS.load_saved_weights:
+                os.system('rm -r ./logs/processed_data')
+                random.seed(6) 
             data_generator.generate_data(data_type='train')
-            random.seed(6) # The same random seed with MAML
+            if FLAGS.load_saved_weights:
+                random.seed(7) 
             data_generator.generate_data(data_type='test')
-            random.seed(7) # The same random seed with MAML
+            if FLAGS.load_saved_weights:
+                random.seed(8) 
             data_generator.generate_data(data_type='val')
         else:
             # Build model for meta-test phase
@@ -55,7 +59,9 @@ class MetaTrainer:
             # Start tensorflow session 
             self.start_session()
             # Generate data for meta-test phase
-            random.seed(6) # The same random seed with MAML
+            if FLAGS.load_saved_weights:
+                os.system('rm -r ./logs/processed_data')
+                random.seed(7) 
             data_generator.generate_data(data_type='test')
         # Load the experiment setting string from FLAGS
         exp_string = FLAGS.exp_string
@@ -64,7 +70,7 @@ class MetaTrainer:
         tf.global_variables_initializer().run()
         tf.train.start_queue_runners()
 
-        if FLAGS.metatrain:
+        if FLAGS.metatrain:              
             # Process initialization weights for meta-train
             init_dir = FLAGS.logdir_base + 'init_weights/'
             if not os.path.exists(init_dir):
@@ -74,10 +80,14 @@ class MetaTrainer:
             if not os.path.exists(this_init_dir):
                 # If there is no saved initialization weights for meta-train, load pre-train model and save initialization weights 
                 os.mkdir(this_init_dir)
-                print('Loading pretrain weights')
-                weights_save_dir_base = FLAGS.pretrain_dir
-                weights_save_dir = os.path.join(weights_save_dir_base, pre_save_str)
-                weights = np.load(os.path.join(weights_save_dir, "weights_{}.npy".format(FLAGS.pretrain_iterations))).tolist()
+                if FLAGS.load_saved_weights:
+                    print('Loading downloaded pretrain weights')
+                    weights = np.load('logs/download_weights/weights.npy', allow_pickle=True, encoding="latin1").tolist()
+                else:
+                    print('Loading pretrain weights')
+                    weights_save_dir_base = FLAGS.pretrain_dir
+                    weights_save_dir = os.path.join(weights_save_dir_base, pre_save_str)
+                    weights = np.load(os.path.join(weights_save_dir, "weights_{}.npy".format(FLAGS.pretrain_iterations)), allow_pickle=True, encoding="latin1").tolist()
                 bais_list = [bais_item for bais_item in weights.keys() if '_bias' in bais_item]
                 for bais_key in bais_list:
                     self.sess.run(tf.assign(self.model.ss_weights[bais_key], weights[bais_key]))
@@ -93,9 +103,9 @@ class MetaTrainer:
             else:
                 # If the initialization weights are already generated, load the previous saved ones
                 print('Loading previous saved weights')
-                weights = np.load(this_init_dir + 'weights_init.npy').tolist()
-                ss_weights = np.load(this_init_dir + 'ss_weights_init.npy').tolist()
-                fc_weights = np.load(this_init_dir + 'fc_weights_init.npy').tolist()
+                weights = np.load(this_init_dir + 'weights_init.npy', allow_pickle=True, encoding="latin1").tolist()
+                ss_weights = np.load(this_init_dir + 'ss_weights_init.npy', allow_pickle=True, encoding="latin1").tolist()
+                fc_weights = np.load(this_init_dir + 'fc_weights_init.npy', allow_pickle=True, encoding="latin1").tolist()
                 for key in weights.keys():
                     self.sess.run(tf.assign(self.model.weights[key], weights[key]))
                 for key in ss_weights.keys():
@@ -105,10 +115,14 @@ class MetaTrainer:
                 print('Weights loaded')
         else:
             # Load the saved meta model for meta-test phase
-            weights = np.load(FLAGS.logdir + '/' + exp_string +  '/weights_' + str(FLAGS.test_iter) + '.npy').tolist()
-            ss_weights = np.load(FLAGS.logdir + '/' + exp_string +  '/ss_weights_' + str(FLAGS.test_iter) + '.npy').tolist()
-            fc_weights = np.load(FLAGS.logdir + '/' + exp_string +  '/fc_weights_' + str(FLAGS.test_iter) + '.npy').tolist()
-            print((lr_weights))
+            if FLAGS.load_saved_weights:
+                weights = np.load('./logs/download_weights/weights.npy', allow_pickle=True, encoding="latin1").tolist()
+                ss_weights = np.load('./logs/download_weights/ss_weights.npy', allow_pickle=True, encoding="latin1").tolist()
+                fc_weights = np.load('./logs/download_weights/fc_weights.npy', allow_pickle=True, encoding="latin1").tolist()
+            else:
+                weights = np.load(FLAGS.logdir + '/' + exp_string +  '/weights_' + str(FLAGS.test_iter) + '.npy', allow_pickle=True, encoding="latin1").tolist()
+                ss_weights = np.load(FLAGS.logdir + '/' + exp_string +  '/ss_weights_' + str(FLAGS.test_iter) + '.npy', allow_pickle=True, encoding="latin1").tolist()
+                fc_weights = np.load(FLAGS.logdir + '/' + exp_string +  '/fc_weights_' + str(FLAGS.test_iter) + '.npy', allow_pickle=True, encoding="latin1").tolist()
             for key in weights.keys():
                 self.sess.run(tf.assign(self.model.weights[key], weights[key]))
             for key in ss_weights.keys():
@@ -283,17 +297,18 @@ class MetaTrainer:
         print((means, ci95))
 
         # Save the meta-test results in the csv files
-        if FLAGS.base_augmentation:
-            out_filename = FLAGS.logdir +'/'+ exp_string + '/' + 'result_aug_' + str(FLAGS.shot_num) + 'shot_' + str(FLAGS.test_iter) + '.csv'
-            out_pkl = FLAGS.logdir +'/'+ exp_string + '/' + 'result_aug_' + str(FLAGS.shot_num) + 'shot_' + str(FLAGS.test_iter) + '.pkl'
-        else:
-            out_filename = FLAGS.logdir +'/'+ exp_string + '/' + 'result_noaug_' + str(FLAGS.shot_num) + 'shot_' + str(FLAGS.test_iter) + '.csv'
-            out_pkl = FLAGS.logdir +'/'+ exp_string + '/' + 'result_noaug_' + str(FLAGS.shot_num) + 'shot_' + str(FLAGS.test_iter) + '.pkl'
-        with open(out_pkl, 'wb') as f:
-            pickle.dump({'mses': metaval_accuracies}, f)
-        with open(out_filename, 'w') as f:
-            writer = csv.writer(f, delimiter=',')
-            writer.writerow(['update'+str(i) for i in range(len(means))])
-            writer.writerow(means)
-            writer.writerow(stds)
-            writer.writerow(ci95)
+        if not FLAGS.load_saved_weights:
+            if FLAGS.base_augmentation:
+                out_filename = FLAGS.logdir +'/'+ exp_string + '/' + 'result_aug_' + str(FLAGS.shot_num) + 'shot_' + str(FLAGS.test_iter) + '.csv'
+                out_pkl = FLAGS.logdir +'/'+ exp_string + '/' + 'result_aug_' + str(FLAGS.shot_num) + 'shot_' + str(FLAGS.test_iter) + '.pkl'
+            else:
+                out_filename = FLAGS.logdir +'/'+ exp_string + '/' + 'result_noaug_' + str(FLAGS.shot_num) + 'shot_' + str(FLAGS.test_iter) + '.csv'
+                out_pkl = FLAGS.logdir +'/'+ exp_string + '/' + 'result_noaug_' + str(FLAGS.shot_num) + 'shot_' + str(FLAGS.test_iter) + '.pkl'
+            with open(out_pkl, 'wb') as f:
+                pickle.dump({'mses': metaval_accuracies}, f)
+            with open(out_filename, 'w') as f:
+                writer = csv.writer(f, delimiter=',')
+                writer.writerow(['update'+str(i) for i in range(len(means))])
+                writer.writerow(means)
+                writer.writerow(stds)
+                writer.writerow(ci95)

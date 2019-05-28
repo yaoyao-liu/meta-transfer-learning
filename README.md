@@ -28,7 +28,7 @@ Meta-learning has been proposed as a framework to address the challenging few-sh
 
 ## 𝐈𝐧𝐬𝐭𝐚𝐥𝐥𝐚𝐭𝐢𝐨𝐧
 
-In order to run this repository, we advise you to install python 2.7 and TensorFlow 1.3.0 with Anaconda.
+In order to run this repository, we advise you to install python 2.7 (recomended for this repo) or 3.5 and TensorFlow 1.3.0 with Anaconda.
 
 You may download Anaconda and read the installation instruction on their official website:
 <https://www.anaconda.com/download/>
@@ -46,6 +46,8 @@ Install other requirements:
 pip install scipy
 pip install tqdm
 pip install opencv-python
+pip install pillow
+pip install matplotlib
 ```
 
 Clone this repository:
@@ -98,9 +100,13 @@ To generate this dataset from ImageNet, you may use the repository *tiered*Image
 
 ## 𝐔𝐬𝐚𝐠𝐞
 
-To run the experiments:
+Run pre-train phase:
 ```bash
-python run_experiment.py
+python run_experiment.py PRE
+```
+Run meta-train phase:
+```bash
+python run_experiment.py META
 ```
 You may edit the `run_experiment.py` file to change the hyperparameters and options. 
 
@@ -133,6 +139,22 @@ In the default setting, if you run `python run_experiment.py`, the pretrain proc
 
 Download Model (*mini*ImageNet, 1-shot): 
 [\[Google Drive\]](https://drive.google.com/drive/folders/1MzH2enwLKuzmODYAEATnyiP_602zrdrE?usp=sharing)
+
+Move the downloaded npy files to 
+```bash
+mkdir -p ./logs/download_weights
+mv ~/downloads/*.npy ./logs/download_weights
+```
+
+Run meta-train with downloaded model:
+```bash
+python run_experiment.py META_LOAD
+```
+
+Run meta-test with downloaded model:
+```bash
+python run_experiment.py TEST_LOAD
+```
 
 We will release more pre-trained models later.
 

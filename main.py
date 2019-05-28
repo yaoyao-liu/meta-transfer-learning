@@ -52,7 +52,7 @@ flags.DEFINE_integer('meta_val_print_step', 100, 'the step number to print the m
 flags.DEFINE_integer('metatrain_iterations', 15000, 'number of meta-train iterations.') 
 flags.DEFINE_integer('meta_batch_size', 2, 'number of tasks sampled per meta-update')
 flags.DEFINE_integer('train_base_epoch_num', 20, 'number of inner gradient updates during training.')
-flags.DEFINE_integer('test_base_epoch_num', 20, 'number of inner gradient updates during test.')
+flags.DEFINE_integer('test_base_epoch_num', 100, 'number of inner gradient updates during test.')
 flags.DEFINE_integer('lr_drop_step', 5000, 'the step number to drop meta_lr')
 flags.DEFINE_integer('test_iter', 1000, 'iteration to load model')
 flags.DEFINE_float('meta_lr', 0.001, 'the meta learning rate of the generator')
@@ -67,6 +67,7 @@ flags.DEFINE_string('norm', 'batch_norm', 'batch_norm, layer_norm, or None')
 flags.DEFINE_bool('metatrain', True, 'is this the meta-train phase')
 flags.DEFINE_bool('base_augmentation', True, 'whether do data augmentation during base learning')
 flags.DEFINE_bool('redo_init', True, 're-build the initialization weights')
+flags.DEFINE_bool('load_saved_weights', False, 'load the downloaded weights')
 
 # Generate experiment key words string
 exp_string =  'cls(' + str(FLAGS.way_num) + ')'
@@ -123,8 +124,11 @@ if not os.path.exists(FLAGS.pretrain_dir):
 
 # If FLAGS.redo_init is true, delete the previous intialization weights.
 if FLAGS.redo_init:
-    os.system('rm -r ./logs/init_weights')
-    print('Init weights have been deleted')
+    if not os.path.exists('./logs/init_weights'):
+        os.system('rm -r ./logs/init_weights')
+        print('Init weights have been deleted')
+    else:
+        print('No init weights')
 
 def main():
     # Set GPU device id
