@@ -104,7 +104,7 @@ Run pre-train phase:
 ```bash
 python run_experiment.py PRE
 ```
-Run meta-train phase:
+Run meta-train and meta-test phase:
 ```bash
 python run_experiment.py META
 ```
