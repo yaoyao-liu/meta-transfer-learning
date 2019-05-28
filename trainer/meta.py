@@ -29,8 +29,8 @@ class MetaTrainer:
     """The class that contains the code for the meta-train and meta-test.
     """
     def __init__(self):
-        if FLAGS.load_saved_weights:
-            os.system('rm -r ./logs/processed_data/*')
+        # Remove the saved datalist for a new experiment
+        os.system('rm -r ./logs/processed_data/*')
         data_generator = MetaDataGenerator()
         if FLAGS.metatrain:
             # Build model for meta-train phase
