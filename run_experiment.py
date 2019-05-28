@@ -107,14 +107,14 @@ def run_experiment(PHASE='META'):
                 os.system(test_command)
 
     if PHASE=='META_LOAD':
-        print('****** Start Meta-train Phase ******')
+        print('****** Start Meta-train Phase with Downloaded Weights ******')
         meta_train_command = base_command + ' --phase=meta' + ' --pretrain_iterations=' + str(PRE_ITER) + ' --load_saved_weights=True'
         os.system(meta_train_command)
 
     if PHASE=='TEST_LOAD':
+        print('****** Start Meta-test Phase with Downloaded Weights ******')
         test_command = process_test_command(0, base_command) + ' --load_saved_weights=True'
         os.system(test_command)
        
-
 THE_INPUT_PHASE = sys.argv[1]
 run_experiment(PHASE=THE_INPUT_PHASE)
