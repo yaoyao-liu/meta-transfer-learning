@@ -293,17 +293,13 @@ class MetaTrainer:
         ci95 = 1.96*stds/np.sqrt(NUM_TEST_POINTS)
 
         # Print the meta-test results
-        print('Mean test accuracies and confidence intervals')
+        print('Test accuracies and confidence intervals')
         print((means, ci95))
 
         # Save the meta-test results in the csv files
         if not FLAGS.load_saved_weights:
-            if FLAGS.base_augmentation:
-                out_filename = FLAGS.logdir +'/'+ exp_string + '/' + 'result_aug_' + str(FLAGS.shot_num) + 'shot_' + str(FLAGS.test_iter) + '.csv'
-                out_pkl = FLAGS.logdir +'/'+ exp_string + '/' + 'result_aug_' + str(FLAGS.shot_num) + 'shot_' + str(FLAGS.test_iter) + '.pkl'
-            else:
-                out_filename = FLAGS.logdir +'/'+ exp_string + '/' + 'result_noaug_' + str(FLAGS.shot_num) + 'shot_' + str(FLAGS.test_iter) + '.csv'
-                out_pkl = FLAGS.logdir +'/'+ exp_string + '/' + 'result_noaug_' + str(FLAGS.shot_num) + 'shot_' + str(FLAGS.test_iter) + '.pkl'
+            out_filename = FLAGS.logdir +'/'+ exp_string + '/' + 'result_' + str(FLAGS.shot_num) + 'shot_' + str(FLAGS.test_iter) + '.csv'
+            out_pkl = FLAGS.logdir +'/'+ exp_string + '/' + 'result_' + str(FLAGS.shot_num) + 'shot_' + str(FLAGS.test_iter) + '.pkl'
             with open(out_pkl, 'wb') as f:
                 pickle.dump({'mses': metaval_accuracies}, f)
             with open(out_filename, 'w') as f:
