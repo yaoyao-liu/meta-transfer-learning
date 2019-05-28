@@ -22,7 +22,7 @@ def run_experiment(PHASE='META'):
 
     # Basic options
     LOG_DIR = 'experiment_results' # Name of the folder to save the log files
-    GPU_ID = 1 # GPU device id
+    GPU_ID = 0 # GPU device id
 
     # Pre-train phase options
     PRE_TRA_LABEL = 'normal' # Additional label for pre-train model
