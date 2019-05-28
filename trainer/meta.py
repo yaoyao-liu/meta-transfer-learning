@@ -41,13 +41,13 @@ class MetaTrainer:
             # Generate data for meta-train phase
             if FLAGS.load_saved_weights:
                 os.system('rm -r ./logs/processed_data')
-                random.seed(6) 
+                random.seed(5) 
             data_generator.generate_data(data_type='train')
             if FLAGS.load_saved_weights:
                 random.seed(7) 
             data_generator.generate_data(data_type='test')
             if FLAGS.load_saved_weights:
-                random.seed(8) 
+                random.seed(9) 
             data_generator.generate_data(data_type='val')
         else:
             # Build model for meta-test phase

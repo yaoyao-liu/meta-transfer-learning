@@ -28,7 +28,7 @@ Meta-learning has been proposed as a framework to address the challenging few-sh
 
 ## 𝐈𝐧𝐬𝐭𝐚𝐥𝐥𝐚𝐭𝐢𝐨𝐧
 
-In order to run this repository, we advise you to install python 2.7 (recomended for this repo) or 3.5 and TensorFlow 1.3.0 with Anaconda.
+In order to run this repository, we advise you to install python 2.7 or 3.5 and TensorFlow 1.3.0 with Anaconda.
 
 You may download Anaconda and read the installation instruction on their official website:
 <https://www.anaconda.com/download/>
@@ -135,9 +135,9 @@ You may edit the `run_experiment.py` file to change the hyperparameters and opti
 
 The file `run_experiment.py` is just a script to generate commands for `main.py`. If you want to change other settings, please see the comments and descriptions in `main.py`.
 
-In the default setting, if you run `python run_experiment.py`, the pretrain process will be conducted before the meta-train phase starts. If you want to use the model pretrained by us, you may download the model by the following link then replace the pretrain model loading directory in `trainer/meta.py`.
+In the default setting, if you run `python run_experiment.py`, the pretrain process will be conducted before the meta-train phase starts. If you want to use the model pretrained by us, you may download the model by the following link. To run experiments with the downloaded model, please make sure you are using python 2.7.
 
-Download Model (*mini*ImageNet, 1-shot): 
+Download Model (*mini*ImageNet, 1-shot, best acc: 60.90% ± 1.83%): 
 [\[Google Drive\]](https://drive.google.com/drive/folders/1MzH2enwLKuzmODYAEATnyiP_602zrdrE?usp=sharing)
 
 Move the downloaded npy files to 
