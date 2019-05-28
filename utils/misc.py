@@ -15,8 +15,8 @@ import cv2
 import random
 import tensorflow as tf
 import scipy.misc as scm
-from matplotlib.pyplot import imread
 
+from matplotlib.pyplot import imread
 from tensorflow.contrib.layers.python import layers as tf_layers
 from tensorflow.python.platform import flags
 
