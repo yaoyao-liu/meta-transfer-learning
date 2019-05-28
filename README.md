@@ -137,7 +137,7 @@ The file `run_experiment.py` is just a script to generate commands for `main.py`
 
 In the default setting, if you run `python run_experiment.py`, the pretrain process will be conducted before the meta-train phase starts. If you want to use the model pretrained by us, you may download the model by the following link. To run experiments with the downloaded model, please make sure you are using python 2.7.
 
-Download Model (*mini*ImageNet, 1-shot, best acc: 60.90% ± 1.83%): 
+Download Model (*mini*ImageNet, 1-shot, best acc: 60.80% ± 1.84%): 
 [\[Google Drive\]](https://drive.google.com/drive/folders/1MzH2enwLKuzmODYAEATnyiP_602zrdrE?usp=sharing)
 
 Move the downloaded npy files to 

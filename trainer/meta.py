@@ -29,6 +29,8 @@ class MetaTrainer:
     """The class that contains the code for the meta-train and meta-test.
     """
     def __init__(self):
+        if FLAGS.load_saved_weights:
+            os.system('rm -r ./logs/processed_data/*')
         data_generator = MetaDataGenerator()
         if FLAGS.metatrain:
             # Build model for meta-train phase
@@ -40,7 +42,6 @@ class MetaTrainer:
             self.start_session()
             # Generate data for meta-train phase
             if FLAGS.load_saved_weights:
-                os.system('rm -r ./logs/processed_data')
                 random.seed(5) 
             data_generator.generate_data(data_type='train')
             if FLAGS.load_saved_weights:
@@ -60,7 +61,6 @@ class MetaTrainer:
             self.start_session()
             # Generate data for meta-test phase
             if FLAGS.load_saved_weights:
-                os.system('rm -r ./logs/processed_data')
                 random.seed(7) 
             data_generator.generate_data(data_type='test')
         # Load the experiment setting string from FLAGS
