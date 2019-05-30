@@ -23,11 +23,9 @@ except ImportError:#python3
 FLAGS = flags.FLAGS
 
 class MetaModel(Models):
-    """The class for the meta models. This class is inheritance from Models, so some variables are in the Models class.
-    """
+    """The class for the meta models. This class is inheritance from Models, so some variables are in the Models class."""
     def construct_model(self):
-        """The function to construct meta-train model.
-        """
+        """The function to construct meta-train model."""
         # Set the placeholder for the input episode
         self.inputa = tf.placeholder(tf.float32) # episode train images
         self.inputb = tf.placeholder(tf.float32) # episode test images
@@ -45,8 +43,9 @@ class MetaModel(Models):
 
             def task_metalearn(inp, reuse=True):
                 """The function to process one episode in a meta-batch.
-                Arg:
+                Args:
                   inp: the input episode.
+                  reuse: whether reuse the variables for the normalization.
                 Returns:
                   A serious outputs like losses and accuracies.
                 """
@@ -146,8 +145,7 @@ class MetaModel(Models):
 
 
     def construct_test_model(self):
-        """The function to construct meta-test model.
-        """
+        """The function to construct meta-test model."""
         # Set the placeholder for the input episode
         self.inputa = tf.placeholder(tf.float32)
         self.inputb = tf.placeholder(tf.float32)
@@ -165,8 +163,9 @@ class MetaModel(Models):
 
             def task_metalearn(inp, reuse=True):
                 """The function to process one episode in a meta-batch.
-                Arg:
+                Args:
                   inp: the input episode.
+                  reuse: whether reuse the variables for the normalization.
                 Returns:
                   A serious outputs like losses and accuracies.
                 """

@@ -21,8 +21,7 @@ from utils.misc import get_pretrain_images
 FLAGS = flags.FLAGS
 
 class PreDataGenerator(object):
-    """The class to generate episodes for pre-train phase.
-    """
+    """The class to generate episodes for pre-train phase."""
     def __init__(self):
         self.num_classes = FLAGS.way_num
         self.img_size = (FLAGS.img_size, FLAGS.img_size)
@@ -35,8 +34,7 @@ class PreDataGenerator(object):
         self.pretrain_character_folders = pretrain_folders
     
     def make_data_tensor(self):
-        """The function to make tensor for the tensorflow model.
-        """
+        """The function to make tensor for the tensorflow model."""
         print('Generating pre-training data')
         all_filenames_and_labels = []
         folders = self.pretrain_character_folders

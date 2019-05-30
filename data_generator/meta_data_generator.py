@@ -21,8 +21,7 @@ from utils.misc import get_images, process_batch, process_batch_augmentation
 FLAGS = flags.FLAGS
 
 class MetaDataGenerator(object):
-    """The class to generate data lists and episodes for meta-train and meta-test.
-    """
+    """The class to generate data lists and episodes for meta-train and meta-test."""
     def __init__(self):
         # Set the base folder to save the data lists
         filename_dir = FLAGS.logdir_base + 'processed_data/'
@@ -49,7 +48,7 @@ class MetaDataGenerator(object):
             num_total_batches = FLAGS.metatrain_iterations * FLAGS.meta_batch_size + 10
             num_samples_per_class = FLAGS.shot_num + FLAGS.metatrain_epite_sample_num
 
-        elif data_type=='test':
+        elif data_type=='test':          
             metatest_folder = FLAGS.metatest_dir
             folders = [os.path.join(metatest_folder, label) \
                 for label in os.listdir(metatest_folder) \
@@ -72,7 +71,7 @@ class MetaDataGenerator(object):
             else:
                 num_samples_per_class = FLAGS.shot_num + FLAGS.metatest_epite_sample_num
         else:
-            print('[Error] Please check data list type')
+            raise Exception('Please check data list type')
 
         task_num = FLAGS.way_num * num_samples_per_class
         epitr_sample_num = FLAGS.shot_num
@@ -104,9 +103,9 @@ class MetaDataGenerator(object):
                 data_list.append(this_batch_data)
 
             np.save(self.this_setting_filename_dir+'/' + data_type + '_data.npy', data_list)
-            print('The ' + data_type + ' data is saved')
+            print('The ' + data_type + ' data are saved')
         else:
-            print('The ' + data_type + ' data has already been created')
+            print('The ' + data_type + ' data have already been created')
 
     def load_data(self, data_type='test'):
         """The function to load the data lists.
@@ -132,7 +131,7 @@ class MetaDataGenerator(object):
         if data_type=='train':
             data_list = self.train_data
             epite_sample_num = FLAGS.metatrain_epite_sample_num
-        elif data_type=='test':
+        elif data_type=='test':       
             data_list = self.test_data
             if FLAGS.metatest_epite_sample_num==0:
                 epite_sample_num = FLAGS.shot_num
@@ -145,7 +144,7 @@ class MetaDataGenerator(object):
             else:
                 epite_sample_num = FLAGS.metatest_episode_test_sample
         else:
-            print('[Error] Please check data list type')
+            raise Exception('Please check data list type')
 
         dim_input = FLAGS.img_size * FLAGS.img_size * 3
         epitr_sample_num = FLAGS.shot_num

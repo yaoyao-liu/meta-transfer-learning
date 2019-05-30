@@ -18,8 +18,7 @@ from utils.misc import mse, softmaxloss, xent, resnet_conv_block, resnet_nob_con
 FLAGS = flags.FLAGS
 
 class Models:
-    """The class that contains the code for the basic resnet models and SS weights
-    """
+    """The class that contains the code for the basic resnet models and SS weights"""
     def __init__(self):
         # Set the dimension number for the input feature maps
         self.dim_input = FLAGS.img_size * FLAGS.img_size * 3
@@ -138,9 +137,12 @@ class Models:
         Return:
           The processed feature maps.
         """  
-        net = resnet_conv_block(inp, self.process_ss_weights(weights, ss_weights, block + '_conv1'), ss_weights[block + '_bias1'], reuse, scope+block+'0')
-        net = resnet_conv_block(net, self.process_ss_weights(weights, ss_weights, block + '_conv2'), ss_weights[block + '_bias2'], reuse, scope+block+'1')
-        net = resnet_conv_block(net, self.process_ss_weights(weights, ss_weights, block + '_conv3'), ss_weights[block + '_bias3'], reuse, scope+block+'2')
+        net = resnet_conv_block(inp, self.process_ss_weights(weights, ss_weights, block + '_conv1'), \
+            ss_weights[block + '_bias1'], reuse, scope+block+'0')
+        net = resnet_conv_block(net, self.process_ss_weights(weights, ss_weights, block + '_conv2'), \
+            ss_weights[block + '_bias2'], reuse, scope+block+'1')
+        net = resnet_conv_block(net, self.process_ss_weights(weights, ss_weights, block + '_conv3'), \
+            ss_weights[block + '_bias3'], reuse, scope+block+'2')
         res = resnet_nob_conv_block(inp, weights[block + '_conv_res'], reuse, scope+block+'res')
         net = net + res
         net = tf.nn.max_pool(net, [1,2,2,1], [1,2,2,1], 'VALID')
@@ -193,13 +195,17 @@ class Models:
         Return:
           The resnet block weights.
         """ 
-        weights[scope + '_conv1'] = tf.get_variable(scope + '_conv1', [k, k, last_dim_hidden, dim_hidden], initializer=conv_initializer, dtype=dtype)
+        weights[scope + '_conv1'] = tf.get_variable(scope + '_conv1', [k, k, last_dim_hidden, dim_hidden], \
+            initializer=conv_initializer, dtype=dtype)
         weights[scope + '_bias1'] = tf.Variable(tf.zeros([dim_hidden]), name=scope + '_bias1')
-        weights[scope + '_conv2'] = tf.get_variable(scope + '_conv2', [k, k, dim_hidden, dim_hidden], initializer=conv_initializer, dtype=dtype)
+        weights[scope + '_conv2'] = tf.get_variable(scope + '_conv2', [k, k, dim_hidden, dim_hidden], \
+            initializer=conv_initializer, dtype=dtype)
         weights[scope + '_bias2'] = tf.Variable(tf.zeros([dim_hidden]), name=scope + '_bias2')
-        weights[scope + '_conv3'] = tf.get_variable(scope + '_conv3', [k, k, dim_hidden, dim_hidden], initializer=conv_initializer, dtype=dtype)
+        weights[scope + '_conv3'] = tf.get_variable(scope + '_conv3', [k, k, dim_hidden, dim_hidden], \
+            initializer=conv_initializer, dtype=dtype)
         weights[scope + '_bias3'] = tf.Variable(tf.zeros([dim_hidden]), name=scope + '_bias3')
-        weights[scope + '_conv_res'] = tf.get_variable(scope + '_conv_res', [1, 1, last_dim_hidden, dim_hidden], initializer=conv_initializer, dtype=dtype)
+        weights[scope + '_conv_res'] = tf.get_variable(scope + '_conv_res', [1, 1, last_dim_hidden, dim_hidden], \
+            initializer=conv_initializer, dtype=dtype)
         return weights
 
     def construct_resnet_ss_weights(self):

@@ -83,11 +83,6 @@ exp_string += '.lr_drop_step(' + str(FLAGS.lr_drop_step) + ')'
 exp_string += '.lr_drop_rate(' + str(FLAGS.lr_drop_rate) + ')'
 exp_string += '.pre_label(' + str(FLAGS.pretrain_label) + ')'
 
-if FLAGS.base_augmentation:
-    exp_string += '.base_aug(True)'
-else:
-    exp_string += '.base_aug(False)'
-
 if FLAGS.norm == 'batch_norm':
     exp_string += '.norm(batch)'
 elif FLAGS.norm == 'layer_norm':
@@ -95,7 +90,7 @@ elif FLAGS.norm == 'layer_norm':
 elif FLAGS.norm == 'None':
     exp_string += '.norm(none)'
 else:
-    print('Norm setting is not recognized')
+    raise Exception('Norm setting is not recognized')
 
 FLAGS.exp_string = exp_string
 print('Parameters: ' + exp_string)
@@ -108,6 +103,8 @@ pre_save_str += '.pre_batch(' + str(FLAGS.pretrain_batch_size) + ')'
 pre_save_str += '.pre_dropout(' + str(FLAGS.pretrain_dropout_keep) + ')'
 if FLAGS.pre_lr_stop:
     pre_save_str += '.pre_lr_stop(True)'
+else:
+    pre_save_str += '.pre_lr_stop(False)'
 pre_save_str += '.pre_label(' + FLAGS.pretrain_label + ')'
 FLAGS.pre_string = pre_save_str
 
@@ -132,6 +129,7 @@ if FLAGS.redo_init:
 
 def main():
     # Set GPU device id
+    print('Using GPU ' + str(FLAGS.device_id))
     os.environ['CUDA_VISIBLE_DEVICES'] = str(FLAGS.device_id)
     # Select pre-train phase or meta-learning phase
     if FLAGS.phase=='pre':
@@ -139,7 +137,7 @@ def main():
     elif FLAGS.phase=='meta':   
         trainer = MetaTrainer()
     else:
-        print('Please set correct phase')                
+        raise Exception('Please set correct phase')                
 
 if __name__ == "__main__":
     main()

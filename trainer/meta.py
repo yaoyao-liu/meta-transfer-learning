@@ -26,18 +26,17 @@ from utils.misc import process_batch, process_batch_augmentation
 FLAGS = flags.FLAGS
 
 class MetaTrainer:
-    """The class that contains the code for the meta-train and meta-test.
-    """
+    """The class that contains the code for the meta-train and meta-test."""
     def __init__(self):
         # Remove the saved datalist for a new experiment
         os.system('rm -r ./logs/processed_data/*')
         data_generator = MetaDataGenerator()
         if FLAGS.metatrain:
             # Build model for meta-train phase
-            print('Building train model')
+            print('Building meta-train model')
             self.model = MetaModel()
             self.model.construct_model()
-            print('Building train model done')  
+            print('Meta-train model is built')  
             # Start tensorflow session          
             self.start_session()
             # Generate data for meta-train phase
@@ -52,11 +51,11 @@ class MetaTrainer:
             data_generator.generate_data(data_type='val')
         else:
             # Build model for meta-test phase
-            print('Building test mdoel')
+            print('Building meta-test mdoel')
             self.model = MetaModel()
             self.model.construct_test_model()
             self.model.summ_op = tf.summary.merge_all()
-            print('Building test model done')
+            print('Meta-test model is built')
             # Start tensorflow session 
             self.start_session()
             # Generate data for meta-test phase
@@ -87,7 +86,8 @@ class MetaTrainer:
                     print('Loading pretrain weights')
                     weights_save_dir_base = FLAGS.pretrain_dir
                     weights_save_dir = os.path.join(weights_save_dir_base, pre_save_str)
-                    weights = np.load(os.path.join(weights_save_dir, "weights_{}.npy".format(FLAGS.pretrain_iterations)), allow_pickle=True, encoding="latin1").tolist()
+                    weights = np.load(os.path.join(weights_save_dir, "weights_{}.npy".format(FLAGS.pretrain_iterations)), \
+                        allow_pickle=True, encoding="latin1").tolist()
                 bais_list = [bais_item for bais_item in weights.keys() if '_bias' in bais_item]
                 # Assign the bias weights to ss model in order to train them during meta-train
                 for bais_key in bais_list:
@@ -126,9 +126,12 @@ class MetaTrainer:
                 fc_weights = np.load('./logs/download_weights/fc_weights.npy', allow_pickle=True, encoding="latin1").tolist()
             else:
                 # Load the saved weights of meta-train
-                weights = np.load(FLAGS.logdir + '/' + exp_string +  '/weights_' + str(FLAGS.test_iter) + '.npy', allow_pickle=True, encoding="latin1").tolist()
-                ss_weights = np.load(FLAGS.logdir + '/' + exp_string +  '/ss_weights_' + str(FLAGS.test_iter) + '.npy', allow_pickle=True, encoding="latin1").tolist()
-                fc_weights = np.load(FLAGS.logdir + '/' + exp_string +  '/fc_weights_' + str(FLAGS.test_iter) + '.npy', allow_pickle=True, encoding="latin1").tolist()
+                weights = np.load(FLAGS.logdir + '/' + exp_string +  '/weights_' + str(FLAGS.test_iter) + '.npy', \
+                    allow_pickle=True, encoding="latin1").tolist()
+                ss_weights = np.load(FLAGS.logdir + '/' + exp_string +  '/ss_weights_' + str(FLAGS.test_iter) + '.npy', \
+                    allow_pickle=True, encoding="latin1").tolist()
+                fc_weights = np.load(FLAGS.logdir + '/' + exp_string +  '/fc_weights_' + str(FLAGS.test_iter) + '.npy', \
+                    allow_pickle=True, encoding="latin1").tolist()
             # Assign the weights to the tensorflow variables
             for key in weights.keys():
                 self.sess.run(tf.assign(self.model.weights[key], weights[key]))
@@ -148,8 +151,7 @@ class MetaTrainer:
             self.test(data_generator)
 
     def start_session(self):
-        """The function to start tensorflow session.
-        """
+        """The function to start tensorflow session."""
         if FLAGS.full_gpu_memory_mode:
             gpu_config = tf.ConfigProto()
             gpu_config.gpu_options.per_process_gpu_memory_fraction = FLAGS.gpu_rate
@@ -166,7 +168,7 @@ class MetaTrainer:
         exp_string = FLAGS.exp_string
         # Generate tensorboard file writer
         train_writer = tf.summary.FileWriter(FLAGS.logdir + '/' + exp_string, self.sess.graph)
-        print('Done initializing, start meta-training')
+        print('Start meta-train phase')
         # Generate empty list to record losses and accuracies
         loss_list, acc_list = [], []
         # Load the meta learning rate from FLAGS 
@@ -280,6 +282,7 @@ class MetaTrainer:
         NUM_TEST_POINTS = 600
         # Load the experiment setting string from FLAGS 
         exp_string = FLAGS.exp_string 
+        print('Start meta-test phase')
         np.random.seed(1)
         # Generate empty list to record accuracies
         metaval_accuracies = []

@@ -26,8 +26,7 @@ from tensorflow.python.platform import flags
 FLAGS = flags.FLAGS
 
 class PreTrainer:
-    """The class that contains the code for the pre-train phase
-    """
+    """The class that contains the code for the pre-train phase"""
     def __init__(self):
         # This class defines the pre-train phase trainer
         print('Generating pre-training classes')

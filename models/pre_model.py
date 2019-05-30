@@ -22,8 +22,7 @@ except ImportError:#python3
 FLAGS = flags.FLAGS
 
 class PreModel(Models):
-    """The class for pre-train model.
-    """
+    """The class for pre-train model."""
     def construct_pretrain_model(self, input_tensors=None, is_val=False):
         """The function to construct pre-train model.
         Args:
@@ -41,12 +40,14 @@ class PreModel(Models):
                 self.pretrain_task_loss = self.pretrain_loss_func(self.pretrain_task_output, self.label)
                 optimizer = tf.train.AdamOptimizer(self.pretrain_lr)
                 self.pretrain_op = optimizer.minimize(self.pretrain_task_loss, var_list=weights.values()+fc_weights.values())
-                self.pretrain_task_accuracy = tf.reduce_mean(tf.contrib.metrics.accuracy(tf.argmax(tf.nn.softmax(self.pretrain_task_output), 1), tf.argmax(self.label, 1)))
+                self.pretrain_task_accuracy = tf.reduce_mean(tf.contrib.metrics.accuracy(tf.argmax(tf.nn.softmax( \
+                    self.pretrain_task_output), 1), tf.argmax(self.label, 1)))
                 tf.summary.scalar('pretrain train loss', self.pretrain_task_loss)
                 tf.summary.scalar('pretrain train accuracy', self.pretrain_task_accuracy)
             else:
                 self.pretrain_task_output_val = self.forward_fc(self.forward_pretrain_resnet(self.input, weights, reuse=True), fc_weights)
-                self.pretrain_task_accuracy_val = tf.reduce_mean(tf.contrib.metrics.accuracy(tf.argmax(tf.nn.softmax(self.pretrain_task_output_val), 1), tf.argmax(self.label, 1)))
+                self.pretrain_task_accuracy_val = tf.reduce_mean(tf.contrib.metrics.accuracy(tf.argmax(tf.nn.softmax( \
+                    self.pretrain_task_output_val), 1), tf.argmax(self.label, 1)))
                 tf.summary.scalar('pretrain val accuracy', self.pretrain_task_accuracy_val)
 
 
