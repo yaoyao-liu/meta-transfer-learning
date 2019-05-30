@@ -140,7 +140,7 @@ Download Model
 Move the downloaded npy files to `./logs/download_weights`:
 ```bash
 mkdir -p ./logs/download_weights
-mv ~/downloads/*.npy ./logs/download_weights
+mv ~/downloads/mini-1shot/*.npy ./logs/download_weights
 ```
 
 Run meta-train with downloaded model:
