@@ -1,24 +1,24 @@
-# 𝐌𝐞𝐭𝐚-𝐓𝐫𝐚𝐧𝐬𝐟𝐞𝐫 𝐋𝐞𝐚𝐫𝐧𝐢𝐧𝐠 𝐓𝐞𝐧𝐬𝐨𝐫𝐅𝐥𝐨𝐰
+# Meta-Transfer Learning TensorFlow
 [![LICENSE](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/y2l/meta-transfer-learning-tensorflow/blob/master/LICENSE)
 
 This repository contains the TensorFlow implementation for [CVPR 2019](http://cvpr2019.thecvf.com/) Paper ["Meta-Transfer Learning for Few-Shot Learning"](https://arxiv.org/pdf/1812.02391.pdf) by [Qianru Sun](https://www.comp.nus.edu.sg/~sunqr/)\*, [Yaoyao Liu](https://yaoyao-liu.com)\*, [Tat-Seng Chua](https://www.chuatatseng.com/) and [Bernt Schiele](https://www.mpi-inf.mpg.de/departments/computer-vision-and-multimodal-computing/people/bernt-schiele/).
 
 If you have any problems when running this repository, feel free to send me an email or open an issue. I will reply to you as soon as I see them. (Email: yaoyao.liu@u.nus.edu)
 
-#### 𝐒𝐮𝐦𝐦𝐚𝐫𝐲
+#### Summary
 
-* [Introduction](#𝐈𝐧𝐭𝐫𝐨𝐝𝐮𝐜𝐭𝐢𝐨𝐧)
-* [Installation](#𝐈𝐧𝐬𝐭𝐚𝐥𝐥𝐚𝐭𝐢𝐨𝐧)
-* [Datasets](#𝐃𝐚𝐭𝐚𝐬𝐞𝐭𝐬)
-* [Repo Architecture](#𝐑𝐞𝐩𝐨-𝐀𝐫𝐜𝐡𝐢𝐭𝐞𝐜𝐭𝐮𝐫𝐞)
-* [Usage](#𝐔𝐬𝐚𝐠𝐞)
-* [Citation](#𝐂𝐢𝐭𝐚𝐭𝐢𝐨𝐧)
-* [Acknowledgements](#𝐀𝐜𝐤𝐧𝐨𝐰𝐥𝐞𝐝𝐠𝐞𝐦𝐞𝐧𝐭𝐬)
+* [Introduction](#introduction)
+* [Installation](#installation)
+* [Datasets](#datasets)
+* [Repo Architecture](#repo-architecture)
+* [Usage](#usage)
+* [Citation](#citation)
+* [Acknowledgements](#acknowledgements)
 
 
-## 𝐈𝐧𝐭𝐫𝐨𝐝𝐮𝐜𝐭𝐢𝐨𝐧
+## Introduction
 
-Meta-learning has been proposed as a framework to address the challenging few-shot learning setting. The key idea is to leverage a large number of similar few-shot tasks in order to learn how to adapt a base-learner to a new task for which only a few labeled samples are available. As deep neural networks (DNNs) tend to overfit using a few samples only, meta-learning typically uses shallow neural networks (SNNs), thus limiting its effectiveness. In this paper we propose a novel few-shot learning method called ***meta-transfer learning (MTL)*** which learns to adapt a ***deep NN*** for ***few shot learning tasks***. Specifically, meta refers to training multiple tasks, and transfer is achieved by learning scaling and shifting functions of DNN weights for each task. In addition, we introduce the ***hard task (HT) meta-batch*** scheme as an effective learning curriculum for MTL. We conduct experiments using (5-class, 1-shot) and (5-class, 5-shot) recognition tasks on two challenging few-shot learning benchmarks: *mini*ImageNet and Fewshot-CIFAR100. Extensive comparisons to related works validate that our ***meta-transfer learning*** approach trained with the proposed ***HT meta-batch*** scheme achieves top performance. An ablation study also shows that both components contribute to fast convergence and high accuracy.
+Meta-learning has been proposed as a framework to address the challenging few-shot learning setting. The key idea is to leverage a large number of similar few-shot tasks in order to learn how to adapt a base-learner to a new task for which only a few labeled samples are available. As deep neural networks (DNNs) tend to overfit using a few samples only, meta-learning typically uses shallow neural networks (SNNs), thus limiting its effectiveness. In this paper we propose a novel few-shot learning method called ***meta-transfer learning (MTL)*** which learns to adapt a ***deep NN*** for ***few shot learning tasks***. Specifically, meta refers to training multiple tasks, and transfer is achieved by learning scaling and shifting functions of DNN weights for each task. In addition, we introduce the ***hard task (HT) meta-batch*** scheme as an effective learning curriculum for MTL. We conduct experiments using (5-class, 1-shot) and (5-class, 5-shot) recognition tasks on two challenging few-shot learning benchmarks: 𝑚𝑖𝑛𝑖ImageNet and Fewshot-CIFAR100. Extensive comparisons to related works validate that our ***meta-transfer learning*** approach trained with the proposed ***HT meta-batch*** scheme achieves top performance. An ablation study also shows that both components contribute to fast convergence and high accuracy.
 
 <p align="center">
     <img src="https://mtl.yyliu.net/images/ss.png" width="400"/>
@@ -26,7 +26,7 @@ Meta-learning has been proposed as a framework to address the challenging few-sh
 
 > Figure: Meta-Transfer Learning. (a) Parameter-level fine-tuning (FT) is a conventional meta-training operation, e.g. in MAML. Its update works for all neuron parameters, 𝑊 and 𝑏. (b) Our neuron-level scaling and shifting (SS) operations in meta-transfer learning. They reduce the number of learning parameters and avoid overfitting problems. In addition, they keep large-scale trained parameters (in yellow) frozen, preventing “catastrophic forgetting”.
 
-## 𝐈𝐧𝐬𝐭𝐚𝐥𝐥𝐚𝐭𝐢𝐨𝐧
+## Installation
 
 In order to run this repository, we advise you to install python 2.7 or 3.5 and TensorFlow 1.3.0 with Anaconda.
 
@@ -53,28 +53,28 @@ git clone https://github.com/y2l/meta-transfer-learning-tensorflow.git
 cd meta-transfer-learning-tensorflow
 ```
 
-## 𝐃𝐚𝐭𝐚𝐬𝐞𝐭𝐬
+## Datasets
 
-### 𝒎𝒊𝒏𝒊𝐈𝐦𝐚𝐠𝐞𝐍𝐞𝐭
+### 𝒎𝒊𝒏𝒊ImageNet
 
-The *mini*ImageNet dataset was proposed by [Vinyals et al.](http://papers.nips.cc/paper/6385-matching-networks-for-one-shot-learning.pdf) for few-shot learning evaluation. Its complexity is high due to the use of ImageNet images but requires fewer resources and infrastructure than running on the full [ImageNet dataset](https://arxiv.org/pdf/1409.0575.pdf). In total, there are 100 classes with 600 samples of 84×84 color images per class. These 100 classes are divided into 64, 16, and 20 classes respectively for sampling tasks for meta-training, meta-validation, and meta-test.
+The 𝑚𝑖𝑛𝑖ImageNet dataset was proposed by [Vinyals et al.](http://papers.nips.cc/paper/6385-matching-networks-for-one-shot-learning.pdf) for few-shot learning evaluation. Its complexity is high due to the use of ImageNet images but requires fewer resources and infrastructure than running on the full [ImageNet dataset](https://arxiv.org/pdf/1409.0575.pdf). In total, there are 100 classes with 600 samples of 84×84 color images per class. These 100 classes are divided into 64, 16, and 20 classes respectively for sampling tasks for meta-training, meta-validation, and meta-test.
 
-To generate this dataset from ImageNet, you may use the repository [*mini*ImageNet tools](https://github.com/y2l/mini-imagenet-tools). You may also directly download processed images. [\[Download Page\]](https://mtl.yyliu.net/download/)
+To generate this dataset from ImageNet, you may use the repository [𝑚𝑖𝑛𝑖ImageNet tools](https://github.com/y2l/mini-imagenet-tools). You may also directly download processed images. [\[Download Page\]](https://mtl.yyliu.net/download/)
 
-### 𝐅𝐞𝐰𝐬𝐡𝐨𝐭-𝐂𝐈𝐅𝐀𝐑𝟏𝟎𝟎
+### Fewshot-CIFAR100
 
 Fewshot-CIFAR100 (FC100) is based on the popular object classification dataset CIFAR100. The splits were
 proposed by [TADAM](https://arxiv.org/pdf/1805.10123.pdf). It offers a more challenging scenario with lower image resolution and more challenging meta-training/test splits that are separated according to object super-classes. It contains 100 object classes and each class has 600 samples of 32 × 32 color images. The 100 classes belong to 20 super-classes. Meta-training data are from 60 classes belonging to 12 super-classes. Meta-validation and meta-test sets contain 20 classes belonging to 4 super-classes, respectively.
 
 You may directly download processed images. [\[Download Page\]](https://mtl.yyliu.net/download/)
 
-### 𝒕𝒊𝒆𝒓𝒆𝒅𝐈𝐦𝐚𝐠𝐞𝐍𝐞𝐭
+### 𝒕𝒊𝒆𝒓𝒆𝒅ImageNet
 
-The [*tiered*ImageNet](https://arxiv.org/pdf/1803.00676.pdf) dataset is a larger subset of ILSVRC-12 with 608 classes (779,165 images) grouped into 34 higher-level nodes in the ImageNet human-curated hierarchy. 
+The [𝑡𝑖𝑒𝑟𝑒𝑑ImageNet](https://arxiv.org/pdf/1803.00676.pdf) dataset is a larger subset of ILSVRC-12 with 608 classes (779,165 images) grouped into 34 higher-level nodes in the ImageNet human-curated hierarchy. 
 
-To generate this dataset from ImageNet, you may use the repository *tiered*ImageNet dataset: [*tiered*ImageNet tools](https://github.com/y2l/tiered-imagenet-tools). You may also directly download processed images. [\[Download Page\]](https://mtl.yyliu.net/download/)
+To generate this dataset from ImageNet, you may use the repository 𝒕𝒊𝒆𝒓𝒆𝒅ImageNet dataset: [𝒕𝒊𝒆𝒓𝒆𝒅ImageNet tools](https://github.com/y2l/tiered-imagenet-tools). You may also directly download processed images. [\[Download Page\]](https://mtl.yyliu.net/download/)
 
-## 𝐑𝐞𝐩𝐨 𝐀𝐫𝐜𝐡𝐢𝐭𝐞𝐜𝐭𝐮𝐫𝐞
+## Repo Architecture
 
 ```
 .
@@ -94,7 +94,7 @@ To generate this dataset from ImageNet, you may use the repository *tiered*Image
 └── run_experiment.py           # the script to run the whole experiment
 ```
 
-## 𝐔𝐬𝐚𝐠𝐞
+## Usage
 
 Run pre-train phase:
 ```bash
@@ -154,7 +154,7 @@ python run_experiment.py TEST_LOAD
 
 We will release more pre-trained models later.
 
-## 𝐓𝐨𝐝𝐨
+## Todo
 
 - [ ] 𝐇𝐚𝐫𝐝 𝐭𝐚𝐬𝐤 𝐦𝐞𝐭𝐚-𝐛𝐚𝐭𝐜𝐡.
   The implementation of hard task meta-batch is not included in the published code. I still need time to rewrite the hard task meta batch code for the current framework.
@@ -163,7 +163,7 @@ We will release more pre-trained models later.
 - [ ] 𝐏𝐲𝐓𝐨𝐫𝐜𝐡 𝐯𝐞𝐫𝐬𝐢𝐨𝐧.
   We will release the code for MTL on pytorch. It may takes several months to be completed.
 
-## 𝐂𝐢𝐭𝐚𝐭𝐢𝐨𝐧
+## Citation
 
 Please cite our paper if it is helpful to your work:
 
@@ -176,7 +176,7 @@ Please cite our paper if it is helpful to your work:
 }
 ```
 
-## 𝐀𝐜𝐤𝐧𝐨𝐰𝐥𝐞𝐝𝐠𝐞𝐦𝐞𝐧𝐭𝐬
+## Acknowledgements
 
 Our implementation uses the source code from the following repositories:
 
