@@ -176,8 +176,6 @@ class MetaTrainer:
         # Load data for meta-train and meta validation
         data_generator.load_data(data_type='train')
         data_generator.load_data(data_type='val')
-        # set the validation index to 0
-        test_idx = 0
 
         for train_idx in trange(FLAGS.metatrain_iterations):
             # Load the episodes for this meta batch
