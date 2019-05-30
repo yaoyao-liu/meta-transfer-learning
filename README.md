@@ -72,7 +72,7 @@ You may directly download processed images. [\[Download Page\]](https://mtl.yyli
 
 The [𝑡𝑖𝑒𝑟𝑒𝑑ImageNet](https://arxiv.org/pdf/1803.00676.pdf) dataset is a larger subset of ILSVRC-12 with 608 classes (779,165 images) grouped into 34 higher-level nodes in the ImageNet human-curated hierarchy. 
 
-To generate this dataset from ImageNet, you may use the repository 𝒕𝒊𝒆𝒓𝒆𝒅ImageNet dataset: [𝒕𝒊𝒆𝒓𝒆𝒅ImageNet tools](https://github.com/y2l/tiered-imagenet-tools). You may also directly download processed images. [\[Download Page\]](https://mtl.yyliu.net/download/)
+To generate this dataset from ImageNet, you may use the repository 𝑡𝑖𝑒𝑟𝑒𝑑ImageNet dataset: [𝑡𝑖𝑒𝑟𝑒𝑑ImageNet tools](https://github.com/y2l/tiered-imagenet-tools). You may also directly download processed images. [\[Download Page\]](https://mtl.yyliu.net/download/)
 
 ## Repo Architecture
 
