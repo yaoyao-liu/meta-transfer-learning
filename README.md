@@ -146,7 +146,7 @@ Comparison of the original paper and the open-source code in terms of test set a
 
 Download models: [\[Google Drive\]](https://drive.google.com/drive/folders/1MzH2enwLKuzmODYAEATnyiP_602zrdrE?usp=sharing)
 
-Move the downloaded npy files to `./logs/download_weights` (E.g. 𝑚𝑖𝑛𝑖ImageNet, 1-shot):
+Move the downloaded npy files to `./logs/download_weights` (e.g. 𝑚𝑖𝑛𝑖ImageNet, 1-shot):
 ```bash
 mkdir -p ./logs/download_weights
 mv ~/downloads/mini-1shot/*.npy ./logs/download_weights
