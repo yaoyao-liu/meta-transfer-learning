@@ -96,6 +96,7 @@ To generate this dataset from ImageNet, you may use the repository 𝑡𝑖𝑒�
 
 ## Usage
 
+### Training from Scrat
 Run pre-train phase:
 ```bash
 python run_experiment.py PRE
@@ -104,6 +105,8 @@ Run meta-train and meta-test phase:
 ```bash
 python run_experiment.py META
 ```
+
+### Hyperparameters and Options
 You may edit the `run_experiment.py` file to change the hyperparameters and options. 
 
 - `LOG_DIR` Name of the folder to save the log files
@@ -131,7 +134,15 @@ You may edit the `run_experiment.py` file to change the hyperparameters and opti
 
 The file `run_experiment.py` is just a script to generate commands for `main.py`. If you want to change other settings, please see the comments and descriptions in `main.py`.
 
+### Using Downloaded Models
 In the default setting, if you run `python run_experiment.py`, the pretrain process will be conducted before the meta-train phase starts. If you want to use the model pretrained by us, you may download the model by the following link. To run experiments with the downloaded model, please make sure you are using python 2.7.
+
+Comparison of the original paper and the open-source code in terms of test set accuracy:
+
+| Implementation         | mini 1-shot | mini 5-shot | fc100 1-shot | fc100 5-shot |
+| -----------------------| ----------------- | ----------------- | --------------------- | --------------------- |
+| `MTL Paper`            |   `60.2 ± 1.8%`   |   `74.3 ± 0.9%`   |    `66.33 ± 0.05%`    |    `81.44 ± 0.09%`    |
+| `This code`            |   `60.8 ± 1.8%`   |   `74.3 ± 0.9%`   |    `66.25 ± 0.14%`    |    `81.77 ± 0.09%`    |
 
 Download models for 𝑚𝑖𝑛𝑖ImageNet, best acc: `60.8% ± 1.8%` (1-shot), `74.3% ± 0.9%` (5-shot) : 
 [\[Google Drive\]](https://drive.google.com/drive/folders/1MzH2enwLKuzmODYAEATnyiP_602zrdrE?usp=sharing)
