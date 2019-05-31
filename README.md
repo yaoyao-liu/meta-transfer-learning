@@ -140,7 +140,7 @@ In the default setting, if you run `python run_experiment.py`, the pretrain proc
 Comparison of the original paper and the open-source code in terms of test set accuracy:
 
 |          (%)           | 𝑚𝑖𝑛𝑖 1-shot  | 𝑚𝑖𝑛𝑖 5-shot  | FC100 1-shot | FC100 5-shot |
-|-|-|-|-|
+| ---------------------- | ------------ | ------------ | ------------ | ------------ |
 | `MTL Paper`            | `60.2 ± 1.8` | `74.3 ± 0.9` | `43.6 ± 1.8` | `55.4 ± 0.9` |
 | `This Repo`            | `60.8 ± 1.8` | `74.3 ± 0.9` | `44.3 ± 1.8` | `56.8 ± 1.0` |
 
