@@ -141,11 +141,10 @@ Comparison of the original paper and the open-source code in terms of test set a
 
 | Implementation         | mini 1-shot | mini 5-shot | fc100 1-shot | fc100 5-shot | fc100 10-shot |
 | -----------------------| ----------------- | ----------------- | ------------------- | ------------------- | ------------------- |
-| `MTL Paper`            |   `60.2 ± 1.8%`   |   `74.3 ± 0.9%`   |    `43.6 ± 1.8%`    |    `55.4 ± 0.9%`    |    `55.4 ± 0.9%`    |
-| `This code`            |   `60.8 ± 1.8%`   |   `74.3 ± 0.9%`   |    `44.3 ± 1.8%`    |    `56.8 ± 1.0%`    |    `56.8 ± 1.0%`    |
+| `MTL Paper`            |   `60.2 ± 1.8%`   |   `74.3 ± 0.9%`   |    `43.6 ± 1.8%`    |    `55.4 ± 0.9%`    |    `62.4 ± 0.8%`    |
+| `This code`            |   `60.8 ± 1.8%`   |   `74.3 ± 0.9%`   |    `44.3 ± 1.8%`    |    `56.8 ± 1.0%`    |    `w ± w%`    |
 
-Download models for 𝑚𝑖𝑛𝑖ImageNet, best acc: `60.8% ± 1.8%` (1-shot), `74.3% ± 0.9%` (5-shot) : 
-[\[Google Drive\]](https://drive.google.com/drive/folders/1MzH2enwLKuzmODYAEATnyiP_602zrdrE?usp=sharing)
+Download models: [\[Google Drive\]](https://drive.google.com/drive/folders/1MzH2enwLKuzmODYAEATnyiP_602zrdrE?usp=sharing)
 
 Move the downloaded npy files to `./logs/download_weights`:
 ```bash
@@ -163,7 +162,6 @@ Run meta-test with downloaded model:
 python run_experiment.py TEST_LOAD
 ```
 
-We will release more pre-trained models later.
 
 ## Todo
 
