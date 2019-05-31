@@ -11,7 +11,7 @@ If you have any problems when running this repository, feel free to send me an e
 * [Installation](#installation)
 * [Datasets](#datasets)
 * [Repo Architecture](#repo-architecture)
-* [Usage](#usage)
+* [Running Experiments](#running-experiments)
 * [Citation](#citation)
 * [Acknowledgements](#acknowledgements)
 
@@ -94,7 +94,7 @@ To generate this dataset from ImageNet, you may use the repository 𝑡𝑖𝑒�
 └── run_experiment.py           # the script to run the whole experiment
 ```
 
-## Usage
+## Running Experiments
 
 ### Training from Scratch
 Run pre-train phase:
