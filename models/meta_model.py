@@ -143,7 +143,6 @@ class MetaModel(Models):
         self.val_summaries.append(tf.summary.scalar('Meta Val Accuracy', self.input_val_acc))
         self.val_summ_op = tf.summary.merge(self.val_summaries)
 
-
     def construct_test_model(self):
         """The function to construct meta-test model."""
         # Set the placeholder for the input episode
