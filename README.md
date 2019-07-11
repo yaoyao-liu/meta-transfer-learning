@@ -77,6 +77,8 @@ The [𝑡𝑖𝑒𝑟𝑒𝑑ImageNet](https://arxiv.org/pdf/1803.00676.pdf) dat
 
 To generate this dataset from ImageNet, you may use the repository 𝑡𝑖𝑒𝑟𝑒𝑑ImageNet dataset: [𝑡𝑖𝑒𝑟𝑒𝑑ImageNet tools](https://github.com/y2l/tiered-imagenet-tools). You may also directly download processed images. [\[Download Page\]](https://meta-transfer-learning.yaoyao-liu.com/download/)
 
+(P.S. We apply data augmentation strategy like horizontal flipping for pre-train phase. The augmented images are not included in the datasets provided.)
+
 ## Repo Architecture
 
 ```
@@ -103,8 +105,6 @@ To generate this dataset from ImageNet, you may use the repository 𝑡𝑖𝑒�
 Run pre-train phase:
 ```bash
 python run_experiment.py PRE
-```
-(P.S. We apply data augmentation strategy like horizontal flipping for pre-train phase. The code for augmentation is not included in the current repository. I will release it soon. You may also implement it by yourself.)
 ```
 Run meta-train and meta-test phase:
 ```bash
