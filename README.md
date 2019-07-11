@@ -104,6 +104,8 @@ Run pre-train phase:
 ```bash
 python run_experiment.py PRE
 ```
+(P.S. We apply data augmentation strategy like horizontal flipping for pre-train phase. The code for augmentation is not included in the current repository. I will release it soon. You may also implement it by yourself.)
+```
 Run meta-train and meta-test phase:
 ```bash
 python run_experiment.py META
