@@ -19,7 +19,7 @@ import cv2
 
 from tqdm import trange
 from data_generator.meta_data_generator import MetaDataGenerator
-from models.meta_model import MetaModel
+from models.meta_model import MakeMetaModel
 from tensorflow.python.platform import flags
 from utils.misc import process_batch, process_batch_augmentation
 
@@ -34,7 +34,7 @@ class MetaTrainer:
         if FLAGS.metatrain:
             # Build model for meta-train phase
             print('Building meta-train model')
-            self.model = MetaModel()
+            self.model = MakeMetaModel()
             self.model.construct_model()
             print('Meta-train model is built')  
             # Start tensorflow session          
@@ -52,7 +52,7 @@ class MetaTrainer:
         else:
             # Build model for meta-test phase
             print('Building meta-test mdoel')
-            self.model = MetaModel()
+            self.model = MakeMetaModel()
             self.model.construct_test_model()
             self.model.summ_op = tf.summary.merge_all()
             print('Meta-test model is built')

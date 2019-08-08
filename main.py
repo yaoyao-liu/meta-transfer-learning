@@ -23,6 +23,7 @@ flags.DEFINE_string('phase', 'meta', 'pre or meta')
 flags.DEFINE_string('exp_log_label', 'experiment_results', 'directory for summaries and checkpoints')
 flags.DEFINE_string('logdir_base', './logs/', 'directory for logs')
 flags.DEFINE_bool('full_gpu_memory_mode', False, 'in this mode, the code occupies GPU memory in advance')
+flags.DEFINE_string('backbone_arch', 'resnet12', 'network backbone')
 
 ### Pre-train phase options
 flags.DEFINE_integer('pre_lr_dropstep', 5000, 'the step number to drop pre_lr')
@@ -70,7 +71,8 @@ flags.DEFINE_bool('redo_init', True, 're-build the initialization weights')
 flags.DEFINE_bool('load_saved_weights', False, 'load the downloaded weights')
 
 # Generate experiment key words string
-exp_string =  'cls(' + str(FLAGS.way_num) + ')'
+exp_string = 'arch(' + FLAGS.backbone_arch + ')'
+exp_string +=  '.cls(' + str(FLAGS.way_num) + ')'
 exp_string += '.shot(' + str(FLAGS.shot_num) + ')'
 exp_string += '.meta_batch(' + str(FLAGS.meta_batch_size) + ')'
 exp_string += '.base_epoch(' + str(FLAGS.train_base_epoch_num) + ')'
@@ -96,7 +98,8 @@ FLAGS.exp_string = exp_string
 print('Parameters: ' + exp_string)
 
 # Generate pre-train key words string
-pre_save_str = 'pre_lr(' + str(FLAGS.pre_lr) + ')'
+pre_save_str = 'arch(' + FLAGS.backbone_arch + ')'
+pre_save_str += '.pre_lr(' + str(FLAGS.pre_lr) + ')'
 pre_save_str += '.pre_lrdrop(' + str(FLAGS.pre_lr_dropstep) + ')'
 pre_save_str += '.pre_class(' + str(FLAGS.pretrain_class_num) + ')'
 pre_save_str += '.pre_batch(' + str(FLAGS.pretrain_batch_size) + ')'

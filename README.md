@@ -118,6 +118,7 @@ You may edit the `run_experiment.py` file to change the hyperparameters and opti
 
 - `LOG_DIR` Name of the folder to save the log files
 - `GPU_ID` GPU device id
+- `NET_ARCH` Network backbone (resnet12 or resnet18)
 - `PRE_TRA_LABEL` Additional label for pre-train model
 - `PRE_TRA_ITER_MAX` Iteration number for the pre-train phase
 - `PRE_TRA_DROP` Dropout keep rate for the pre-train phase
@@ -174,8 +175,8 @@ python run_experiment.py TEST_LOAD
 
 - [ ] 𝐇𝐚𝐫𝐝 𝐭𝐚𝐬𝐤 𝐦𝐞𝐭𝐚-𝐛𝐚𝐭𝐜𝐡.
   The implementation of hard task meta-batch is not included in the published code. I still need time to rewrite the hard task meta batch code for the current framework.
-- [ ] 𝐌𝐨𝐫𝐞 𝐧𝐞𝐭𝐰𝐨𝐫𝐤 𝐚𝐫𝐜𝐡𝐢𝐭𝐞𝐜𝐭𝐮𝐫𝐞𝐬.
-  We will add new backbones to the framework like ResNet18 and ResNet34.
+- [x] 𝐌𝐨𝐫𝐞 𝐧𝐞𝐭𝐰𝐨𝐫𝐤 𝐚𝐫𝐜𝐡𝐢𝐭𝐞𝐜𝐭𝐮𝐫𝐞𝐬.
+  ResNet12 and Resnet18 are now available.
 - [x] 𝐏𝐲𝐓𝐨𝐫𝐜𝐡 𝐯𝐞𝐫𝐬𝐢𝐨𝐧.
   PyTorch version is now available: [https://github.com/y2l/meta-transfer-learning-pytorch](https://github.com/y2l/meta-transfer-learning-pytorch).
 

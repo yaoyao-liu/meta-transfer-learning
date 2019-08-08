@@ -20,7 +20,7 @@ import pdb
 
 from tqdm import trange
 from data_generator.pre_data_generator import PreDataGenerator
-from models.pre_model import PreModel
+from models.pre_model import MakePreModel
 from tensorflow.python.platform import flags
 
 FLAGS = flags.FLAGS
@@ -37,7 +37,7 @@ class PreTrainer:
         pre_train_input_tensors = {'pretrain_input': pretrain_input, 'pretrain_label': pretrain_label}
 
         # Build Pre-train Model
-        self.model = PreModel()
+        self.model = MakePreModel()
         self.model.construct_pretrain_model(input_tensors=pre_train_input_tensors)
         self.model.pretrain_summ_op = tf.summary.merge_all()
 

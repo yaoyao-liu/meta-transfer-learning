@@ -22,7 +22,8 @@ def run_experiment(PHASE='META'):
 
     # Basic options
     LOG_DIR = 'experiment_results' # Name of the folder to save the log files
-    GPU_ID = 0 # GPU device id
+    GPU_ID = 1 # GPU device id
+    NET_ARCH = 'resnet12' # Additional label for pre-train model
 
     # Pre-train phase options
     PRE_TRA_LABEL = 'normal' # Additional label for pre-train model
@@ -52,6 +53,7 @@ def run_experiment(PHASE='META'):
 
     # Generate the base command for main.py
     base_command = 'python main.py' \
+        + ' --backbone_arch=' + str(NET_ARCH) \
         + ' --metatrain_iterations=' + str(MAX_ITER) \
         + ' --meta_batch_size=' + str(META_BATCH_SIZE) \
         + ' --shot_num=' + str(SHOT_NUM) \
