@@ -196,6 +196,6 @@ Please cite our paper if it is helpful to your work:
 
 Our implementation uses the source code from the following repositories:
 
-[Model-Agnostic Meta-Learning](https://github.com/cbfinn/maml)
+* [Model-Agnostic Meta-Learning](https://github.com/cbfinn/maml)
 
-[Optimization as a Model for Few-Shot Learning](https://github.com/gitabcworld/FewShotLearning)
+* [Optimization as a Model for Few-Shot Learning](https://github.com/gitabcworld/FewShotLearning)
