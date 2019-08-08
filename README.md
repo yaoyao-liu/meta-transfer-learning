@@ -4,7 +4,7 @@
 [![TensorFlow](https://img.shields.io/badge/tensorflow-1.3.0-orange.svg?style=flat-square)](https://www.tensorflow.org/)
 [![CodeFactor](https://www.codefactor.io/repository/github/y2l/meta-transfer-learning-tensorflow/badge?style=flat-square)](https://www.codefactor.io/repository/github/y2l/meta-transfer-learning-tensorflow)
 
-#### [\[PyTorch Version\]](https://github.com/y2l/meta-transfer-learning-pytorch)
+#### \[[𝐏𝐲𝐓𝐨𝐫𝐜𝐡 𝐯𝐞𝐫𝐬𝐢𝐨𝐧](https://github.com/y2l/meta-transfer-learning-pytorch)\]
 
 This repository contains the TensorFlow implementation for [CVPR 2019](http://cvpr2019.thecvf.com/) Paper ["Meta-Transfer Learning for Few-Shot Learning"](http://openaccess.thecvf.com/content_CVPR_2019/papers/Sun_Meta-Transfer_Learning_for_Few-Shot_Learning_CVPR_2019_paper.pdf) by [Qianru Sun](https://www.comp.nus.edu.sg/~sunqr/)\*, [Yaoyao Liu](https://yaoyao-liu.com)\*, [Tat-Seng Chua](https://www.chuatatseng.com/) and [Bernt Schiele](https://www.mpi-inf.mpg.de/departments/computer-vision-and-multimodal-computing/people/bernt-schiele/).
 
@@ -176,7 +176,7 @@ python run_experiment.py TEST_LOAD
   The implementation of hard task meta-batch is not included in the published code. I still need time to rewrite the hard task meta batch code for the current framework.
 - [ ] 𝐌𝐨𝐫𝐞 𝐧𝐞𝐭𝐰𝐨𝐫𝐤 𝐚𝐫𝐜𝐡𝐢𝐭𝐞𝐜𝐭𝐮𝐫𝐞𝐬.
   We will add new backbones to the framework like ResNet18 and ResNet34.
-- [ ] 𝐏𝐲𝐓𝐨𝐫𝐜𝐡 𝐯𝐞𝐫𝐬𝐢𝐨𝐧.
+- [x] 𝐏𝐲𝐓𝐨𝐫𝐜𝐡 𝐯𝐞𝐫𝐬𝐢𝐨𝐧.
   We will release the code for MTL on pytorch. It may takes several months to be completed.
 
 ## Citation
