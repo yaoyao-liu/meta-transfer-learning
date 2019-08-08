@@ -89,7 +89,8 @@ To generate this dataset from ImageNet, you may use the repository 𝑡𝑖𝑒�
 |   ├── pre_data_generator.py   # data genertor for pre-train phase
 |   └── meta_data_generator.py  # data genertor for meta-train phase
 ├── models                      # tensorflow model files 
-|   ├── models.py               # basic model class
+|   ├── resnet12.py             # resnet12 class
+|   ├── resnet18.py             # resnet18 class
 |   ├── pre_model.py            # pre-train model class
 |   └── meta_model.py           # meta-train model class
 ├── trainer                     # tensorflow trianer files  
