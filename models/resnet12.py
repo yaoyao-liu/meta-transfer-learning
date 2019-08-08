@@ -8,7 +8,7 @@
 ## LICENSE file in the root directory of this source tree
 ##+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-""" The base model class. """
+""" ResNet-12 class. """
 import numpy as np
 import sys
 import tensorflow as tf
