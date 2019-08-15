@@ -1,6 +1,5 @@
 ##+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## Created by: Yaoyao Liu
-## Modified from: https://github.com/cbfinn/maml
 ## Tianjin University
 ## liuyaoyao@tju.edu.cn
 ## Copyright (c) 2019
