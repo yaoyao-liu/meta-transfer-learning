@@ -48,7 +48,7 @@ def MakePreModel():
                 self.weights = weights = self.construct_resnet_weights()
                 self.fc_weights = fc_weights = self.construct_fc_weights()
 
-                if is_val==False:
+                if is_val is False:
                     self.pretrain_task_output = self.forward_fc(self.forward_pretrain_resnet(self.input, weights, reuse=False), fc_weights)
                     self.pretrain_task_loss = self.pretrain_loss_func(self.pretrain_task_output, self.label)
                     optimizer = tf.train.AdamOptimizer(self.pretrain_lr)

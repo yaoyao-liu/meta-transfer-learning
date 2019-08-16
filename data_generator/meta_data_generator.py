@@ -167,6 +167,3 @@ class MetaDataGenerator(object):
             this_inputb, this_labelb = process_batch(this_task_te_filenames, \
                 this_task_te_labels, dim_input, epite_sample_num)
         return this_inputa, this_labela, this_inputb, this_labelb  
-              
-
-

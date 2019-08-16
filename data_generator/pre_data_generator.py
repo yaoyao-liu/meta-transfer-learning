@@ -40,8 +40,7 @@ class PreDataGenerator(object):
         all_filenames_and_labels = []
         folders = self.pretrain_character_folders
 
-        for idx in range(len(folders)):
-            path = folders[idx]     
+        for idx, path in enumerate(folders):
             all_filenames_and_labels += get_pretrain_images(path, idx)
         random.shuffle(all_filenames_and_labels)
         all_labels = [li[0] for li in all_filenames_and_labels]
@@ -62,5 +61,3 @@ class PreDataGenerator(object):
         image_batch, label_batch = tf.train.batch([image, label_queue], batch_size = batch_image_size, num_threads=num_preprocess_threads,capacity=min_queue_examples + 3 * batch_image_size)
         label_batch = tf.one_hot(tf.reshape(label_batch, [-1]), self.pretrain_class_num)
         return image_batch, label_batch
-
-

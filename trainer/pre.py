@@ -99,4 +99,3 @@ class PreTrainer:
                 print('Saving pretrain weights to npy')
                 weights = self.sess.run(self.model.weights)
                 np.save(os.path.join(weights_save_dir, "weights_{}.npy".format(itr)), weights)
-

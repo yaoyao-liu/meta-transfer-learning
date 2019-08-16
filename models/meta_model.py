@@ -117,7 +117,7 @@ def MakeMetaModel():
                     return task_output
 
                 # Initial the batch normalization weights
-                if FLAGS.norm is not 'None':
+                if FLAGS.norm is not None:
                     unused = task_metalearn((self.inputa[0], self.inputb[0], self.labela[0], self.labelb[0]), False)
 
                 # Set the dtype of the outputs

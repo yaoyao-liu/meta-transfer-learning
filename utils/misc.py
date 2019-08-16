@@ -171,7 +171,7 @@ def get_pretrain_images(path, label, is_val=False):
       The list for the image files' directories.
     """
     images = []
-    if is_val==False:
+    if is_val is False:
         for image in os.listdir(path):
             images.append((label, os.path.join(path, image)))
     else:
@@ -194,7 +194,7 @@ def get_images_tc(paths, labels, nb_samples=None, shuffle=True, is_val=False):
         sampler = lambda x: random.sample(x, nb_samples)
     else:
         sampler = lambda x: x
-    if is_val==False:
+    if is_val is False:
         images = [(i, os.path.join(path, image)) \
             for i, path in zip(labels, paths) \
             for image in sampler(os.listdir(path)[0:500])]
@@ -275,9 +275,10 @@ def normalize(inp, activation, reuse, scope):
         return tf_layers.layer_norm(inp, activation_fn=activation, reuse=reuse, scope=scope)
     elif FLAGS.norm == 'None':
         if activation is not None:
-            return activation(inp)
-        else:
-            return inp
+            return activation(inp)        
+        return inp
+    else:
+        raise ValueError('Please set correct normalization.')
 
 ## Loss functions
 
