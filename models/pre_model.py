@@ -64,4 +64,3 @@ def MakePreModel():
                     tf.summary.scalar('pretrain val accuracy', self.pretrain_task_accuracy_val)
 
     return PreModel()
-

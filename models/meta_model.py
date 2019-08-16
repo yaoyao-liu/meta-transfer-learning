@@ -218,7 +218,7 @@ def MakeMetaModel():
 
                     return task_output
 
-                if FLAGS.norm is not 'None':
+                if FLAGS.norm is not None:
                     unused = task_metalearn((self.inputa[0], self.inputb[0], self.labela[0], self.labelb[0]), False)
 
                 out_dtype = [tf.float32, tf.float32, [tf.float32]*num_updates]
