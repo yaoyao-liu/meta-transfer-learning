@@ -11,10 +11,7 @@ If you have any questions on this repository or the related paper, feel free to 
 #### Summary
 
 * [Introduction](#introduction)
-* [Installation](#installation)
 * [Datasets](#datasets)
-* [Repo Architecture](#repo-architecture)
-* [Running Experiments](#running-experiments)
 * [Citation](#citation)
 * [Acknowledgements](#acknowledgements)
 
