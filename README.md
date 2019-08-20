@@ -12,6 +12,7 @@ If you have any questions on this repository or the related paper, feel free to 
 
 * [Introduction](#introduction)
 * [Datasets](#datasets)
+* [Performance](#performance)
 * [Citation](#citation)
 * [Acknowledgements](#acknowledgements)
 
@@ -48,6 +49,13 @@ The [𝑡𝑖𝑒𝑟𝑒𝑑ImageNet](https://arxiv.org/pdf/1803.00676.pdf) dat
 To generate this dataset from ImageNet, you may use the repository 𝑡𝑖𝑒𝑟𝑒𝑑ImageNet dataset: [𝑡𝑖𝑒𝑟𝑒𝑑ImageNet tools](https://github.com/y2l/tiered-imagenet-tools). You may also directly download processed images. [\[Download Page\]](https://meta-transfer-learning.yyliu.net/download/)
 
 (P.S. We apply data augmentation strategy like horizontal flipping for pre-train phase. The augmented images are not included in the datasets provided.)
+
+## Performance
+
+|          (%)           | 𝑚𝑖𝑛𝑖 1-shot  | 𝑚𝑖𝑛𝑖 5-shot  | FC100 1-shot | FC100 5-shot | 𝒕𝒊𝒆𝒓𝒆𝒅 1-shot | 𝒕𝒊𝒆𝒓𝒆𝒅 5-shot |
+| ---------------------- | ------------ | ------------ | ------------ | ------------ |------------ | ------------ |
+| `MTL Paper`            | `60.2 ± 1.8` | `74.3 ± 0.9` | `43.6 ± 1.8` | `55.4 ± 0.9` | <center>—</center> | <center>—</center> |
+| `This Repo`            | `62.1 ± 1.8` | `78.5 ± 0.9` | `45.3 ± 1.8` | `59.7 ± 1.0` | `67.8 ± 1.8` | `83.0 ± 1.0` |
 
 ## Citation
 
