@@ -33,7 +33,7 @@ pip install scipy tqdm opencv-python pillow matplotlib
 Clone this repository:
 
 ```bash
-git clone https://github.com/y2l/meta-transfer-learninggit 
+git clone https://github.com/y2l/meta-transfer-learning.git 
 cd meta-transfer-learning/tensorflow
 ```
 
