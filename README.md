@@ -33,8 +33,8 @@ Meta-learning has been proposed as a framework to address the challenging few-sh
 
 Please see the `README.md` files in the corresponding folders:
 
-* TensorFlow: [Docs](https://github.com/y2l/meta-transfer-learning/blob/master/tensorflow/README.md)
-* PyTorch: [Docs](https://github.com/y2l/meta-transfer-learning/blob/master/pytorch/README.md)
+* TensorFlow: [\[Docs\]](https://github.com/y2l/meta-transfer-learning/blob/master/tensorflow/README.md)
+* PyTorch: [\[Docs\]](https://github.com/y2l/meta-transfer-learning/blob/master/pytorch/README.md)
 
 ## Datasets
 
