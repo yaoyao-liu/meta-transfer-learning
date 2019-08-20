@@ -9,8 +9,6 @@
 ##+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 """ Models for pre-train phase. """
-import numpy as np
-import sys
 import tensorflow as tf
 from tensorflow.python.platform import flags
 

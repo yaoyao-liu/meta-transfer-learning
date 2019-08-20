@@ -11,13 +11,8 @@
 
 """ Trainer for pre-train phase. """
 import os
-import csv
-import pickle
-import random
 import numpy as np
 import tensorflow as tf
-import cv2
-import pdb
 
 from tqdm import trange
 from data_generator.pre_data_generator import PreDataGenerator
@@ -71,7 +66,7 @@ class PreTrainer:
         print('Start pre-train phase')
         print('Pre-train Hyper parameters: ' + pre_save_str)
 
-        # Start the iterations         
+        # Start the iterations
         for itr in trange(pretrain_iterations):
             # Generate the Feed Dict and Run the Optimizer
             feed_dict = {self.model.pretrain_lr: pre_lr}
@@ -93,7 +88,7 @@ class PreTrainer:
                 pre_lr = pre_lr * 0.5
                 if FLAGS.pre_lr_stop and pre_lr < FLAGS.min_pre_lr:
                     pre_lr = FLAGS.min_pre_lr
-                    
+
             # Save Pre-train Model
             if (itr!=0) and itr % FLAGS.pre_save_step == 0:
                 print('Saving pretrain weights to npy')

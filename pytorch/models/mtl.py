@@ -98,7 +98,7 @@ class MtlLearner(nn.Module):
         fast_weights = list(map(lambda p: p[1] - self.update_lr * p[0], zip(grad, self.base_learner.parameters())))
         logits_q = self.base_learner(embedding_query, fast_weights)
 
-        for k in range(1, self.update_step):
+        for _ in range(1, self.update_step):
             logits = self.base_learner(embedding_shot, fast_weights)
             loss = F.cross_entropy(logits, label_shot)
             grad = torch.autograd.grad(loss, fast_weights)
@@ -123,7 +123,7 @@ class MtlLearner(nn.Module):
         fast_weights = list(map(lambda p: p[1] - 0.01 * p[0], zip(grad, self.base_learner.parameters())))
         logits_q = self.base_learner(embedding_query, fast_weights)
 
-        for k in range(1, 100):
+        for _ in range(1, 100):
             logits = self.base_learner(embedding_shot, fast_weights)
             loss = F.cross_entropy(logits, label_shot)
             grad = torch.autograd.grad(loss, fast_weights)

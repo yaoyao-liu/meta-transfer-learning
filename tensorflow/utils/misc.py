@@ -15,7 +15,6 @@ import os
 import cv2
 import random
 import tensorflow as tf
-import scipy.misc as scm
 
 from matplotlib.pyplot import imread
 from tensorflow.contrib.layers.python import layers as tf_layers
@@ -161,7 +160,7 @@ def get_images(paths, labels, nb_samples=None, shuffle=True):
         random.shuffle(images)
     return images
 
-def get_pretrain_images(path, label, is_val=False):
+def get_pretrain_images(path, label):
     """The function to get the image files' directories for pre-train phase.
     Args:
       paths: the base path for the images.
@@ -171,12 +170,8 @@ def get_pretrain_images(path, label, is_val=False):
       The list for the image files' directories.
     """
     images = []
-    if is_val is False:
-        for image in os.listdir(path):
-            images.append((label, os.path.join(path, image)))
-    else:
-        for image in os.listdir(path)[550:]:
-            images.append((label, os.path.join(path, image)))    
+    for image in os.listdir(path):
+        images.append((label, os.path.join(path, image)))
     return images
 
 def get_images_tc(paths, labels, nb_samples=None, shuffle=True, is_val=False):

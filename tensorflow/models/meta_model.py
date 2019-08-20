@@ -10,11 +10,9 @@
 ##+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 """ Models for meta-learning. """
-import numpy as np
-import sys
 import tensorflow as tf
 from tensorflow.python.platform import flags
-from utils.misc import mse, softmaxloss, xent, resnet_conv_block, resnet_nob_conv_block, normalize
+from utils.misc import mse, softmaxloss, xent, resnet_conv_block, resnet_nob_conv_block
 
 FLAGS = flags.FLAGS
 
@@ -70,11 +68,11 @@ def MakeMetaModel():
                     lossb_list = [] # Base test loss list
 
                     # Embed the input images to embeddings with ss weights
-                    emb_outputa = self.forward_resnet(inputa, weights, ss_weights, reuse=reuse) # Embed episode train 
-                    emb_outputb = self.forward_resnet(inputb, weights, ss_weights, reuse=True) # Embed episode test 
+                    emb_outputa = self.forward_resnet(inputa, weights, ss_weights, reuse=reuse) # Embed episode train
+                    emb_outputb = self.forward_resnet(inputb, weights, ss_weights, reuse=True) # Embed episode test
 
                     # Run the first epoch of the base learning
-                    # Forward fc layer for episode train 
+                    # Forward fc layer for episode train
                     outputa = self.forward_fc(emb_outputa, fc_weights)
                     # Calculate base train loss
                     lossa = self.loss_func(outputa, labela)
@@ -85,8 +83,8 @@ def MakeMetaModel():
                     # Calculate base test loss
                     lossb = self.loss_func(outputb, labelb)
                     # Record base test loss
-                    lossb_list.append(lossb) 
-                    # Calculate the gradients for the fc layer 
+                    lossb_list.append(lossb)
+                    # Calculate the gradients for the fc layer
                     grads = tf.gradients(lossa, list(fc_weights.values()))
                     gradients = dict(zip(fc_weights.keys(), grads))
                     # Use graient descent to update the fc layer
@@ -98,7 +96,7 @@ def MakeMetaModel():
                         lossa = self.loss_func(self.forward_fc(emb_outputa, fast_fc_weights), labela)
                         lossa_list.append(lossa)
                         lossb = self.loss_func(self.forward_fc(emb_outputb, fast_fc_weights), labelb)
-                        lossb_list.append(lossb) 
+                        lossb_list.append(lossb)
                         grads = tf.gradients(lossa, list(fast_fc_weights.values()))
                         gradients = dict(zip(fast_fc_weights.keys(), grads))
                         fast_fc_weights = dict(zip(fast_fc_weights.keys(), [fast_fc_weights[key] - \
@@ -139,7 +137,7 @@ def MakeMetaModel():
             optimizer = tf.train.AdamOptimizer(self.meta_lr)
             self.metatrain_op = optimizer.minimize(total_loss, var_list=list(ss_weights.values()) + list(fc_weights.values()))
 
-            # Set the tensorboard 
+            # Set the tensorboard
             self.training_summaries = []
             self.training_summaries.append(tf.summary.scalar('Meta Train Loss', (total_loss / tf.to_float(FLAGS.metatrain_epite_sample_num))))
             self.training_summaries.append(tf.summary.scalar('Meta Train Accuracy', total_accuracy))
@@ -165,8 +163,8 @@ def MakeMetaModel():
             self.labela = tf.placeholder(tf.float32)
             self.labelb = tf.placeholder(tf.float32)
 
-            with tf.variable_scope('meta-test-model', reuse=None) as training_scope: 
-                # construct the model weights            
+            with tf.variable_scope('meta-test-model', reuse=None) as training_scope:
+                # construct the model weights
                 self.ss_weights = ss_weights = self.construct_resnet_ss_weights()
                 self.weights = weights = self.construct_resnet_weights()
                 self.fc_weights = fc_weights = self.construct_fc_weights()
@@ -193,7 +191,7 @@ def MakeMetaModel():
 
                     # This part is similar to the meta-train function, you may refer to the comments above
                     outputa = self.forward_fc(emb_outputa, fc_weights)
-                    lossa = self.loss_func(outputa, labela)     
+                    lossa = self.loss_func(outputa, labela)
                     grads = tf.gradients(lossa, list(fc_weights.values()))
                     gradients = dict(zip(fc_weights.keys(), grads))
                     fast_fc_weights = dict(zip(fc_weights.keys(), [fc_weights[key] - \
@@ -201,7 +199,7 @@ def MakeMetaModel():
                     outputb = self.forward_fc(emb_outputb, fast_fc_weights)
                     accb = tf.contrib.metrics.accuracy(tf.argmax(tf.nn.softmax(outputb), 1), tf.argmax(labelb, 1))
                     accb_list.append(accb)
-              
+                    
                     for j in range(num_updates - 1):
                         lossa = self.loss_func(self.forward_fc(emb_outputa, fast_fc_weights), labela)
                         grads = tf.gradients(lossa, list(fast_fc_weights.values()))

@@ -50,7 +50,7 @@ flags.DEFINE_integer('meta_save_step', 500, 'the step number to save the model')
 flags.DEFINE_integer('meta_intrain_val_sample', 600, 'the number of samples used for val during meta-train')
 flags.DEFINE_integer('meta_print_step', 100, 'the step number to print the meta-train results')
 flags.DEFINE_integer('meta_val_print_step', 100, 'the step number to print the meta-val results during meta-training')
-flags.DEFINE_integer('metatrain_iterations', 15000, 'number of meta-train iterations.') 
+flags.DEFINE_integer('metatrain_iterations', 15000, 'number of meta-train iterations.')
 flags.DEFINE_integer('meta_batch_size', 2, 'number of tasks sampled per meta-update')
 flags.DEFINE_integer('train_base_epoch_num', 20, 'number of inner gradient updates during training.')
 flags.DEFINE_integer('test_base_epoch_num', 100, 'number of inner gradient updates during test.')
@@ -137,10 +137,10 @@ def main():
     # Select pre-train phase or meta-learning phase
     if FLAGS.phase=='pre':
         trainer = PreTrainer()
-    elif FLAGS.phase=='meta':   
+    elif FLAGS.phase=='meta':
         trainer = MetaTrainer()
     else:
-        raise Exception('Please set correct phase')                
+        raise Exception('Please set correct phase')           
 
 if __name__ == "__main__":
     main()

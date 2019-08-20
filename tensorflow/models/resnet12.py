@@ -11,10 +11,9 @@
 
 """ ResNet-12 class. """
 import numpy as np
-import sys
 import tensorflow as tf
 from tensorflow.python.platform import flags
-from utils.misc import mse, softmaxloss, xent, resnet_conv_block, resnet_nob_conv_block, normalize
+from utils.misc import mse, softmaxloss, xent, resnet_conv_block, resnet_nob_conv_block
 
 FLAGS = flags.FLAGS
 
@@ -43,7 +42,7 @@ class Models:
         # Load the image size from FLAGS
         self.img_size = FLAGS.img_size
 
-    def process_ss_weights(self, weights, ss_weights, label):   
+    def process_ss_weights(self, weights, ss_weights, label):
         """The function to process the scaling operation
         Args:
           weights: the weights for the resnet.
@@ -155,7 +154,7 @@ class Models:
         Return:
           The fc weights.
         """  
-        dtype = tf.float32        
+        dtype = tf.float32
         fc_weights = {}
         fc_initializer =  tf.contrib.layers.xavier_initializer(dtype=dtype)
         if FLAGS.phase=='pre':
@@ -230,7 +229,7 @@ class Models:
           scope: the label to indicate which block we are processing.
         Return:
           The ss block weights.
-        """ 
+        """
         ss_weights[scope + '_conv1'] = tf.Variable(tf.ones([1, 1, last_dim_hidden, dim_hidden]), name=scope + '_conv1')
         ss_weights[scope + '_bias1'] = tf.Variable(tf.zeros([dim_hidden]), name=scope + '_bias1')
         ss_weights[scope + '_conv2'] = tf.Variable(tf.ones([1, 1, dim_hidden, dim_hidden]), name=scope + '_conv2')

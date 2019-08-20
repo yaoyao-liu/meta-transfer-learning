@@ -16,13 +16,12 @@ import pickle
 import random
 import numpy as np
 import tensorflow as tf
-import cv2
 
 from tqdm import trange
 from data_generator.meta_data_generator import MetaDataGenerator
 from models.meta_model import MakeMetaModel
 from tensorflow.python.platform import flags
-from utils.misc import process_batch, process_batch_augmentation
+from utils.misc import process_batch
 
 FLAGS = flags.FLAGS
 
@@ -37,7 +36,7 @@ class MetaTrainer:
             print('Building meta-train model')
             self.model = MakeMetaModel()
             self.model.construct_model()
-            print('Meta-train model is built')  
+            print('Meta-train model is built')
             # Start tensorflow session          
             self.start_session()
             # Generate data for meta-train phase
@@ -45,10 +44,10 @@ class MetaTrainer:
                 random.seed(5) 
             data_generator.generate_data(data_type='train')
             if FLAGS.load_saved_weights:
-                random.seed(7) 
+                random.seed(7)
             data_generator.generate_data(data_type='test')
             if FLAGS.load_saved_weights:
-                random.seed(9) 
+                random.seed(9)
             data_generator.generate_data(data_type='val')
         else:
             # Build model for meta-test phase
@@ -57,11 +56,11 @@ class MetaTrainer:
             self.model.construct_test_model()
             self.model.summ_op = tf.summary.merge_all()
             print('Meta-test model is built')
-            # Start tensorflow session 
+            # Start tensorflow session
             self.start_session()
             # Generate data for meta-test phase
             if FLAGS.load_saved_weights:
-                random.seed(7) 
+                random.seed(7)
             data_generator.generate_data(data_type='test')
         # Load the experiment setting string from FLAGS
         exp_string = FLAGS.exp_string
@@ -70,7 +69,7 @@ class MetaTrainer:
         tf.global_variables_initializer().run()
         tf.train.start_queue_runners()
 
-        if FLAGS.metatrain:              
+        if FLAGS.metatrain:
             # Process initialization weights for meta-train
             init_dir = FLAGS.logdir_base + 'init_weights/'
             if not os.path.exists(init_dir):
@@ -78,7 +77,7 @@ class MetaTrainer:
             pre_save_str = FLAGS.pre_string
             this_init_dir = init_dir + pre_save_str + '.pre_iter(' + str(FLAGS.pretrain_iterations) + ')/'
             if not os.path.exists(this_init_dir):
-                # If there is no saved initialization weights for meta-train, load pre-train model and save initialization weights 
+                # If there is no saved initialization weights for meta-train, load pre-train model and save initialization weights
                 os.mkdir(this_init_dir)
                 if FLAGS.load_saved_weights:
                     print('Loading downloaded pretrain weights')
@@ -172,7 +171,7 @@ class MetaTrainer:
         print('Start meta-train phase')
         # Generate empty list to record losses and accuracies
         loss_list, acc_list = [], []
-        # Load the meta learning rate from FLAGS 
+        # Load the meta learning rate from FLAGS
         train_lr = FLAGS.meta_lr
         # Load data for meta-train and meta validation
         data_generator.load_data(data_type='train')
@@ -208,7 +207,7 @@ class MetaTrainer:
             # run this meta-train iteration
             result = self.sess.run(input_tensors, feed_dict)
 
-            # record losses, accuracies and tensorboard 
+            # record losses, accuracies and tensorboard
             loss_list.append(result[1])
             acc_list.append(result[2])
             train_writer.add_summary(result[3], train_idx)
@@ -233,7 +232,7 @@ class MetaTrainer:
             if train_idx % FLAGS.meta_val_print_step == 0:
                 test_loss = []
                 test_accs = []
-                for test_itr in range(FLAGS.meta_intrain_val_sample):          
+                for test_itr in range(FLAGS.meta_intrain_val_sample):
                     this_episode = data_generator.load_episode(index=test_itr, data_type='val')
                     test_inputa = this_episode[0][np.newaxis, :]
                     test_labela = this_episode[1][np.newaxis, :]
@@ -256,8 +255,8 @@ class MetaTrainer:
                 print_str = '[***] Val Loss:' + str(np.mean(test_loss)*FLAGS.meta_batch_size) + \
                     ' Val Acc:' + str(np.mean(test_accs)*FLAGS.meta_batch_size)
                 print(print_str)
-                  
-            # Reduce the meta learning rate to half after several iterations      
+
+            # Reduce the meta learning rate to half after several iterations
             if (train_idx!=0) and train_idx % FLAGS.lr_drop_step == 0:
                 train_lr = train_lr * FLAGS.lr_drop_rate
                 if train_lr < 0.1 * FLAGS.meta_lr:
@@ -279,8 +278,8 @@ class MetaTrainer:
         """
         # Set meta-test episode number
         NUM_TEST_POINTS = 600
-        # Load the experiment setting string from FLAGS 
-        exp_string = FLAGS.exp_string 
+        # Load the experiment setting string from FLAGS
+        exp_string = FLAGS.exp_string
         print('Start meta-test phase')
         np.random.seed(1)
         # Generate empty list to record accuracies

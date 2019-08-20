@@ -10,7 +10,6 @@
 ##+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 """ Additional utility functions. """
 import os
-import shutil
 import time
 import pprint
 import torch
