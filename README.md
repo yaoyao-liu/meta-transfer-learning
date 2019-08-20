@@ -1,8 +1,8 @@
 # Meta-Transfer Learning
 [![LICENSE](https://img.shields.io/github/license/y2l/meta-transfer-learning-tensorflow.svg)](https://github.com/y2l/meta-transfer-learning-tensorflow/blob/master/LICENSE)
-[![Python](https://img.shields.io/badge/python-2.7%20%7C%203.5-blue.svg)](https://github.com/y2l/meta-transfer-learning/tree/master/pytorch)
+[![Python](https://img.shields.io/badge/python-2.7%20%7C%203.5-blue.svg)]
 [![TensorFlow](https://img.shields.io/badge/tensorflow-1.3.0-orange.svg)](https://github.com/y2l/meta-transfer-learning/tree/master/tensorflow)
-[![PyTorch](https://img.shields.io/badge/pytorch-0.4.0-%237732a8)](https://pytorch.org/)
+[![PyTorch](https://img.shields.io/badge/pytorch-0.4.0-%237732a8)](https://github.com/y2l/meta-transfer-learning/tree/master/pytorch)
 [![CodeFactor](https://www.codefactor.io/repository/github/y2l/meta-transfer-learning/badge)](https://www.codefactor.io/repository/github/y2l/meta-transfer-learning)
 [![Codacy grade](https://img.shields.io/codacy/grade/26cd594498bc4b14b11d5b3246a50c81?label=codacy%20grade)](https://www.codacy.com/app/y2l/meta-transfer-learning?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=y2l/meta-transfer-learning&amp;utm_campaign=Badge_Grade)
 
