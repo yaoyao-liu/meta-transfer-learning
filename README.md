@@ -9,7 +9,7 @@ This repository contains the TensorFlow and PyTorch implementations for [CVPR 20
 
 If you have any questions on this repository or the related paper, feel free to create an issue or send me an email. 
 <br>
-Email address: yaoyaoliu (at) outlook.com
+Email address: liuyaoyao (at) tju.edu.cn
 
 #### Summary
 
