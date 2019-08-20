@@ -1,5 +1,4 @@
 # Meta-Transfer Learning PyTorch
-[![LICENSE](https://img.shields.io/github/license/y2l/meta-transfer-learning-tensorflow.svg)](https://github.com/y2l/meta-transfer-learning-tensorflow/blob/master/LICENSE)
 [![Python](https://img.shields.io/badge/python-3.5-blue.svg)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/pytorch-0.4.0-%237732a8)](https://pytorch.org/)
 
