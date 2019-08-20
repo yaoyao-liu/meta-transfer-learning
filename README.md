@@ -33,7 +33,7 @@ Meta-learning has been proposed as a framework to address the challenging few-sh
 
 ## Getting Started
 
-Please see the `README.md` files in the corresponding folders:
+Please see `README.md` files in the corresponding folders:
 
 * TensorFlow: [\[Docs\]](https://github.com/y2l/meta-transfer-learning/blob/master/tensorflow/README.md)
 * PyTorch: [\[Docs\]](https://github.com/y2l/meta-transfer-learning/blob/master/pytorch/README.md)
@@ -44,7 +44,7 @@ Directly download processed images: [\[Download Page\]](https://meta-transfer-le
 
 ### 𝒎𝒊𝒏𝒊ImageNet
 
-The 𝑚𝑖𝑛𝑖ImageNet dataset was proposed by [Vinyals et al.](http://papers.nips.cc/paper/6385-matching-networks-for-one-shot-learning.pdf) for few-shot learning evaluation. Its complexity is high due to the use of ImageNet images but requires fewer resources and infrastructure than running on the full [ImageNet dataset](https://arxiv.org/pdf/1409.0575.pdf). In total, there are 100 classes with 600 samples of 84×84 color images per class. These 100 classes are divided into 64, 16, and 20 classes respectively for sampling tasks for meta-training, meta-validation, and meta-test.To generate this dataset from ImageNet, you may use the repository [𝑚𝑖𝑛𝑖ImageNet tools](https://github.com/y2l/mini-imagenet-tools).
+The 𝑚𝑖𝑛𝑖ImageNet dataset was proposed by [Vinyals et al.](http://papers.nips.cc/paper/6385-matching-networks-for-one-shot-learning.pdf) for few-shot learning evaluation. Its complexity is high due to the use of ImageNet images but requires fewer resources and infrastructure than running on the full [ImageNet dataset](https://arxiv.org/pdf/1409.0575.pdf). In total, there are 100 classes with 600 samples of 84×84 color images per class. These 100 classes are divided into 64, 16, and 20 classes respectively for sampling tasks for meta-training, meta-validation, and meta-test. To generate this dataset from ImageNet, you may use the repository [𝑚𝑖𝑛𝑖ImageNet tools](https://github.com/y2l/mini-imagenet-tools).
 
 ### Fewshot-CIFAR100
 
