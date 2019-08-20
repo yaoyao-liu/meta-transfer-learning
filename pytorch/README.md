@@ -1,6 +1,6 @@
 # Meta-Transfer Learning PyTorch
-![Python](https://img.shields.io/badge/python-3.5-blue.svg)
-![PyTorch](https://img.shields.io/badge/pytorch-0.4.0-%237732a8)
+[![Python](https://img.shields.io/badge/python-3.5-blue.svg)](https://www.python.org/)
+[![PyTorch](https://img.shields.io/badge/pytorch-0.4.0-%237732a8)](https://github.com/y2l/meta-transfer-learning/tree/master/pytorch)
 
 #### Summary
 
