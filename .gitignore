@@ -2,9 +2,5 @@
 *.pyc
 *.npy
 
-# Folders
-data
-logs
-
 # File
 .DS_Store
