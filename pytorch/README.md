@@ -6,12 +6,9 @@
 #### Summary
 
 * [Installation](#installation)
-* [Datasets](#datasets)
 * [Project Architecture](#project-architecture)
 * [Running Experiments](#running-experiments)
 * [Performance](#performance)
-* [Citation](#citation)
-* [Acknowledgements](#acknowledgements)
 
 
 ## Installation
