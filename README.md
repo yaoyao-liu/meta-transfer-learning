@@ -13,6 +13,7 @@ If you have any questions on this repository or the related paper, feel free to 
 
 * [Introduction](#introduction)
 * [Datasets](#datasets)
+* [Getting Started](#getting-started)
 * [Performance](#performance)
 * [Citation](#citation)
 * [Acknowledgements](#acknowledgements)
@@ -45,6 +46,12 @@ proposed by [TADAM](https://arxiv.org/pdf/1805.10123.pdf). It offers a more chal
 
 The [𝑡𝑖𝑒𝑟𝑒𝑑ImageNet](https://arxiv.org/pdf/1803.00676.pdf) dataset is a larger subset of ILSVRC-12 with 608 classes (779,165 images) grouped into 34 higher-level nodes in the ImageNet human-curated hierarchy. To generate this dataset from ImageNet, you may use the repository 𝑡𝑖𝑒𝑟𝑒𝑑ImageNet dataset: [𝑡𝑖𝑒𝑟𝑒𝑑ImageNet tools](https://github.com/y2l/tiered-imagenet-tools). 
 
+## Getting Started
+
+Please see the `README.md` files in the corresponding folders:
+
+* TensorFlow: [Docs](https://github.com/y2l/meta-transfer-learning/blob/master/tensorflow/README.md)
+* PyTorch: [Docs](https://github.com/y2l/meta-transfer-learning/blob/master/pytorch/README.md)
 
 ## Performance
 
