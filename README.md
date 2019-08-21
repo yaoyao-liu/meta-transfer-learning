@@ -85,7 +85,7 @@ Our implementations use the source code from the following repositories and user
 
 * [Optimization as a Model for Few-Shot Learning](https://github.com/gitabcworld/FewShotLearning)
 
-* [FEAT](https://github.com/Sha-Lab/FEAT)
+* [Learning Embedding Adaptation for Few-Shot Learning](https://github.com/Sha-Lab/FEAT)
 
 * [@icoz69](https://github.com/icoz69)
 
