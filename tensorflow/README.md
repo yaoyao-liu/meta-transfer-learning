@@ -19,8 +19,8 @@ You may download Anaconda and read the installation instruction on their officia
 Create a new environment and install tensorflow on it:
 
 ```bash
-conda create --name mtl python=2.7
-conda activate mtl
+conda create --name mtl-tf python=2.7
+conda activate mtl-tf
 conda install tensorflow-gpu=1.3.0
 ```
 
