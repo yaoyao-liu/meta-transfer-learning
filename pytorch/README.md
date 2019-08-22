@@ -34,7 +34,7 @@ pip install tqdm tensorboardX
 Clone this repository:
 
 ```bash
-git clone https://github.com/y2l/meta-transfer-learning.git 
+git clone https://github.com/yaoyao-liu/meta-transfer-learning.git 
 cd meta-transfer-learning/pytorch
 ```
 
