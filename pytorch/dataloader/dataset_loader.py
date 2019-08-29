@@ -68,7 +68,7 @@ class DatasetLoader(Dataset):
                 transforms.Resize(92),
                 transforms.CenterCrop(image_size),
                 transforms.ToTensor(),
-                transforms.Normalize(np.array([x / 255.0 for x in [125.3, 123.0, 113.9]]), 
+                transforms.Normalize(np.array([x / 255.0 for x in [125.3, 123.0, 113.9]]),
                                      np.array([x / 255.0 for x in [63.0, 62.1, 66.7]]))])
 
 
