@@ -62,7 +62,7 @@ The [𝑡𝑖𝑒𝑟𝑒𝑑ImageNet](https://arxiv.org/pdf/1803.00676.pdf) dat
 | ---------------------- | ------------ | ------------ | ------------ | ------------ |------------ | ------------ |
 | `MTL Paper`            | `60.2 ± 1.8` | `74.3 ± 0.9` | `43.6 ± 1.8` | `55.4 ± 0.9` | — | — |
 | `TensorFlow`           | `60.8 ± 1.8` | `74.3 ± 0.9` | `44.3 ± 1.8` | `56.8 ± 1.0` | `65.6 ± 1.8` | `80.6 ± 0.9` |
-* The performance for the PyTorch version is under checking
+* The performance for the PyTorch version is under checking.
 
 ## Citation
 
