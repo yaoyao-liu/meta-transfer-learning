@@ -5,7 +5,7 @@
 [![PyTorch](https://img.shields.io/badge/pytorch-0.4.0-%237732a8)](https://github.com/y2l/meta-transfer-learning/tree/master/pytorch)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/26cd594498bc4b14b11d5b3246a50c81)](https://www.codacy.com/app/y2l/meta-transfer-learning?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=y2l/meta-transfer-learning&amp;utm_campaign=Badge_Grade)
 
-This repository contains the TensorFlow and PyTorch implementations for [CVPR 2019](http://cvpr2019.thecvf.com/) Paper ["Meta-Transfer Learning for Few-Shot Learning"](http://openaccess.thecvf.com/content_CVPR_2019/papers/Sun_Meta-Transfer_Learning_for_Few-Shot_Learning_CVPR_2019_paper.pdf) by [Qianru Sun](https://qianrusun1015.github.io)\*, [Yaoyao Liu](https://www.iti-tju.org/~yyliu/)\*, [Tat-Seng Chua](https://www.chuatatseng.com/) and [Bernt Schiele](https://www.mpi-inf.mpg.de/departments/computer-vision-and-multimodal-computing/people/bernt-schiele/) (\*equal contribution).
+This repository contains the TensorFlow and PyTorch implementations for [CVPR 2019](http://cvpr2019.thecvf.com/) Paper ["Meta-Transfer Learning for Few-Shot Learning"](http://openaccess.thecvf.com/content_CVPR_2019/papers/Sun_Meta-Transfer_Learning_for_Few-Shot_Learning_CVPR_2019_paper.pdf) by [Qianru Sun](https://qianrusun1015.github.io)\*, [Yaoyao Liu](https://yyliu.net/)\*, [Tat-Seng Chua](https://www.chuatatseng.com/) and [Bernt Schiele](https://www.mpi-inf.mpg.de/departments/computer-vision-and-multimodal-computing/people/bernt-schiele/) (\*equal contribution).
 
 If you have any questions on this repository or the related paper, feel free to create an issue or send me an email. 
 <br>
@@ -26,7 +26,7 @@ Email address: yaoyaoliu (at) tju.edu.cn
 Meta-learning has been proposed as a framework to address the challenging few-shot learning setting. The key idea is to leverage a large number of similar few-shot tasks in order to learn how to adapt a base-learner to a new task for which only a few labeled samples are available. As deep neural networks (DNNs) tend to overfit using a few samples only, meta-learning typically uses shallow neural networks (SNNs), thus limiting its effectiveness. In this paper we propose a novel few-shot learning method called ***meta-transfer learning (MTL)*** which learns to adapt a ***deep NN*** for ***few shot learning tasks***. Specifically, meta refers to training multiple tasks, and transfer is achieved by learning scaling and shifting functions of DNN weights for each task. We conduct experiments using (5-class, 1-shot) and (5-class, 5-shot) recognition tasks on two challenging few-shot learning benchmarks: 𝑚𝑖𝑛𝑖ImageNet and Fewshot-CIFAR100. 
 
 <p align="center">
-    <img src="https://meta-transfer-learning.yaoyao-liu.com/images/ss.png" width="400"/>
+    <img src="https://yyliu.net/meta-transfer-learning/images/ss.png" width="400"/>
 </p>
 
 > Figure: Meta-Transfer Learning. (a) Parameter-level fine-tuning (FT) is a conventional meta-training operation, e.g. in MAML. Its update works for all neuron parameters, 𝑊 and 𝑏. (b) Our neuron-level scaling and shifting (SS) operations in meta-transfer learning. They reduce the number of learning parameters and avoid overfitting problems. In addition, they keep large-scale trained parameters (in yellow) frozen, preventing “catastrophic forgetting”.
@@ -40,7 +40,7 @@ Please see `README.md` files in the corresponding folders:
 
 ## Datasets
 
-Directly download processed images: [\[Download Page\]](https://www.iti-tju.org/~yyliu/meta-transfer-learning/download/)
+Directly download processed images: [\[Download Page\]](https://yyliu.net/meta-transfer-learning/download/)
 
 ### 𝒎𝒊𝒏𝒊ImageNet
 
