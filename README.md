@@ -70,10 +70,11 @@ Please cite our paper if it is helpful to your work:
 
 ```
 @inproceedings{sun2019mtl,
-  title={Meta-Transfer Learning for Few-Shot Learning},
-  author={Qianru Sun and Yaoyao Liu and Tat{-}Seng Chua and Bernt Schiele},
-  booktitle={CVPR},
-  year={2019}
+author = {Sun, Qianru and Liu, Yaoyao and Chua, Tat{-}Seng and Schiele, Bernt},
+title = {Meta-Transfer Learning for Few-Shot Learning},
+booktitle = {The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+month = {June},
+year = {2019}
 }
 ```
 
