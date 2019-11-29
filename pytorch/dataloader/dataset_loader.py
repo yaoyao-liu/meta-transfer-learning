@@ -37,7 +37,7 @@ class DatasetLoader(Dataset):
         label = []
 
         # Get folders' name
-        folders = [osp.join(THE_PATH, label) for label in label_list if os.path.isdir(osp.join(THE_PATH, label))]
+        folders = [osp.join(THE_PATH, the_label) for the_label in label_list if os.path.isdir(osp.join(THE_PATH, the_label))]
 
         # Get the images' paths and labels
         for idx, this_folder in enumerate(folders):
