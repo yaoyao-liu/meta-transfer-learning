@@ -25,7 +25,7 @@ Email address: yaoyao.liu (at) mpi-inf.mpg.de
 Meta-learning has been proposed as a framework to address the challenging few-shot learning setting. The key idea is to leverage a large number of similar few-shot tasks in order to learn how to adapt a base-learner to a new task for which only a few labeled samples are available. As deep neural networks (DNNs) tend to overfit using a few samples only, meta-learning typically uses shallow neural networks (SNNs), thus limiting its effectiveness. In this paper we propose a novel few-shot learning method called ***meta-transfer learning (MTL)*** which learns to adapt a ***deep NN*** for ***few shot learning tasks***. Specifically, meta refers to training multiple tasks, and transfer is achieved by learning scaling and shifting functions of DNN weights for each task. We conduct experiments using (5-class, 1-shot) and (5-class, 5-shot) recognition tasks on two challenging few-shot learning benchmarks: 𝑚𝑖𝑛𝑖ImageNet and Fewshot-CIFAR100. 
 
 <p align="center">
-    <img src="https://yyliu.net/meta-transfer-learning/images/ss.png" width="400"/>
+    <img src="https://mtl.yyliu.net/images/ss.png" width="400"/>
 </p>
 
 > Figure: Meta-Transfer Learning. (a) Parameter-level fine-tuning (FT) is a conventional meta-training operation, e.g. in MAML. Its update works for all neuron parameters, 𝑊 and 𝑏. (b) Our neuron-level scaling and shifting (SS) operations in meta-transfer learning. They reduce the number of learning parameters and avoid overfitting problems. In addition, they keep large-scale trained parameters (in yellow) frozen, preventing “catastrophic forgetting”.
@@ -39,7 +39,7 @@ Please see `README.md` files in the corresponding folders:
 
 ## Datasets
 
-Directly download processed images: [\[Download Page\]](https://yyliu.net/meta-transfer-learning/download/)
+Directly download processed images: [\[Download Page\]](https://mtl.yyliu.net/download/)
 
 ### 𝒎𝒊𝒏𝒊ImageNet
 
