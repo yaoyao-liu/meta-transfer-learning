@@ -162,7 +162,7 @@ class BottleneckMtl(nn.Module):
 
 class ResNetMtl(nn.Module):
 
-    def __init__(self, layers=[3, 3, 3], mtl=True):
+    def __init__(self, layers=[4, 4, 4], mtl=True):
         super(ResNetMtl, self).__init__()
         if mtl:
             self.Conv2d = Conv2dMtl
