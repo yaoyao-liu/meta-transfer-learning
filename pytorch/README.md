@@ -27,7 +27,7 @@ conda install torchvision -c pytorch
 
 Install other requirements:
 ```bash
-pip install tqdm tensorboardX
+pip install tqdm tensorboardX miniimagenettools
 ```
 
 Clone this repository:
