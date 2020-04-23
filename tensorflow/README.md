@@ -26,7 +26,7 @@ conda install tensorflow-gpu=1.3.0
 
 Install other requirements:
 ```bash
-pip install scipy tqdm opencv-python pillow matplotlib
+pip install scipy tqdm opencv-python pillow matplotlib miniimagenettools
 ```
 
 Clone this repository:
