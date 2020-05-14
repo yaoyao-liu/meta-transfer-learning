@@ -88,6 +88,8 @@ Our implementations use the source code from the following repositories and user
 
 * [Learning Embedding Adaptation for Few-Shot Learning](https://github.com/Sha-Lab/FEAT)
 
+* [dragen1860/MAML-Pytorch](https://github.com/dragen1860/MAML-Pytorch)
+
 * [@icoz69](https://github.com/icoz69)
 
 * [@CookieLau](https://github.com/CookieLau)
