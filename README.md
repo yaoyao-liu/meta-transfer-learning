@@ -68,7 +68,7 @@ The [𝑡𝑖𝑒𝑟𝑒𝑑ImageNet](https://arxiv.org/pdf/1803.00676.pdf) dat
 
 Please cite our paper if it is helpful to your work:
 
-```
+```bibtex
 @inproceedings{sun2019mtl,
 author = {Sun, Qianru and Liu, Yaoyao and Chua, Tat{-}Seng and Schiele, Bernt},
 title = {Meta-Transfer Learning for Few-Shot Learning},
