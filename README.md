@@ -11,6 +11,8 @@ If you have any questions on this repository or the related paper, feel free to 
 <br>
 Email address: yaoyao.liu (at) mpi-inf.mpg.de
 
+Check the [few-shot classification leaderboard](https://few-shot.yyliu.net/miniimagenet.html).
+
 #### Summary
 
 * [Introduction](#introduction)
