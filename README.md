@@ -5,7 +5,7 @@
 [![PyTorch](https://img.shields.io/badge/pytorch-0.4.0-%237732a8?style=flat-square&logo=PyTorch&color=EE4C2C)](https://pytorch.org/)
 ![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/yaoyao-liu/meta-transfer-learning?style=flat-square?&logo=codefactor&color=F44A6A)
 
-This repository contains the TensorFlow and PyTorch implementations for the [CVPR 2019](http://cvpr2019.thecvf.com/) Paper ["Meta-Transfer Learning for Few-Shot Learning"](http://openaccess.thecvf.com/content_CVPR_2019/papers/Sun_Meta-Transfer_Learning_for_Few-Shot_Learning_CVPR_2019_paper.pdf) by [Qianru Sun](https://qianrusun1015.github.io)\*, [Yaoyao Liu](https://people.mpi-inf.mpg.de/~yaliu/)\*, [Tat-Seng Chua](https://www.chuatatseng.com/) and [Bernt Schiele](https://www.mpi-inf.mpg.de/departments/computer-vision-and-multimodal-computing/people/bernt-schiele/) (\*=equal contribution).
+This repository contains the TensorFlow and PyTorch implementation for the [CVPR 2019](http://cvpr2019.thecvf.com/) Paper ["Meta-Transfer Learning for Few-Shot Learning"](http://openaccess.thecvf.com/content_CVPR_2019/papers/Sun_Meta-Transfer_Learning_for_Few-Shot_Learning_CVPR_2019_paper.pdf) by [Qianru Sun](https://qianrusun1015.github.io)\*, [Yaoyao Liu](https://people.mpi-inf.mpg.de/~yaliu/)\*, [Tat-Seng Chua](https://www.chuatatseng.com/) and [Bernt Schiele](https://www.mpi-inf.mpg.de/departments/computer-vision-and-multimodal-computing/people/bernt-schiele/) (\*=equal contribution).
 
 If you have any questions on this repository or the related paper, feel free to [create an issue](https://github.com/yaoyao-liu/meta-transfer-learning/issues/new) or [send me an email](mailto:yaoyao.liu+github@mpi-inf.mpg.de). 
 
