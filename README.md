@@ -1,9 +1,9 @@
 # Meta-Transfer Learning for Few-Shot Learning
 [![LICENSE](https://img.shields.io/badge/license-MIT-green?style=flat-square)](https://github.com/y2l/meta-transfer-learning-tensorflow/blob/master/LICENSE)
-[![Python](https://img.shields.io/badge/python-2.7%20%7C%203.5-blue.svg?style=flat-square)](https://www.python.org/)
-[![TensorFlow](https://img.shields.io/badge/tensorflow-1.3.0-orange.svg?style=flat-square)](https://github.com/y2l/meta-transfer-learning/tree/master/tensorflow)
-[![PyTorch](https://img.shields.io/badge/pytorch-0.4.0-%237732a8?style=flat-square)](https://github.com/y2l/meta-transfer-learning/tree/master/pytorch)
-![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/yaoyao-liu/meta-transfer-learning?style=flat-square)
+[![Python](https://img.shields.io/badge/python-2.7%20%7C%203.5-blue.svg?style=flat-square&logo=python&color=3776AB)](https://www.python.org/)
+[![TensorFlow](https://img.shields.io/badge/tensorflow-1.3.0-orange.svg?style=flat-square&logo=tensorflow&color=FF6F00)](https://github.com/y2l/meta-transfer-learning/tree/master/tensorflow)
+[![PyTorch](https://img.shields.io/badge/pytorch-0.4.0-%237732a8?style=flat-square&logo=PyTorch&color=EE4C2C)](https://pytorch.org/)
+![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/yaoyao-liu/meta-transfer-learning?style=flat-square?&logo=codefactor&color=F44A6A)
 
 This repository contains the TensorFlow and PyTorch implementations for [CVPR 2019](http://cvpr2019.thecvf.com/) Paper ["Meta-Transfer Learning for Few-Shot Learning"](http://openaccess.thecvf.com/content_CVPR_2019/papers/Sun_Meta-Transfer_Learning_for_Few-Shot_Learning_CVPR_2019_paper.pdf) by [Qianru Sun](https://qianrusun1015.github.io)\*, [Yaoyao Liu](https://people.mpi-inf.mpg.de/~yaliu/)\*, [Tat-Seng Chua](https://www.chuatatseng.com/) and [Bernt Schiele](https://www.mpi-inf.mpg.de/departments/computer-vision-and-multimodal-computing/people/bernt-schiele/) (\*=equal contribution).
 
