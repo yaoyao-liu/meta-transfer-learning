@@ -9,8 +9,6 @@ This repository contains the TensorFlow and PyTorch implementation for the [CVPR
 
 If you have any questions on this repository or the related paper, feel free to [create an issue](https://github.com/yaoyao-liu/meta-transfer-learning/issues/new) or [send me an email](mailto:yaoyao.liu+github@mpi-inf.mpg.de). 
 
-Check the [few-shot classification leaderboard](https://few-shot.yyliu.net/miniimagenet.html).
-
 #### Summary
 
 * [Introduction](#introduction)
