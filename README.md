@@ -70,11 +70,11 @@ Please cite our paper if it is helpful to your work:
 
 ```bibtex
 @inproceedings{sun2019mtl,
-author = {Sun, Qianru and Liu, Yaoyao and Chua, Tat{-}Seng and Schiele, Bernt},
-title = {Meta-Transfer Learning for Few-Shot Learning},
-booktitle = {The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
-month = {June},
-year = {2019}
+  title={Meta-Transfer Learning for Few-Shot Learning},
+  author={Qianru Sun and Yaoyao Liu and Tat{-}Seng Chua and Bernt Schiele},
+  booktitle={CVPR},
+  pages={403--412},
+  year={2019}
 }
 ```
 
