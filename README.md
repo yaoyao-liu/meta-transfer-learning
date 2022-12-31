@@ -70,12 +70,17 @@ The [𝑡𝑖𝑒𝑟𝑒𝑑ImageNet](https://arxiv.org/pdf/1803.00676.pdf) dat
 Please cite our paper if it is helpful to your work:
 
 ```bibtex
-@inproceedings{sun2019mtl,
-  title={Meta-Transfer Learning for Few-Shot Learning},
-  author={Qianru Sun and Yaoyao Liu and Tat{-}Seng Chua and Bernt Schiele},
-  booktitle={CVPR},
-  pages={403--412},
-  year={2019}
+@inproceedings{SunLCS2019MTL,
+  author    = {Qianru Sun and
+               Yaoyao Liu and
+               Tat{-}Seng Chua and
+               Bernt Schiele},
+  title     = {Meta-Transfer Learning for Few-Shot Learning},
+  booktitle = {{IEEE} Conference on Computer Vision and Pattern Recognition, {CVPR}
+               2019, Long Beach, CA, USA, June 16-20, 2019},
+  pages     = {403--412},
+  publisher = {Computer Vision Foundation / {IEEE}},
+  year      = {2019}
 }
 ```
 
