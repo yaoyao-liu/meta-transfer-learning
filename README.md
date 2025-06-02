@@ -3,7 +3,7 @@
 [![Python](https://img.shields.io/badge/python-2.7%20%7C%203.5-blue.svg?style=flat-square&logo=python&color=3776AB)](https://www.python.org/)
 [![TensorFlow](https://img.shields.io/badge/tensorflow-1.3.0-orange.svg?style=flat-square&logo=tensorflow&color=FF6F00)](https://github.com/y2l/meta-transfer-learning/tree/master/tensorflow)
 [![PyTorch](https://img.shields.io/badge/pytorch-0.4.0-%237732a8?style=flat-square&logo=PyTorch&color=EE4C2C)](https://pytorch.org/)
-[![Citations](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/yaoyao-liu/yaoyao-liu.github.io/google-scholar-stats/gs_data_shieldsio_mtl.json&logo=Google%20Scholar&color=5087ec&style=flat-square&label=citations)](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Uf9GqRsAAAAJ&citation_for_view=Uf9GqRsAAAAJ:bEWYMUwI8FkC)
+[![Citations](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/yaoyao-liu/google-scholar/google-scholar-stats/gs_data_shieldsio_mtl.json&logo=Google%20Scholar&color=5087ec&style=flat-square&label=citations)](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Uf9GqRsAAAAJ&citation_for_view=Uf9GqRsAAAAJ:bEWYMUwI8FkC)
 <!--
 [![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/yaoyao-liu/meta-transfer-learning?style=flat-square&logo=codefactor&color=F44A6A)](https://www.codefactor.io/repository/github/yaoyao-liu/meta-transfer-learning)
 -->
